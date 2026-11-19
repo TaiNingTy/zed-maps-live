@@ -475,14 +475,17 @@ body.route-interior .controls > :not(:first-child) { visibility: hidden; }
 .display-note { margin: 16px 0 0; font-size: 12.5px; color: var(--muted); }
 
 /* The trip card of the station guide, on the map (trip-card.js). Desktop: where the panel sits. Phone: rises from the bottom. */
+/* Sizes in the trip card and the level bar follow one rule (design log, step 165):
+   spacing 4 8 12 16 20 24 (2 only for hairlines and optical nudges) · radii 20 card, 12 control, full for pills ·
+   type 11 12 13 15 17 20 28 · control heights 36 compact, 44 standard. */
 body.has-trip2 .panel { display: none; }
 /* the same box as .panel: place, width, padding, corners, shadow */
 .trip2 { position: absolute; left: 16px; top: 16px; width: 380px; max-height: calc(100% - 32px); overflow: auto; z-index: 4; box-sizing: border-box;
-  padding: 18px 20px 20px; border-radius: var(--r-card); background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+  padding: 20px 20px 20px; border-radius: var(--r-card); background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
 .trip2[hidden] { display: none; }
-.trip2 h2 { margin: 0; font-size: 19px; line-height: 1.2; }
-.trip2 h3 { margin: 12px 0 4px; font-size: 18px; line-height: 1.25; }
-.t2-head { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.trip2 h2 { margin: 0; font-size: 20px; line-height: 1.2; }
+.trip2 h3 { margin: 12px 0 4px; font-size: 17px; line-height: 1.25; }
+.t2-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .t2-head h2 { margin-right: 2px; }
 .t2-head .icon { margin-left: auto; }
 .t2-bl { flex: none; width: 24px; height: 24px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
@@ -494,34 +497,34 @@ body.has-trip2 .panel { display: none; }
 .t2-row .icon { margin-right: -40px; }
 .t2-swap { position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: var(--card); border: 1px solid var(--line); }
 .t2-swap svg, .t2-head svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.t2-add { display: block; margin: 10px 0 0; font-weight: 600; }
-.t2-note, .t2-d, .t2-wait { margin: 8px 0; color: var(--muted); font-size: 13.5px; }
+.t2-add { display: block; margin: 12px 0 0; font-weight: 600; }
+.t2-note, .t2-d, .t2-wait { margin: 8px 0; color: var(--muted); font-size: 13px; }
 .t2-choices { display: grid; gap: 8px; margin: 8px 0 4px; }
-.t2-choice { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 12px;
+.t2-choice { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 12px;
   background: var(--card); color: var(--ink); font: inherit; text-align: left; }
 .t2-choice[aria-checked="true"] { border-color: var(--action); box-shadow: inset 0 0 0 1px var(--action); background: var(--action-soft); }
-.t2-choice small, .t2-steps small { display: block; color: var(--muted); font-size: 12.5px; font-weight: 400; }
+.t2-choice small, .t2-steps small { display: block; color: var(--muted); font-size: 12px; font-weight: 400; }
 .t2-t { flex: none; color: var(--muted); font-size: 13px; }
-.t2-sum { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 12px; }
-.t2-sum b { font-size: 26px; line-height: 1; white-space: nowrap; }
+.t2-sum { display: flex; align-items: baseline; gap: 12px; margin: 16px 0 12px; }
+.t2-sum b { font-size: 28px; line-height: 1; white-space: nowrap; }
 .t2-sum span { color: var(--muted); font-size: 13px; }
-.t2-act { display: flex; gap: 8px; margin: 12px 0 10px; }
-.t2-act button { height: 46px; border-radius: 12px; font-weight: 700; font-size: 15px; padding: 0 16px; }
+.t2-act { display: flex; gap: 8px; margin: 12px 0 12px; }
+.t2-act button { height: 44px; border-radius: 12px; font-weight: 700; font-size: 15px; padding: 0 16px; }
 .t2-act .primary { flex: 1; border: 0; background: var(--action); color: #fff; }
 .t2-prog { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; }
 .t2-prog span:last-child { margin-left: auto; color: var(--muted); }
 .t2-bar { display: flex; gap: 4px; margin: 8px 0 0; }
 .t2-bar i { flex: 1; height: 3px; border-radius: 2px; background: var(--line); }
 .t2-bar i.on { background: var(--action); }
-.t2-steps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
-.t2-steps button { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); font: inherit; text-align: left; }
+.t2-steps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.t2-steps button { width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font: inherit; text-align: left; }
 .t2-steps button[aria-current="true"] { border-color: var(--action); background: var(--action-soft); }
 .t2-grab, .t2-line { display: none; }
-.t2-line { width: 100%; margin: 0 0 2px; padding: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.t2-line { width: 100%; margin: 0 0 2px; padding: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: 15px; font-weight: 600; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .t2-line i { font-style: normal; color: var(--muted); font-weight: 400; margin: 0 2px; }
 .pop-acts { display: flex; gap: 8px; margin-top: 8px; }
 @media (max-width: 767px) {
-  .trip2 { position: fixed; left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 66vh; border-radius: 22px 22px 0 0; padding: 16px 18px calc(18px + env(safe-area-inset-bottom)); }   /* as .panel on a phone */
+  .trip2 { position: fixed; left: 0; right: 0; top: auto; bottom: 0; width: auto; max-height: 66vh; border-radius: 20px 20px 0 0; padding: 16px 20px calc(20px + env(safe-area-inset-bottom)); }   /* as .panel on a phone */
   /* the plan as a sheet of two heights (design log, step 163): low, one line of the trip over the time and Start; pulled up, the whole plan */
   .trip2:not([data-sheet="go"]) { padding-top: 4px; }
   .t2-grab { display: flex; justify-content: center; align-items: center; width: 100%; height: 22px; border: 0; background: none; touch-action: none; }   /* as .handle */
@@ -535,13 +538,13 @@ body.has-trip2 .panel { display: none; }
 /* The level switch (trip-card.js, createLevelBar): an upright bar in the control stack; opened, each level shows its name and height */
 .lvl2 { display: flex; flex-direction: column; align-self: flex-end; border-radius: var(--r-ctl); overflow: hidden; background: var(--card); box-shadow: var(--shadow-soft); }
 .lvl2[hidden] { display: none; }
-.lvl2 button { display: flex; align-items: center; gap: 10px; min-width: 44px; height: 36px; padding: 0 6px; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; }
-.lvl2 b { flex: none; width: 32px; text-align: center; font-size: 12.5px; font-weight: 700; }
+.lvl2 button { display: flex; align-items: center; gap: 12px; min-width: 44px; height: 36px; padding: 0 8px; border: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; }
+.lvl2 b { flex: none; width: 32px; text-align: center; font-size: 12px; font-weight: 700; }
 .lvl2 button[aria-pressed="true"] { background: var(--ink); color: var(--card); }
 .lvl2 button.off b, .lvl2 button.off span { opacity: .38; }
-.lvl2.wide button { height: 46px; padding-right: 14px; }
+.lvl2.wide button { height: 44px; padding-right: 16px; }
 .lvl2 span { font-size: 13px; font-weight: 600; white-space: nowrap; }
-.lvl2 small { display: block; font-size: 11.5px; font-weight: 400; opacity: .7; }
+.lvl2 small { display: block; font-size: 12px; font-weight: 400; opacity: .7; }
 
 /* First-person view on the map (walk, door): the map's own pins and cards are put away; the trip card and the level bar stay */
 body.fp-on .maplibregl-marker, body.fp-on .maplibregl-popup, body.fp-on .maplibregl-ctrl-bottom-right, body.fp-on .maplibregl-ctrl-bottom-left { visibility: hidden; }
@@ -549,18 +552,18 @@ body.fp-on .controls > :not(.lvl2) { display: none; }
 .t2-links { display: flex; justify-content: space-between; gap: 12px; }
 
 /* The station page's own plan-card parts and name labels, with the page's own rules (28st.html), for the trip card and the map */
-.trip2 .answer { display: flex; align-items: center; gap: 12px; background: var(--ink); color: var(--card); border-radius: 14px; padding: 12px 14px; }
-.trip2 .answer svg { width: 40px; height: 30px; flex: none; } .trip2 .answer b { display: block; font-size: 16px; } .trip2 .answer span { display: block; font-size: 12px; opacity: .72; margin-top: 2px; }
-.trip2 .big { margin: 0; display: flex; align-items: baseline; gap: 10px; } .trip2 .big b { font-size: 30px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; } .trip2 .big span { color: var(--muted); font-size: 14px; }
-.trip2 .segs { display: flex; align-items: flex-start; gap: 0; font-size: 11.5px; color: var(--muted); margin-top: -6px; }
+.trip2 .answer { display: flex; align-items: center; gap: 12px; background: var(--ink); color: var(--card); border-radius: 12px; padding: 12px 16px; }
+.trip2 .answer svg { width: 40px; height: 30px; flex: none; } .trip2 .answer b { display: block; font-size: 17px; } .trip2 .answer span { display: block; font-size: 12px; opacity: .72; margin-top: 2px; }
+.trip2 .big { margin: 0; display: flex; align-items: baseline; gap: 12px; } .trip2 .big b { font-size: 28px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; } .trip2 .big span { color: var(--muted); font-size: 13px; }
+.trip2 .segs { display: flex; align-items: flex-start; gap: 0; font-size: 12px; color: var(--muted); margin-top: -8px; }
 .trip2 .segs div { flex: 1; position: relative; padding-top: 12px; } .trip2 .segs div::before { content: ""; position: absolute; left: 0; top: 2px; width: 7px; height: 7px; border-radius: 50%; background: var(--action); }
 .trip2 .segs div::after { content: ""; position: absolute; left: 9px; right: 2px; top: 5px; height: 2px; background: var(--line); } .trip2 .segs div:last-child::after { display: none; } .trip2 .segs div:last-child { flex: none; }
-.trip2 .tip { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--soft); border-radius: var(--r-ctl); padding: 9px 12px; font-size: 12.5px; }
-.trip2 .answer, .trip2 .big, .trip2 .segs, .trip2 .tip { margin-top: 14px; }
+.trip2 .tip { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--soft); border-radius: var(--r-ctl); padding: 8px 12px; font-size: 12px; }
+.trip2 .answer, .trip2 .big, .trip2 .segs, .trip2 .tip { margin-top: 16px; }
 .trip2 .segs { margin-top: 8px; }
 .trip2 .answer .bl, .trip2 .t2-row .bl, .trip2 .t2-line .bl { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 700; background: #F6BC26; color: #14171A; vertical-align: -3px; }
-.t2-all { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
-.t2-all small { display: block; color: var(--muted); font-size: 12.5px; }
+.t2-all { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 15px; }
+.t2-all small { display: block; color: var(--muted); font-size: 12px; }
 .trip2 h4 { margin: 12px 0 2px; font-size: 13px; }
 .v2-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
 .lb { position: absolute; left: 0; top: 0; will-change: transform; white-space: nowrap; font-size: 11.5px; font-weight: 600; padding: 3px 8px; border-radius: 99px;
