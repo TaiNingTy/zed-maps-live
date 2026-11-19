@@ -2327,7 +2327,7 @@ function applyFilters() {
     map.setLayoutProperty(id, "visibility", state.ui === "explore" || hideLabel ? "none" : show2d);
   }
   // In 3D the floors and route only show once the tower is see-through
-  const inside = state.ui !== "explore" && state.is3d && (landmark.seeThrough || state.exploded) ? "visible" : "none";
+  const inside = state.ui !== "explore" && state.is3d && (landmark?.seeThrough || state.exploded) ? "visible" : "none";   // (landmark?: the mode may change before the first landmark has loaded, on a slow line)
   for (const id of ["indoor-slabs", "route-solids"]) map.setLayoutProperty(id, "visibility", inside);
   // the same floor plates the towers layer draws: under the street they would only block the view of the station
   if (state.venue?.cptModel || (state.venue?.floors && levels[state.level]?.underground && !state.exploded)) map.setLayoutProperty("indoor-slabs", "visibility", "none");
@@ -2389,7 +2389,7 @@ function setMode(is3d, { move = true } = {}) {
     if (!landmark.seeThrough && !state.exploded) setSeeThrough(true, { move: false });
     return map.easeTo({ ...viewInside(state.venue), duration: 900 });
   }
-  if (is3d) map.easeTo({ ...(landmark.seeThrough ? viewInside(state.venue) : viewExterior(state.venue)), duration: 900 });
+  if (is3d) map.easeTo({ ...(landmark?.seeThrough ? viewInside(state.venue) : viewExterior(state.venue)), duration: 900 });
   else map.easeTo({ center: state.venue.center, zoom: 16.6, ...VIEW_2D, duration: 900 });
 }
 
