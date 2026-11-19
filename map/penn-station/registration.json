@@ -1,0 +1,76 @@
+{
+  "method": "Least-squares affine fit in Web Mercator, four publicly mapped control points. Feature-centre correspondences approximate; not a surveyed registration.",
+  "anchors": [
+    {
+      "name": "8 Av / W 31 St",
+      "local": [
+        -166,
+        120
+      ],
+      "lonlat": [
+        -73.9948451,
+        40.7502936
+      ],
+      "source": "OSM node 4443775465; data/raw/osm_walk/moynihan.json",
+      "residual_m": 0.538
+    },
+    {
+      "name": "8 Av / W 33 St",
+      "local": [
+        -166,
+        -120
+      ],
+      "lonlat": [
+        -73.9939428,
+        40.751532
+      ],
+      "source": "OSM node 42435642; data/raw/osm_walk/moynihan.json",
+      "residual_m": 0.538
+    },
+    {
+      "name": "MSG footprint centre",
+      "local": [
+        -55,
+        0
+      ],
+      "lonlat": [
+        -73.99340041795416,
+        40.750491369509334
+      ],
+      "source": "NYC Building Footprints BIN 1082908; data/raw/manhattan_buildings.geojson.gz",
+      "residual_m": 1.916
+    },
+    {
+      "name": "PENN 2 footprint centre",
+      "local": [
+        87,
+        0
+      ],
+      "lonlat": [
+        -73.99218770560265,
+        40.74998146813009
+      ],
+      "source": "NYC Building Footprints BIN 1083026; data/raw/manhattan_buildings.geojson.gz",
+      "residual_m": 0.841
+    }
+  ],
+  "mercator_x": [
+    2.425603396690488e-08,
+    -1.0443287068451212e-08,
+    0.29446405807507764
+  ],
+  "mercator_y": [
+    1.3519657234782463e-08,
+    1.8920528754851063e-08,
+    0.3758433414735856
+  ],
+  "metre_scale": 3.2938943173834646e-08,
+  "street_altitude_m": 4.5,
+  "rms_m": 1.113,
+  "height_status": "All original Penn vertical dimensions retained as scenario values; street drawn at the host map 4.5 m datum.",
+  "horizontal_status": "Global transform only; no mesh vertices, connector landings or route definitions edited.",
+  "source_files": [
+    "data/raw/osm_walk/moynihan.json",
+    "data/raw/manhattan_buildings.geojson.gz"
+  ]
+}

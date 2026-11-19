@@ -1,0 +1,58 @@
+{
+ "name": "30 Rockefeller Plaza (Comcast Building)",
+ "origin_lonlat": [
+  -73.98067306740211,
+  40.75928430084351
+ ],
+ "facade_floor_m": 3.7,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1076262",
+ "osm_outline": "way/487519790",
+ "parts": 14,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 14
+ },
+ "facade_styles": {
+  "masonry": 800,
+  "roof": 248
+ },
+ "triangles": 1048,
+ "checks": {
+  "max_height_m": 260.0,
+  "nyc_height_m": 254.4,
+  "closest_part_top_m": 260.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 1.21,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "L1": {
+    "height_m": 4.2,
+    "corners": 58,
+    "inside": 58
+   },
+   "22": {
+    "height_m": 81.9,
+    "corners": 32,
+    "inside": 32
+   },
+   "67": {
+    "height_m": 248.4,
+    "corners": 4,
+    "inside": 4
+   }
+  }
+ },
+ "address": "30 Rockefeller Plaza, New York, NY 10112",
+ "open_questions": [
+  "Rockefeller Center's Top of the Rock page sits behind a bot check; the 50th St entrance is from the research brief's earlier reading.",
+  "Ticket and bag checks and the mezzanine are not confirmed; labelled scenario.",
+  "Sources disagree on a second Top of the Rock entrance from the Concourse; not routed (Concourse users go out through Rockefeller Plaza).",
+  "Floor range of each of the five office elevator banks is unknown (illustrative)."
+ ]
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World Trade Center · Model study</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"../vendor/three@0.160.0/build/three.module.min.js","three/addons/":"../vendor/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<main>
+  <section id="stage" aria-label="World Trade Center interactive model">
+    <div class="toolbar">
+      <button id="back" hidden>Back to map</button>
+      <button id="view" type="button" aria-pressed="false">Plan view</button>
+      <button id="shell-mode" type="button">Envelope · Solid</button>
+      <label>Spread <input id="spread" type="range" min="0" max="18" value="0" step="1"></label>
+    </div>
+    <div id="labels" aria-hidden="true"></div>
+    <div class="legend" id="layer-key">Oculus · Retail (amber) · Subway · PATH · Tower floors</div>
+  </section>
+  <aside>
+    <header><p class="kicker">LOWER MANHATTAN · MODEL STUDY</p><h1>World Trade Center</h1>
+    <p>Explore the Oculus, the public concourses, the connected subway and PATH stations and One World Trade Center.</p></header>
+    <nav id="districts" aria-label="Model areas"></nav>
+    <section><button id="evidence" type="button" aria-pressed="false">Evidence</button></section>
+    <section><h2>Floors and platforms</h2><div id="levels"></div>
+      <div class="actions"><button id="isolate" disabled aria-pressed="false">Isolate floor</button><button id="locate" disabled>Locate floor</button></div>
+      <p id="level-note">Select a floor to see the evidence for its layout.</p>
+    </section>
+    <section><h2>Visitor route</h2>
+      <label for="journey">From</label><select id="journey"></select>
+      <div id="path-destination" hidden><label for="destination">To</label>
+        <select id="destination"><option value="path">One World Observatory</option></select></div>
+      <div class="actions"><button id="show-route" aria-pressed="false">Show route</button><button id="play">Play</button></div>
+      <p id="route-note" aria-live="polite"></p>
+    </section>
+    <section><h2>Evidence</h2>
+      <p><strong>Reconstructed</strong> indicates a relationship supported by public references. <strong>Scenario</strong> marks modeled geometry or a route segment awaiting confirmation. Positions and heights are approximate.</p>
+      <p>Oculus retail follows the campus directory. Apple spans the northwest side of C1 and C2. Both floors have a public entrance. The internal stair is on the left from the storefront. Door positions, stair dimensions and the modeled PATH gate lane are approximate.</p>
+      <p>Official C1 and C2 photos show two escalators flanking the North Concourse walking aisle. Operating directions are unconfirmed. The Port Authority C2 photo shows a straight aisle through the South Concourse, with an escalator and an outer stair on either side. The C1 map locates both banks. Exact upper thresholds and escalator operating directions are unconfirmed. Passage widths, shafts and landing dimensions are reconstructed. Lifts 23 and 19/20 show their C2–C1 segments. The modeled doors for lifts 19 and 20 face the Oculus hall.</p>
+      <p>Station detail: WTC Cortlandt shows two tracks, directional platform labels and its Oculus access. PATH shows four platform slabs, the fare hall and eight modeled lift connections. Platform-edge markings, wall and column positions and furniture are illustrative. PATH track relationships are reconstructed as A (1/2), B (2/3), C (4/5) and D (5, side platform). Geographic alignment, platform outlines, individual lift positions and the gate lane remain approximate. The public map confirms eight lifts between the platforms and the paid hall. The 1 train north mezzanine is below the tracks, with stairs from both platforms and a northbound escalator. The model approximates its boundaries and fare control. West Concourse lift 11 connects C2 and C1. Opening-day photos and observations identify the northbound C1 fare-control entry and a separate southbound middle stair to C2, as well as southbound stairs and an elevator to Vesey Street. Opening-day footage shows curvature along the 1 train platform edges. The model uses straight approximations until a dimensioned track or platform plan locates that curvature. Exact equipment landings remain unverified. This study shows the subway exits and documented lift 11. Opening-day observations document stairs, escalators and a lift between Greenwich Street and the west C1 headhouse. Lift 14 is shown on the Port Authority map. The modeled bank and landings are approximate. The north crossover and separate southbound exit have modeled fare boundaries. The Vesey Street elevator connects the street to the southbound platform. Port Authority lift 12 serves C1, C2UL and C2LL. Its shaft and doors await location verification. C2 access from the subway uses separate exits below the tracks.</p>
+      <h3>PATH stair and escalator orientation</h3>
+      <p>The model places the upper landing north of the lower landing for all 18 platform stairs and escalators. This orientation is a scenario. Escalator operating direction is also unverified.</p>
+      <ul>
+        <li><strong>A.</strong> Port Authority records confirm escalators. The two modeled units are representative. Individual landings and the fixed stairs await verification.</li>
+        <li><strong>B.</strong> FTA records three escalators and two northern stair openings. It also describes emergency egress stairs at the north end during the opening phase. Public access for the modeled north stair route remains unverified.</li>
+        <li><strong>C and D.</strong> FTA locates stairs 9 and 10 on C and stairs 4 and 5 on D at their south ends. Seven escalators are documented across the two platforms. The four on C and three on D are a provisional distribution.</li>
+      </ul>
+      <p>One WTC uses the podium and tapered floor outline described by SOM. Floors 59 and 73 use block-level core and elevator-bank geometry from Durst leasing plans. Floor 59 is an as-built reference. Floor 73 is a suggested layout. Floor 64 is a tenant amenity with illustrative internal zoning. Other floor interiors, exact elevations and elevator service remain approximate.</p>
+      <p>Oculus envelope: the steel ribs remain at street level. Glazing fills the enclosed shell between the ribs, with the steel tips projecting outside. Spread moves the facade panels outward, raises the central skylight and separates the floors below. Layers at the same model elevation stay aligned. The twin arches, central skylight and 114 rafters follow the architect and FTA construction record. The transverse section and completed photographs inform the steel profile, glazing and recessed end portals. Wing blades and entrance returns are fitted to completed photographs. Wing ties and the curved end portals follow the published model views. Tie positions, portal profiles, blade angles and glazing divisions are approximate. Transit stair runs are fitted to model elevations with level approaches. Platform outlines and equipment coordinates remain approximate.</p>
+      <ul id="sources"></ul>
+    </section>
+  </aside>
+</main>
+<script type="module" src="view.js"></script>
+</body>
+</html>

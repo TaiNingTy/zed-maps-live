@@ -1,0 +1,51 @@
+{
+ "name": "Chrysler Building",
+ "origin_lonlat": [
+  -73.975839972076,
+  40.751519067285
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1036156",
+ "osm_outline": "way/42500770",
+ "parts": 79,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 57,
+  "pyramidal": 2,
+  "round": 20
+ },
+ "facade_styles": {
+  "brick": 3116,
+  "roof": 5584
+ },
+ "triangles": 8700,
+ "checks": {
+  "max_height_m": 319.0,
+  "nyc_height_m": 288.6,
+  "closest_part_top_m": 282.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 4.15,
+  "footprint_ok": true,
+  "footprint_status": "warn",
+  "floors": {
+   "L": {
+    "height_m": 5.0,
+    "corners": 8,
+    "inside": 8
+   }
+  }
+ },
+ "address": "405 Lexington Ave, New York, NY 10174",
+ "task": "From Grand Central\u201342 St (east side) to the Chrysler Building's Lexington Avenue entrance; the ground-floor lobby and information booth only as a scenario, since no current visitor policy is published.",
+ "open_questions": [
+  "No official current visitor policy for the lobby; weekday hours appear only in travel guides (not used).",
+  "Lobby layout from the 1978 interior landmark report (LP-0996); current use not checked; positions approximate.",
+  "The historic underground arcade to the subway is not evidence of a current connection; MTA 2024 lists a passage entrance on 43rd St, not routed.",
+  "Entrance uses beyond Lexington Ave, step-free access, and elevator access (tenants only) are not modelled."
+ ]
+}

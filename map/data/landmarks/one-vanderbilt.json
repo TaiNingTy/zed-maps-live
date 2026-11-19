@@ -1,0 +1,70 @@
+{
+ "name": "One Vanderbilt",
+ "origin_lonlat": [
+  -73.979066084266,
+  40.75287637611
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1090825",
+ "osm_outline": "way/265875648",
+ "parts": 24,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 6,
+  "skillion": 17,
+  "pyramidal": 1
+ },
+ "facade_styles": {
+  "metal": 10,
+  "roof": 39,
+  "glass": 393
+ },
+ "triangles": 442,
+ "checks": {
+  "max_height_m": 427.0,
+  "nyc_height_m": 427.0,
+  "closest_part_top_m": 427.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 0.61,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "L1": {
+    "height_m": 5.0,
+    "corners": 30,
+    "inside": 30
+   },
+   "35": {
+    "height_m": 146.35,
+    "corners": 28,
+    "inside": 28
+   },
+   "OB1": {
+    "height_m": 318.0,
+    "corners": 18,
+    "inside": 18
+   },
+   "OB2": {
+    "height_m": 324.0,
+    "corners": 18,
+    "inside": 18
+   },
+   "OB3": {
+    "height_m": 330.0,
+    "corners": 20,
+    "inside": 20
+   }
+  }
+ },
+ "address": "1 Vanderbilt Ave, New York, NY 10017",
+ "open_questions": [
+  "Do lobby turnstiles take the destination floor (destination dispatch input)? Not confirmed publicly.",
+  "Is Grand Central-42 St covered by MTA's draft GTFS-Pathways data? Not checked yet.",
+  "Indoor layout, bank split and floor ranges are illustrative until the site survey."
+ ]
+}

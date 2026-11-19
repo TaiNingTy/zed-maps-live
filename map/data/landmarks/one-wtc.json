@@ -1,0 +1,71 @@
+{
+ "name": "One World Trade Center",
+ "origin_lonlat": [
+  -74.013674674942,
+  40.7129028597
+ ],
+ "facade_floor_m": 3.865,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1088469",
+ "osm_outline": "way/713565776",
+ "parts": 11,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 3,
+ "roof_shapes": {
+  "pyramidal": 1,
+  "flat": 6,
+  "skillion": 4
+ },
+ "facade_styles": {
+  "metal": 58,
+  "masonry": 506,
+  "roof": 188,
+  "glass": 714
+ },
+ "triangles": 1466,
+ "checks": {
+  "max_height_m": 541.0,
+  "nyc_height_m": 429.3,
+  "closest_part_top_m": 429.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 4.37,
+  "footprint_ok": true,
+  "footprint_status": "warn",
+  "floors": {
+   "L1": {
+    "height_m": 4.37,
+    "corners": 18,
+    "inside": 18
+   },
+   "64": {
+    "height_m": 247.86,
+    "corners": 12,
+    "inside": 12
+   },
+   "75": {
+    "height_m": 290.38,
+    "corners": 16,
+    "inside": 16
+   },
+   "100": {
+    "height_m": 387.0,
+    "corners": 4,
+    "inside": 4
+   },
+   "102": {
+    "height_m": 394.73,
+    "corners": 4,
+    "inside": 4
+   }
+  }
+ },
+ "address": "285 Fulton St, New York, NY 10007",
+ "open_questions": [
+  "Where security screening happens is not stated officially; modelled below grade on the way to the Sky Pods.",
+  "Office visitor steps (reception, badge, call stations) are not itemised against sources; office layout and zoning are illustrative.",
+  "OSM tower base is drawn up to 4.4 m wider than the NYC footprint (footprint check: warn)."
+ ]
+}

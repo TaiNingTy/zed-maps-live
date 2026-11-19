@@ -1,0 +1,486 @@
+{
+  "appleGrandCentral": {
+    "name": "Apple Grand Central",
+    "label": [77.5, -18],
+    "balconyAreas": [[73, 82, -37, 9], [46, 82, -46, -37]],
+    "stairApproach": [73, 82, -21.3, -14.7],
+    "tables": [
+      [79.3, -30.9, 1.05, 2.55], [79.3, -26.2, 1.05, 2.55],
+      [79.3, -9.9, 1.05, 2.55], [79.3, -5.2, 1.05, 2.55],
+      [79.3, -0.5, 1.05, 2.55], [79.3, 4.2, 1.05, 2.55],
+      [51.4, -43.1, 2.55, 1.05], [56.3, -43.1, 2.55, 1.05],
+      [61.2, -43.1, 2.55, 1.05], [66.1, -43.1, 2.55, 1.05],
+      [71, -43.1, 2.55, 1.05], [75.9, -43.1, 2.55, 1.05]
+    ],
+    "evidence": "Apple's store photo and the 2011 MTA proposal show an open East Balcony storefront with a northeast return. The tenant outline, table positions and dimensions are reconstructed. Enclosed rooms behind the balcony are not mapped.",
+    "sources": [
+      "https://www.apple.com/retail/grandcentral/",
+      "https://www.apple.com/newsroom/2011/12/07Apple-Store-Grand-Central-Opens-Friday-December-9/",
+      "https://www.macobserver.com/news/mta-floor-plans-grand-central-apple-store/"
+    ]
+  },
+  "westBiltmoreOpening": [-34, -28],
+  "eastPassages": [
+    {"name":"Graybar Passage","opening":[-34.5,-25.5],"edges":[-35,-25],"start":82,"end":155},
+    {"name":"Grand Central Market","opening":[-24.7,-20.8],"edges":[-25,-20.5],"start":82,"end":155},
+    {"name":"Lexington Passage","opening":[-9.5,1.5],"edges":[-10,2],"start":82,"end":155}
+  ],
+  "main": [
+    {
+      "name": "Main Concourse",
+      "box": [
+        -2,
+        82,
+        -37,
+        0
+      ],
+      "label": [
+        42,
+        -15
+      ]
+    },
+    {
+      "name": "Biltmore Room",
+      "box": [
+        -29,
+        -10,
+        -58,
+        -37
+      ],
+      "label": [
+        -20,
+        -52
+      ]
+    },
+    {
+      "name": "Biltmore Concourse",
+      "box": [
+        -29,
+        -2,
+        -37,
+        -24
+      ],
+      "label": [
+        -16,
+        -29
+      ]
+    },
+    {
+      "name": "Biltmore approach",
+      "box": [
+        -10,
+        2,
+        -42,
+        -37
+      ]
+    },
+    {
+      "name": "West concourse connector",
+      "box": [
+        -25,
+        -2,
+        -11,
+        0
+      ]
+    },
+    {
+      "name": "Shuttle Passage",
+      "box": [
+        -25,
+        -2,
+        0,
+        7
+      ],
+      "label": [
+        -14,
+        4
+      ]
+    },
+    {
+      "name": "West ramp approach",
+      "box": [
+        -2,
+        16,
+        0,
+        10
+      ]
+    },
+    {
+      "name": "West Vanderbilt aisle",
+      "box": [16, 26, 10, 21]
+    },
+    {
+      "name": "West aisle at Onassis Foyer",
+      "box": [16, 24, 21, 24]
+    },
+    {
+      "name": "North bridge approach",
+      "box": [
+        35,
+        49,
+        0,
+        5
+      ]
+    },
+    {
+      "name": "Bridge over the Oyster Bar ramps",
+      "box": [
+        35,
+        49,
+        5,
+        10
+      ],
+      "label": [
+        42,
+        7.5
+      ]
+    },
+    {
+      "name": "East ramp approach",
+      "box": [
+        69,
+        82,
+        0,
+        13
+      ]
+    },
+    {
+      "name": "West Vanderbilt junction",
+      "box": [13, 16, 10, 13]
+    },
+    {
+      "name": "East Vanderbilt junction",
+      "box": [63, 69, 10.25, 13]
+    },
+    {
+      "name": "Vanderbilt Hall",
+      "box": [
+        26,
+        63,
+        10,
+        21
+      ],
+      "label": [
+        45,
+        16
+      ]
+    },
+    {
+      "name": "Onassis Foyer",
+      "box": [
+        24,
+        63,
+        21,
+        24
+      ],
+      "label": [
+        43,
+        23
+      ]
+    },
+    {
+      "name": "Graybar Passage",
+      "box": [
+        82,
+        155,
+        -35,
+        -25
+      ],
+      "label": [
+        118,
+        -30
+      ]
+    },
+    {
+      "name": "Market stair approach",
+      "box": [
+        82,
+        89,
+        -25,
+        -20.5
+      ]
+    },
+    {
+      "name": "Lexington Passage",
+      "box": [
+        82,
+        155,
+        -10,
+        2
+      ],
+      "label": [
+        118,
+        -3
+      ]
+    },
+    {
+      "name": "42nd Street Passage",
+      "box": [
+        69,
+        82,
+        -10,
+        0
+      ],
+      "label": [
+        74,
+        3
+      ],
+      "annotationOnly": true
+    }
+  ],
+  "market": {
+    "name": "Grand Central Market",
+    "box": [
+      95,
+      155,
+      -25,
+      -20.5
+    ],
+    "label": [
+      121,
+      -22.6
+    ]
+  },
+  "balcony": [
+    {
+      "name": "West Balcony",
+      "box": [
+        -2,
+        11,
+        -37,
+        13
+      ],
+      "label": [
+        4,
+        -25
+      ]
+    },
+    {
+      "name": "North Balcony",
+      "box": [
+        11,
+        73,
+        -46,
+        -37
+      ],
+      "label": [
+        42,
+        -43
+      ],
+      "ring": [
+        [
+          11,
+          -46
+        ],
+        [
+          73,
+          -46
+        ],
+        [
+          73,
+          -37
+        ],
+        [
+          45,
+          -37
+        ],
+        [
+          45,
+          -42
+        ],
+        [
+          39,
+          -42
+        ],
+        [
+          39,
+          -37
+        ],
+        [
+          11,
+          -37
+        ]
+      ]
+    },
+    {
+      "name": "East Balcony",
+      "box": [
+        73,
+        82,
+        -37,
+        13
+      ],
+      "label": [
+        78,
+        -25
+      ]
+    },
+    {
+      "name": "West return",
+      "box": [
+        -2,
+        11,
+        -46,
+        -37
+      ]
+    },
+    {
+      "name": "East return",
+      "box": [
+        73,
+        82,
+        -46,
+        -37
+      ]
+    }
+  ],
+  "dining": {
+    "name": "Dining Concourse",
+    "ring": [
+      [
+        -4,
+        -39
+      ],
+      [
+        87,
+        -39
+      ],
+      [
+        87,
+        10.25
+      ],
+      [
+        66,
+        10.25
+      ],
+      [
+        66,
+        15
+      ],
+      [
+        51,
+        15
+      ],
+      [
+        51,
+        10.25
+      ],
+      [
+        -4,
+        10.25
+      ]
+    ],
+    "label": [
+      42,
+      -18
+    ]
+  },
+  "links": [
+    {
+      "kind": "escalator",
+      "bank": "metlife",
+      "width": 6,
+      "from": ["main", 42, -34],
+      "to": ["balcony", 42, -42]
+    },
+    {
+      "kind": "stairs",
+      "width": 4.5,
+      "from": [
+        "main",
+        89,
+        -22.75
+      ],
+      "to": [
+        "market",
+        95,
+        -22.75
+      ]
+    },
+    {
+      "kind": "ramp",
+      "width": 5,
+      "from": [
+        "main",
+        16,
+        7.5
+      ],
+      "to": [
+        "dining",
+        34,
+        7.5
+      ]
+    },
+    {
+      "kind": "ramp",
+      "width": 5,
+      "from": [
+        "main",
+        69,
+        7.5
+      ],
+      "to": [
+        "dining",
+        50,
+        7.5
+      ]
+    }
+  ],
+  "escalatorBanks": [
+    {
+      "name": "West escalators",
+      "top": -22,
+      "bottom": -11,
+      "z": -18,
+      "side": [
+        -26,
+        -2
+      ]
+    },
+    {
+      "name": "East escalators",
+      "top": 105,
+      "bottom": 94,
+      "z": -18,
+      "side": [
+        82,
+        109
+      ]
+    }
+  ],
+  "lift": {
+    "x": 8,
+    "z": -29,
+    "width": 3.1
+  },
+  "monumentalStairs": [
+    {
+      "name": "West Grand Stair",
+      "edge": 11,
+      "inward": 1,
+      "z": -18,
+      "upperRun": 4.4,
+      "upperHalf": 2.55,
+      "landingDepth": 3.5,
+      "landingHalf": 3.5,
+      "wingRun": 5.1,
+      "landingRise": 2.65,
+      "upperSteps": 15,
+      "wingSteps": 16
+    },
+    {
+      "name": "East Grand Stair",
+      "edge": 73,
+      "inward": -1,
+      "z": -18,
+      "upperRun": 4.1,
+      "upperHalf": 2.6,
+      "landingDepth": 3.8,
+      "landingHalf": 3.55,
+      "wingRun": 5.55,
+      "landingRise": 2.55,
+      "upperSteps": 15,
+      "wingSteps": 16
+    }
+  ]
+}

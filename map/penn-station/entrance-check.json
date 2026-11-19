@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "entries": 2,
+  "escalators": 6,
+  "staircases": 2,
+  "lifts": 2,
+  "routes": 6,
+  "scope": "Route descent, finite points, final public-floor support, extracted walls and subway slab conflict checks. Not full solid collision, surveyed geometry or code certification."
+}

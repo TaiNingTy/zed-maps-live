@@ -1,0 +1,53 @@
+{
+ "name": "Moynihan Train Hall (James A. Farley Building)",
+ "origin_lonlat": [
+  -73.997402541477,
+  40.751591926441
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1084820",
+ "osm_outline": "way/264667030",
+ "parts": 58,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 43,
+  "skillion": 9,
+  "dome": 6
+ },
+ "facade_styles": {
+  "metal": 10,
+  "masonry": 1481,
+  "roof": 2619,
+  "glass": 10
+ },
+ "triangles": 4120,
+ "checks": {
+  "max_height_m": 38.5,
+  "nyc_height_m": 31.2,
+  "closest_part_top_m": 31.2,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 0.92,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "C": {
+    "height_m": 5.0,
+    "corners": 16,
+    "inside": 16
+   }
+  }
+ },
+ "address": "421 8th Ave, New York, NY 10001",
+ "task": "One operator, one task: Amtrak passenger from the A C E subway (street stairs, the street elevator, or up from the West End Concourse) into the Train Hall, Amtrak Ticketing if needed, then the Ticketed Waiting Room.",
+ "open_questions": [
+  "The official map is a diagram: positions in the Train Hall are approximate (rebuilt tier).",
+  "How tickets are checked at the Ticketed Waiting Room door is assumed; tracks are announced on the boards and not modelled.",
+  "LIRR, NJ Transit, the 1st floor, the WEC's layout and Penn Station across 8th Ave are out of scope for now.",
+  "OSM maps steps at the 8th Ave corners, so step-free routes use the 31st St entrance; the official page says all four entrances have stair-free options somewhere."
+ ]
+}

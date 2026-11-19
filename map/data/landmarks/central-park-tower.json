@@ -1,0 +1,57 @@
+{
+ "name": "Central Park Tower",
+ "origin_lonlat": [
+  -73.98167321279516,
+  40.76638120241955
+ ],
+ "facade_floor_m": 3.47,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1090180",
+ "osm_outline": "way/261509934",
+ "parts": 9,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 9
+ },
+ "facade_styles": {
+  "metal": 16,
+  "glass": 204
+ },
+ "triangles": 220,
+ "checks": {
+  "max_height_m": 472.0,
+  "nyc_height_m": 472.4,
+  "closest_part_top_m": 472.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 1.16,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "L1": {
+    "height_m": 3.97,
+    "corners": 26,
+    "inside": 26
+   },
+   "16": {
+    "height_m": 56.02,
+    "corners": 14,
+    "inside": 14
+   },
+   "40": {
+    "height_m": 139.3,
+    "corners": 14,
+    "inside": 14
+   }
+  }
+ },
+ "address": "217 W 57th St, New York, NY 10019",
+ "open_questions": [
+  "No direct subway connection: the nearest MTA entrance is 70 m away.",
+  "Sources disagree on the main residential entrance (W 57th vs W 58th St); modelled per the most recent.",
+  "Floor numbers skip (98 stories, top numbered 136); heights per label are approximate."
+ ]
+}

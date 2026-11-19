@@ -1,0 +1,313 @@
+{
+  "camera": [
+    {
+      "journey": "boardInd",
+      "step": 1,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 2,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 3,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 4,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 5,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 6,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 7,
+      "mode": "上下落点同屏",
+      "zoom": 6.2
+    },
+    {
+      "journey": "boardInd",
+      "step": 8,
+      "mode": "上下落点同屏",
+      "zoom": 6.2
+    },
+    {
+      "journey": "boardInd",
+      "step": 9,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 10,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardInd",
+      "step": 11,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 1,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 2,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 3,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 4,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 5,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 6,
+      "mode": "下层通道 · 上方楼板淡化",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 7,
+      "mode": "上下落点同屏",
+      "zoom": 6.2
+    },
+    {
+      "journey": "boardIrt",
+      "step": 8,
+      "mode": "上下落点同屏",
+      "zoom": 6.2
+    },
+    {
+      "journey": "boardIrt",
+      "step": 9,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 10,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    },
+    {
+      "journey": "boardIrt",
+      "step": 11,
+      "mode": "站台转向 · 保留全站参照",
+      "zoom": 4.8
+    }
+  ],
+  "interior": [
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": -71.25,
+      "z": 52.5
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": -62,
+      "z": 52.5
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": -71.25,
+      "z": 69.5
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": -62,
+      "z": 69.5
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": -3.5,
+      "z": -90
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": 1,
+      "z": -90
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": 77,
+      "z": 50
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": 82.5,
+      "z": 50
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": 90,
+      "z": -90
+    },
+    {
+      "floor": "A",
+      "kind": "column",
+      "x": 102.5,
+      "z": -90
+    },
+    {
+      "floor": "A",
+      "kind": "tickets",
+      "x": 92.5,
+      "z": -85
+    },
+    {
+      "floor": "A",
+      "kind": "seats",
+      "x": -63.75,
+      "z": 45
+    },
+    {
+      "floor": "A",
+      "kind": "seats",
+      "x": 79.5,
+      "z": 45
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -81.5,
+      "z": -28
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -54,
+      "z": -28
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -81.5,
+      "z": -9.5
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -54,
+      "z": -9.5
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -81.5,
+      "z": 14
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -54,
+      "z": 14
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -81.5,
+      "z": 33.25
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": -54,
+      "z": 33.25
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": 90,
+      "z": 17.5
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": 65,
+      "z": 66.25
+    },
+    {
+      "floor": "B",
+      "kind": "column",
+      "x": 90,
+      "z": 66.25
+    },
+    {
+      "floor": "B",
+      "kind": "seats",
+      "x": -78,
+      "z": -22.5
+    },
+    {
+      "floor": "B",
+      "kind": "seats",
+      "x": -78,
+      "z": 20
+    },
+    {
+      "floor": "B",
+      "kind": "desk",
+      "x": 0,
+      "z": -6.75
+    },
+    {
+      "floor": "B",
+      "kind": "tickets",
+      "x": 75,
+      "z": 60
+    },
+    {
+      "floor": "B",
+      "kind": "seats",
+      "x": 70,
+      "z": 35
+    }
+  ],
+  "scope": "Furniture admission: public floor footprint, extracted walls, 3m route buffer and 10m AB equipment radius. Camera phase tests, not screen-space occlusion certification."
+}

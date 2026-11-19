@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chrysler Building · Wayfinding study</title>
+<link rel="stylesheet" href="../wtc/style.css">
+<script type="importmap">{"imports":{"three":"../vendor/three@0.160.0/build/three.module.min.js","three/addons/":"../vendor/three@0.160.0/examples/jsm/"}}</script>
+<style>
+#labels { position: absolute; inset: 0; pointer-events: none; }
+.pin { position: absolute; transform: translate(-50%, -50%); padding: 3px 7px; border-radius: 4px; background: #211e1be8; color: #fff; font-size: 12px; white-space: nowrap; }
+</style>
+<main>
+<section id="stage" aria-label="Interactive Chrysler Building model">
+  <div class="toolbar" role="group" aria-label="Model view">
+    <button id="back-to-map" type="button">Back to map</button>
+    <button data-view="tower" aria-pressed="true">Tower 3D</button>
+    <button data-view="stack" aria-pressed="false">Floor stack</button>
+    <button data-view="plan" aria-pressed="false">Plan</button>
+    <button id="envelope">Envelope · Solid</button>
+    <label>Spread <input id="spread" type="range" min="0" max="12" value="0" step="1"></label>
+  </div>
+  <div id="labels" aria-hidden="true"></div>
+  <div class="legend">Blue · Arrival route &nbsp; Gold · Entrance &nbsp; Burgundy · Lobby study</div>
+</section>
+<aside>
+  <header><p class="kicker">MIDTOWN · INDEPENDENT MODEL STUDY</p><h1>Chrysler Building</h1><p>405 Lexington Avenue · New York</p></header>
+  <section><h2>Floors and core</h2>
+    <label for="floor">Inspect floor</label>
+    <select id="floor" disabled><option value="">All floors</option></select>
+    <button id="high-core" disabled>High core · 59–65</button>
+    <button id="crown-core" disabled>Crown interior</button>
+    <p id="floor-note" aria-live="polite">Loading floor data…</p>
+    <p>Red · Lift shafts &nbsp; Plum · Stairs &nbsp; Gray · Services &nbsp; Blue-gray · Restrooms</p>
+  </section>
+  <section><h2>Ground-floor reconstruction</h2><p id="view-note">Existing exterior massing, including the setbacks, crown and spire.</p><p>Three street entrances meet a triangular concourse. Ground-floor geometry is traced from the registered 1930 plan. Heights and current visitor access remain unverified.</p></section>
+  <section><h2>Arrival from Grand Central–42 St</h2><p>Downtown 4/5/6 platform → mezzanine → E 42nd St street stair → Lexington Avenue entrance exterior.</p>
+    <div class="actions"><button id="route" aria-pressed="false" disabled>Show route</button><button id="play" disabled>Play</button></div>
+    <p id="status" role="status">Loading model…</p><p>Simulated arrival. Station connections are reconstructed. Lobby access and the historic underground connection are unverified.</p>
+  </section>
+  <section><h2>Evidence</h2><p>Library of Congress · <a href="https://www.loc.gov/item/2019640533/">61–65 revisions</a> · <a href="https://loc.gov/pictures/resource/ds.13724/">59–60 revisions</a> ·
+    <a href="https://www.loc.gov/item/2019640509/">Finial sections</a> ·
+    <a href="https://www.loc.gov/item/2016649933/">S-20 framing record</a> ·
+    <a href="https://www.usmodernist.org/AF/AF-1930-06-2.pdf">1930 elevator and water systems</a> ·
+    <a href="https://mrbellersneighborhood.com/2002/03/inside-the-needle-the-chrysler-building-gets-lit">2002 equipment-deck visit</a> ·
+    <a href="https://npgallery.nps.gov/GetAsset/1f9124d3-3faa-486f-a083-e1d413aab033">Van Alen on the central fire tower</a> ·
+    <a href="https://s-media.nyc.gov/agencies/lpc/lp/0992.pdf">Exterior materials</a></p><p><a href="https://commons.wikimedia.org/wiki/File:Chrysler_Building_first_floor_plan.png">Architectural Forum · Ground floor</a> ·
+    <a href="https://commons.wikimedia.org/wiki/File:Chrysler_Building_lower_level_floor_plan.png">Lower level</a> ·
+    <a href="https://commons.wikimedia.org/wiki/File:Chrysler_Building_6th_to_10th_floor_plan.png">Floors 6–10</a> ·
+    <a href="https://commons.wikimedia.org/wiki/File:Chrysler_Building_31st_to_41st_floor_plan.png">Floors 31–41</a> · <a href="https://s-media.nyc.gov/agencies/lpc/lp/0996.pdf">LPC · 1978 interior designation</a> · <a href="https://data.ny.gov/d/i9wp-a4ja">MTA · 2024 entrances</a> · <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></p></section>
+</aside>
+</main>
+<script type="module" src="./view.js"></script>
+</html>

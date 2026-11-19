@@ -1,0 +1,106 @@
+{
+  "platforms": 6,
+  "devices": 24,
+  "stairsRiser": 0.16666666666666666,
+  "stairsTread": 0.2916666666666667,
+  "escalatorDegrees": 30,
+  "clearance": [
+    {
+      "id": "ind-0-S1",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "ind-0-S2",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "ind-0-ES",
+      "clearBeyondEdgeStrip": 1.7000000000000057
+    },
+    {
+      "id": "ind-0-L",
+      "clearBeyondEdgeStrip": 2.4999999999999885
+    },
+    {
+      "id": "ind-1-S1",
+      "clearBeyondEdgeStrip": 3.2000000000000055
+    },
+    {
+      "id": "ind-1-S2",
+      "clearBeyondEdgeStrip": 3.2000000000000055
+    },
+    {
+      "id": "ind-1-ES",
+      "clearBeyondEdgeStrip": 2.7000000000000055
+    },
+    {
+      "id": "ind-1-L",
+      "clearBeyondEdgeStrip": 3.4999999999999885
+    },
+    {
+      "id": "ind-2-S1",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "ind-2-S2",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "ind-2-ES",
+      "clearBeyondEdgeStrip": 1.7000000000000057
+    },
+    {
+      "id": "ind-2-L",
+      "clearBeyondEdgeStrip": 2.4999999999999885
+    },
+    {
+      "id": "irt-0-S1",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "irt-0-S2",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "irt-0-ES",
+      "clearBeyondEdgeStrip": 1.7000000000000057
+    },
+    {
+      "id": "irt-0-L",
+      "clearBeyondEdgeStrip": 2.4999999999999885
+    },
+    {
+      "id": "irt-1-S1",
+      "clearBeyondEdgeStrip": 3.2000000000000055
+    },
+    {
+      "id": "irt-1-S2",
+      "clearBeyondEdgeStrip": 3.2000000000000055
+    },
+    {
+      "id": "irt-1-ES",
+      "clearBeyondEdgeStrip": 2.7000000000000055
+    },
+    {
+      "id": "irt-1-L",
+      "clearBeyondEdgeStrip": 3.4999999999999885
+    },
+    {
+      "id": "irt-2-S1",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "irt-2-S2",
+      "clearBeyondEdgeStrip": 2.2000000000000055
+    },
+    {
+      "id": "irt-2-ES",
+      "clearBeyondEdgeStrip": 1.7000000000000057
+    },
+    {
+      "id": "irt-2-L",
+      "clearBeyondEdgeStrip": 2.4999999999999885
+    }
+  ],
+  "scope": "Design geometry and lower route samples, not engineering certification"
+}

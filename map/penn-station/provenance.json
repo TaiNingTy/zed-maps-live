@@ -1,0 +1,46 @@
+{
+  "collected": "2026-11-07",
+  "kind": "local model derivation, not survey",
+  "files": [
+    {
+      "path": "outputs/penn-station-model/floorkit.js",
+      "bytes": 12450,
+      "sha256": "46db4ae176186b9d188b319947b87eb078b450f347c35b98a4a62b46cfb9fc31"
+    },
+    {
+      "path": "outputs/penn-station-model/vendor/three.module.min.js",
+      "bytes": 670681,
+      "sha256": "3e690ac7d180b0aadf0891bea39eec643e29e2d3e75c99b18689518665f69ba6"
+    },
+    {
+      "path": "outputs/penn-station-model/vendor/OrbitControls.js",
+      "bytes": 29868,
+      "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064"
+    },
+    {
+      "path": "notes/penn-station/review/amtrak2024-native-004-white.png",
+      "bytes": 301943,
+      "sha256": "e4a5647276fa96dca5819fc59544caeac63d01bd201ab9857ad4af78d358e810"
+    },
+    {
+      "path": "notes/penn-station/review/penn-2024-upper-aligned-draft.png",
+      "bytes": 431865,
+      "sha256": "7915baaada1808910a13ad92f02854265b39ce0250ebc776429b511d0d92841c"
+    },
+    {
+      "path": "notes/penn-station/review/feis-048.png",
+      "bytes": 214094,
+      "sha256": "751d063d4d755344402c57b021511acddc4844b22d394f49b9e10a4da7464f48"
+    },
+    {
+      "path": "notes/penn-station/review/feis-049.png",
+      "bytes": 266882,
+      "sha256": "f3793a65221acaea31312d8cc7ffbdc829eef1f079431b08f143388c78a144cb"
+    },
+    {
+      "path": "notes/penn-station/review/feis-050.png",
+      "bytes": 355433,
+      "sha256": "e221a7fdc39e0a2adb90dfa640b536dba898c950524314b5c1cfed52d5bb2b2f"
+    }
+  ]
+}

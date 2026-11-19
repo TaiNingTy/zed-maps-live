@@ -1,0 +1,89 @@
+{
+  "method": "101 centerline samples per horizontal Penn leg after AB anchor substitution, original public-region mask and extracted boundaries. Excludes collision clearance, rails, shafts, subway geometry and current physical walls. Not navigation validation.",
+  "report": [
+    {
+      "route": "stairs",
+      "leg": 8,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "stairs",
+      "leg": 9,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "stairs",
+      "leg": 11,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "escalator",
+      "leg": 8,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "escalator",
+      "leg": 9,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "escalator",
+      "leg": 11,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 8,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 9,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 10,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 11,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 13,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    },
+    {
+      "route": "elevator",
+      "leg": 14,
+      "samples": 101,
+      "outsideOriginalFloorMask": 0,
+      "extractedBoundaryHits": 0
+    }
+  ]
+}

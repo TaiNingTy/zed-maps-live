@@ -1,0 +1,48 @@
+{
+ "name": "Grand Central Terminal",
+ "origin_lonlat": [
+  -73.97792995148,
+  40.752572405877
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "NYC Building Footprints (outline and roof height); no OSM 3D parts",
+ "bin": "1035381",
+ "osm_outline": "way/265947358",
+ "parts": 0,
+ "outline_only": true,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 1
+ },
+ "facade_styles": {
+  "masonry": 36
+ },
+ "triangles": 36,
+ "checks": {
+  "max_height_m": 45.8,
+  "nyc_height_m": 45.8,
+  "closest_part_top_m": 45.8,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 0.0,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "L": {
+    "height_m": 5.0,
+    "corners": 0,
+    "inside": 0
+   }
+  }
+ },
+ "address": "89 E 42nd St, New York, NY 10017",
+ "task": "Subway (Grand Central\u201342 St) across the Main Concourse to One Vanderbilt / SUMMIT, or out to 43rd St & One Vanderbilt or 42nd St. Built from the official directory map; hands off to the One Vanderbilt model.",
+ "open_questions": [
+  "The official directory map is a diagram, not a survey: positions are placed on the NYC footprint by eye (rebuilt tier).",
+  "Not shown on the map: how Vanderbilt Hall rises to the 42nd St doors (a ramp is assumed), and the exact passage under Vanderbilt Ave to One Vanderbilt.",
+  "Not modelled yet: Balcony, Dining Concourse, tracks, Grand Central Madison (LIRR); street entrances are not linked to the sidewalk network.",
+  "Entrance lists differ by year (MTA guide vs the 45 St / Madison Ave entrance opened 2026-05-22); do not merge them as all open."
+ ]
+}

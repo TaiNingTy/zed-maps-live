@@ -1,0 +1,311 @@
+{
+  "scope": "17 connectors, 34 endpoint horizontal envelopes. Shared footprint function. Vertical face construction and render checked separately; not full solid collision certification.",
+  "rows": [
+    {
+      "id": "AB-stairs",
+      "end": "a",
+      "landingZ": [
+        -23,
+        -20
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "AB-stairs",
+      "end": "b",
+      "landingZ": [
+        -8.75,
+        -5.75
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "AB-escalator",
+      "end": "a",
+      "landingZ": [
+        14.75,
+        17.75
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "AB-escalator",
+      "end": "b",
+      "landingZ": [
+        0.5,
+        3.5
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "AB-elevator",
+      "end": "a",
+      "landingZ": [
+        34.55,
+        37.55
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "AB-elevator",
+      "end": "b",
+      "landingZ": [
+        34.8,
+        37.8
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M27",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M27",
+      "end": "b",
+      "landingZ": [
+        3.268284909164505,
+        6.268284909164505
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M30",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M30",
+      "end": "b",
+      "landingZ": [
+        4.62707105343225,
+        7.62707105343225
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M9-M10",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M9-M10",
+      "end": "b",
+      "landingZ": [
+        4.283621106622147,
+        7.283621106622147
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M11-M12",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M11-M12",
+      "end": "b",
+      "landingZ": [
+        6.010587545467568,
+        9.010587545467569
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M24",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M24",
+      "end": "b",
+      "landingZ": [
+        3.0800733857048606,
+        6.0800733857048606
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M34",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IND-M34",
+      "end": "b",
+      "landingZ": [
+        6.994423929661988,
+        9.994423929661988
+      ],
+      "flightOverlap": 8.881784197001252e-16
+    },
+    {
+      "id": "IRT-ML8",
+      "end": "a",
+      "landingZ": [
+        -3,
+        0
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "IRT-ML8",
+      "end": "b",
+      "landingZ": [
+        6.206996800594799,
+        9.206996800594798
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL214",
+      "end": "a",
+      "landingZ": [
+        -86.37085427135679,
+        -83.37085427135679
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL214",
+      "end": "b",
+      "landingZ": [
+        -86.37085427135679,
+        -83.37085427135679
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL215",
+      "end": "a",
+      "landingZ": [
+        -90.2,
+        -87.2
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL215",
+      "end": "b",
+      "landingZ": [
+        -90.2,
+        -87.2
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL216",
+      "end": "a",
+      "landingZ": [
+        -86.52402010050251,
+        -83.52402010050251
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL216",
+      "end": "b",
+      "landingZ": [
+        -86.52402010050251,
+        -83.52402010050251
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL226",
+      "end": "a",
+      "landingZ": [
+        -158.3858620689655,
+        -155.3858620689655
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL226",
+      "end": "b",
+      "landingZ": [
+        -158.3858620689655,
+        -155.3858620689655
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL227",
+      "end": "a",
+      "landingZ": [
+        -176.77896551724137,
+        -173.77896551724137
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL227",
+      "end": "b",
+      "landingZ": [
+        -176.77896551724137,
+        -173.77896551724137
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL228",
+      "end": "a",
+      "landingZ": [
+        -169.02758620689656,
+        -166.02758620689656
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL228",
+      "end": "b",
+      "landingZ": [
+        -169.02758620689656,
+        -166.02758620689656
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL618",
+      "end": "a",
+      "landingZ": [
+        -82.08221105527639,
+        -79.08221105527639
+      ],
+      "flightOverlap": 0
+    },
+    {
+      "id": "EL618",
+      "end": "b",
+      "landingZ": [
+        -82.08221105527639,
+        -79.08221105527639
+      ],
+      "flightOverlap": 0
+    }
+  ]
+}

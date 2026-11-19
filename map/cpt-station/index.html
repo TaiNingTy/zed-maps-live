@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floor by Floor</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f3f2ee; --card: #ffffff; --ink: #17191c; --muted: #5f646b; --line: #e3e2dd; --soft: #f2f1ed;
+      --action: #1f5eff; --action-ink: #ffffff; --action-soft: #eef3ff; --route: #e0115f;
+      --sys-structure: #1f4e8c; --sys-brace: #c8413a; --sys-mep: #2f9e94; --sys-vertical: #e8862e; --sys-facade: #c9b38a; --sys-public: #e3b93c; --sys-tenant: #e7e5df; --lirr: #2f9e94; --office: #7db6dd; --condo: #7db6dd; --unknown: #939aa4; --retail: #f2a241; --dining: #ea8a3f; --plant: #2a2c31; --amenity: #3fa596; --lobby: #cdd2d9; --observation: #ec8d97; --event: #cfa8df; --terrace: #7fb96c; --transit: #9a83d4; --track: #4a4d52;
+      --escalators: #ad6842; --elevators: #cf3a31; --stairs: #8f2f6b; --service: #565b63; --restrooms: #b4bcc8; --corelobby: #e9e8e3; --desk: #2f6387; --room: #4d8db5; --meeting: #5f7fd0; --corridor: #fbe3bd; --edgeroom: #e9a9bd; --edgeshaft: #e8590c; --door: #1f7a4d; --gate: #b42318; --steps: #6b4f8f; --glassfloor: #bfe8ff; --glasswall: #9fd4ee;
+      --tier-official: #1e7f4f; --tier-rebuilt: #2b6cb0; --tier-scenario: #b45309; --edge: #3f4349;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, "SF Mono", "IBM Plex Mono", Menlo, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #151514; --card: #1c1d20; --ink: #eeede9; --muted: #a3a29d; --line: #2e2f33; --soft: #26272b;
+        --action: #6d97ff; --action-ink: #0d1014; --action-soft: #1c2740; --route: #ff5c9a;
+        --plant: #55585f; --lobby: #8f949c; --corelobby: #6c6d6b; --corridor: #6d5a3c; --edgeroom: #b5688a; --edgeshaft: #ff8a3d; --door: #3ecf8e; --gate: #f0806f; --steps: #a98fd0; --service: #70757e; --restrooms: #8d95a1; --desk: #a8d3ef; --room: #5f9bc2;
+        --tier-official: #5fc48f; --tier-rebuilt: #7fb0e8; --tier-scenario: #f0a457; --edge: #c5c4bf;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.45 var(--font); }
+    #app { display: grid; grid-template-columns: minmax(0, 1fr) 372px; height: 100%; }
+    #stage { position: relative; min-height: 0; overflow: hidden; }
+    #stage canvas { display: block; position: absolute; inset: 0; touch-action: none; }
+    #labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .lbl { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 12px; font-weight: 600; padding: 2px 7px; border-radius: 6px;
+      background: color-mix(in srgb, var(--card) 88%, transparent); color: var(--ink); box-shadow: 0 1px 3px rgba(0, 0, 0, .14); }
+    .lbl.small { font-weight: 500; font-size: 11px; color: var(--muted); }
+    #hover { position: absolute; left: 0; top: 0; pointer-events: none; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--ink); color: var(--card); white-space: nowrap; }
+    #toolbar { position: absolute; left: 16px; top: 16px; right: 16px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .seg { display: inline-flex; background: var(--card); border-radius: 10px; padding: 3px; box-shadow: 0 2px 10px rgba(20, 22, 26, .12); }
+    .seg button { border: 0; background: none; color: var(--muted); font: 500 13px var(--font); padding: 6px 11px; min-height: 34px; border-radius: 7px; cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: var(--ink); color: var(--card); }
+    .spread { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border-radius: 10px; padding: 3px 12px; min-height: 40px; box-shadow: 0 2px 10px rgba(20, 22, 26, .12); font-size: 13px; color: var(--muted); }
+    .spread input { width: 96px; accent-color: var(--action); }
+    #close { margin-left: auto; border: 0; background: var(--ink); color: var(--card); font: 500 13px var(--font); padding: 8px 14px; min-height: 40px; border-radius: 10px; cursor: pointer; }
+    #close[hidden] { display: none; }
+    #legend { position: absolute; left: 16px; bottom: 14px; display: flex; flex-wrap: wrap; gap: 3px 12px; max-width: calc(100% - 32px); padding: 6px 10px; font-size: 12px; color: var(--muted);
+      background: color-mix(in srgb, var(--card) 88%, transparent); border-radius: 8px; }
+    #legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+    #panel { background: var(--card); border-left: 1px solid var(--line); min-height: 0; display: grid; grid-template-rows: auto minmax(120px, 30%) minmax(0, 1fr); }
+    #head { padding: 16px 18px 10px; border-bottom: 1px solid var(--line); }
+    h1 { font-size: 19px; line-height: 1.2; margin: 0; letter-spacing: -.01em; }
+    .sub { color: var(--muted); font-size: 13px; margin: 4px 0 0; }
+    #tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 10px; }
+    #floor-actions { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; align-items: center; }
+    #floor-actions[hidden] { display: none; }
+    #floor-actions small { color: var(--muted); }
+    #floor-actions button, #tabs button { border: 1px solid var(--line); background: none; color: var(--ink); font: 500 13px var(--font); padding: 5px 10px; min-height: 34px; border-radius: 999px; cursor: pointer; }
+    #floor-actions button[aria-pressed="true"], #tabs button[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
+    #detail { padding: 12px 18px 24px; overflow-y: auto; min-height: 0; border-top: 1px solid var(--line); }
+    #detail h2 { font-size: 16px; margin: 0; }
+    #detail .facts { margin: 8px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 12px; }
+    #detail .facts dt { color: var(--muted); } #detail .facts dd { margin: 0; }
+    #detail p { margin: 8px 0 0; font-size: 13px; }
+    #detail ul { margin: 6px 0 0; padding-left: 16px; font-size: 12px; } #detail a { color: inherit; }
+    #plan { display: block; width: 100%; height: auto; max-height: 340px; margin-top: 10px; background: var(--soft); border-radius: 10px; }
+    #plan text { font-family: var(--font); fill: var(--muted); }
+    .keys { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-top: 8px; font-size: 11.5px; color: var(--muted); }
+    .keys i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+    .tier { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin: 6px 4px 0 0; color: var(--c); background: color-mix(in srgb, var(--c) 13%, transparent); }
+    .tier[data-t="official"] { --c: var(--tier-official); } .tier[data-t="rebuilt"] { --c: var(--tier-rebuilt); } .tier[data-t="scenario"] { --c: var(--tier-scenario); }
+    #floors { padding: 6px 8px; overflow-y: auto; min-height: 0; }
+    .row { display: flex; align-items: center; gap: 9px; width: 100%; padding: 5px 10px; min-height: 34px; border: 0; background: none; color: inherit; font: inherit; font-size: 13px; text-align: left; border-radius: 8px; cursor: pointer; }
+    .row:hover { background: var(--soft); }
+    .row[aria-pressed="true"] { background: var(--action-soft); }
+    .row i { flex: none; width: 10px; height: 10px; border-radius: 2px; }
+    .row b { font-weight: 600; min-width: 40px; font-variant-numeric: tabular-nums; } .row span { flex: 1; color: var(--muted); }
+    .row small { font: 11px var(--mono); color: var(--muted); }
+    @media (max-width: 760px) {
+      #app { grid-template-columns: 1fr; grid-template-rows: minmax(300px, 52%) minmax(0, 1fr); }
+      #panel { border-left: 0; border-top: 1px solid var(--line); grid-template-rows: auto minmax(96px, 26%) minmax(0, 1fr); }
+      #head { padding: 10px 14px 8px; } #head .sub { display: none; } #tabs { margin-top: 0; } #tabs button { padding: 4px 9px; }
+      h1 { display: none; }
+      #toolbar { left: 8px; right: 8px; top: 8px; gap: 6px; } .spread input { width: 70px; }
+      #legend { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="stage">
+      <div id="labels" aria-hidden="true"></div>
+      <div id="hover" hidden></div>
+      <div id="toolbar">
+        <label class="spread">Spread <input id="spread" type="range" min="0" max="1.5" step="0.05" value="1" aria-label="Spread the floors apart"></label>
+        <div class="seg" id="modes" role="group" aria-label="Colour">
+          <button data-mode="use" aria-pressed="true">Use</button>
+          <button data-mode="evidence" aria-pressed="false">Evidence</button>
+          <button data-mode="systems" aria-pressed="false" hidden>Systems</button>
+        </div>
+        <div class="seg" role="group" aria-label="Route"><button id="route-btn" aria-pressed="true">Edge route</button></div>
+        <button id="close" hidden>Back to map</button>
+      </div>
+      <div id="legend"></div>
+    </div>
+    <aside id="panel">
+      <div id="head">
+        <h1 id="page-title">Floor by floor</h1>
+        <p class="sub" id="page-sub"></p>
+        <div id="tabs" role="group" aria-label="Building"></div>
+        <div id="floor-actions" hidden>
+          <button id="floor-context" aria-pressed="false">Isolate floor</button>
+          <button id="locate-floor">Locate floor</button>
+          <small id="floor-offscreen" hidden>Selected floor is out of view</small>
+        </div>
+      </div>
+      <div id="floors"></div>
+      <div id="detail"></div>
+    </aside>
+  </div>
+
+  <script>
+    // Opened as a file, the browser blocks the model's scripts and data: say so instead of showing an empty page
+    if (location.protocol === "file:") {
+      document.getElementById("detail").innerHTML = "<p style=\"margin:0\"><b>This page needs the local server.</b> Run it from the project folder, then open <code>http://localhost:8767/building.html</code>.</p>";
+    }
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three@0.160.0/build/three.module.min.js",
+        "three/addons/": "./vendor/three@0.160.0/examples/jsm/",
+        "./continuation.js": "./continuation.js?v=5b8f7ca2e3",
+        "./penn-continuation.js": "./penn-continuation.js?v=ef05f94948",
+        "./station-route-player.js": "./station-route-player.js?v=0794041c3d",
+        "./station-fixtures.js": "./station-fixtures.js?v=36cefa21d2",
+        "./landmark.js": "./landmark.js?v=754232c5ce",
+        "./entrances3d.js": "./entrances3d.js?v=ee4dd84a46",
+        "./walker3d.js": "./walker3d.js?v=db73e1e2a0",
+        "./station3d.js": "./station3d.js?v=ab33850aa5",
+        "./towers3d.js": "./towers3d.js?v=f59a71ef62",
+        "./floorkit.js": "./floorkit.js?v=c44076039d",
+        "./symbols.js": "./symbols.js?v=13e20a81fa",
+        "./journey.js": "./journey.js?v=9bc2f5fcc2",
+        "./perf.js": "./perf.js?v=65faaaa38f",
+        "./penn-map.js": "./penn-map.js?v=557b85dc2e",
+        "./penn-motion.js": "./penn-motion.js?v=3859ca25a8",
+        "./cpt-station/station-fixtures.js": "./cpt-station/station-fixtures.js?v=b217499786",
+        "./penn-station/anchors.js": "./penn-station/anchors.js?v=974dae663f",
+        "./penn-station/app.js": "./penn-station/app.js?v=caa1bc8408",
+        "./penn-station/circulation-layout.js": "./penn-station/circulation-layout.js?v=84020b2902",
+        "./penn-station/connection-layout.js": "./penn-station/connection-layout.js?v=d50d7f58b3",
+        "./penn-station/entrance-data.js": "./penn-station/entrance-data.js?v=603ab82eac",
+        "./penn-station/entrance-model.js": "./penn-station/entrance-model.js?v=a371f87688",
+        "./penn-station/exterior.js": "./penn-station/exterior.js?v=bad13c4ced",
+        "./penn-station/floorkit.js": "./penn-station/floorkit.js?v=46db4ae176",
+        "./penn-station/interior-clearance.js": "./penn-station/interior-clearance.js?v=3a7024638e",
+        "./penn-station/journeys.js": "./penn-station/journeys.js?v=c8bd5a293e",
+        "./penn-station/penn-interiors.js": "./penn-station/penn-interiors.js?v=6d173f5a48",
+        "./penn-station/route-view.js": "./penn-station/route-view.js?v=9d15fada85",
+        "./penn-station/scene.js": "./penn-station/scene.js?v=bd0ed01efe",
+        "./penn-station/station-massing.js": "./penn-station/station-massing.js?v=3a7460b8b9",
+        "./penn-station/subway-layout.js": "./penn-station/subway-layout.js?v=5c87955310",
+        "./penn-station/upper-corridors.js": "./penn-station/upper-corridors.js?v=28abaacea8"
+      }
+    }
+  </script>
+  <script type="module">
+    // A building and its station as an exploded drawing, with a plan of any floor (scripts/build_buildings.py, scripts/build_ov_floors.py).
+    import * as THREE from "three";
+    import { visitorNavigation } from "./cpt-station/visitor-navigation.js";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+    import { stationRoutePlayer } from "./station-route-player.js";
+    import { facility, fareGates, openingGuards, landingPortal, heraldRailDetail, FIXTURE_NOTE } from "./cpt-station/station-fixtures.js";
+    import { FT, ZONE_GAP, CORE_COLOR, floorOrder, spreadOffset, floorParts, desksMesh, layoutOf, coreBlocks as blocksOf, crownShapes, prism, edgeShaftSpan, edgeShaftGeo, blockGeo, onPlate, wallSegmentsGeo } from "./floorkit.js";
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const cssv = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const params = new URLSearchParams(location.search);
+    // Which model: each one's own wording and where its camera stands
+    const VIEWS = {
+      "hudson-yards": {
+        title: "Hudson Yards, floor by floor", sub: "Two towers, The Shops between them, and the 7 station below. Tap a floor to open it.",
+        tabs: { hy30: "30 Hudson Yards", hy10: "10 Hudson Yards", shops: "The Shops", station: "7 station" }, first: "hy30",
+        center: [-20, -150], azimuth: -62, heightFrom: "10th Ave", observation: "Edge", routeWord: "Edge route",
+        labels: [["30 Hudson Yards", "", "hy30:60", 8], ["10 Hudson Yards", "", "hy10:30", 8], ["The Shops", "", "shops:L4", 4], ["7 station", "", "station:LM", 6], ["Edge, Level 100", "small", "hy30:100", 14], ["Sky lobby, 35", "small", "hy30:35", 4], ["Lobby", "small", "hy30:1L", 4]],
+        streets: { hy30: [["middle", "top", "33rd St"], ["end", "mid", "10th Ave"], ["start", "mid", "Hudson Blvd"]], hy10: [["end", "mid", "10th Ave"], ["middle", "bottom", "High Line, 30th St"]], shops: [["end", "mid", "10th Ave"], ["start", "mid", "Public Square"]] },
+      },
+      "one-vanderbilt": {
+        title: "One Vanderbilt, floor by floor", sub: "Every floor from the building's own plans, Grand Central–42 St below, and the Long Island Rail Road under that. Tap a floor to open it.",
+        tabs: { ov: "One Vanderbilt", station: "Grand Central–42 St", lirr: "LIRR" }, first: "ov",
+        center: [75, -28], azimuth: -38, heightFrom: "42nd St", observation: "SUMMIT", routeWord: "Route to SUMMIT",
+        labels: [["One Vanderbilt", "", "ov:50", 8], ["SUMMIT", "small", "ov:OB2", 8], ["Penthouse floors", "small", "ov:64", 8], ["Tower floors", "small", "ov:50", 8], ["Executive floors", "small", "ov:30", 8], ["Podium floors", "small", "ov:12", 8], ["Lobby", "small", "ov:L1", 6], ["Mezzanine and Shuttle", "small", "station:B2", 6], ["4 5 6", "small", "station:LX", 6], ["7", "small", "station:P7", 6], ["LIRR, Grand Central Madison", "", "lirr:MZ", 8]],
+        streets: { ov: [["middle", "bottom", "42nd St"], ["end", "mid", "Vanderbilt Ave"], ["start", "mid", "Madison Ave"], ["middle", "top", "43rd St"]] },
+      },
+    };
+    VIEWS["empire-state"] = {
+      title: "Empire State Building, floor by floor", sub: "Every floor, with its setbacks, core and corridors, and 34 St–Herald Sq to the west. Four floors are measured from plans: the rest are labelled. Tap a floor to open it.",
+      tabs: { esb: "Empire State Building", station: "34 St–Herald Sq" }, first: "esb",
+      center: [0, -30], azimuth: -38, heightFrom: "the street", observation: "Observatory", routeWord: "Route to the 86th", legendSkip: ["Retail", "Shared amenity", "Terrace"], otherOperator: "PATH hall",
+      labels: [["Empire State Building", "", "esb:50", 8], ["102nd Floor", "small", "esb:102", 6], ["86th Floor", "small", "esb:86", 8], ["Floors 72 to 85", "small", "esb:76", 8], ["Floors 30 to 71", "small", "esb:40", 8], ["Floors 25 to 29", "small", "esb:27", 8], ["Floors 21 to 24", "small", "esb:22", 8], ["Floors 6 to 20", "small", "esb:12", 8], ["Base and lobby", "small", "esb:3", 8], ["Herald Sq mezzanine and PATH hall", "small", "station:MZ", 6], ["N Q R W", "small", "station:BM", 6], ["B D F M", "small", "station:IP", 6]],
+      streets: { esb: [["middle", "bottom", "33rd St"], ["end", "mid", "Fifth Ave"], ["middle", "top", "34th St"]] },
+    };
+    VIEWS["central-park-tower"] = {
+      title:"Central Park Tower, floor by floor",
+      sub:"Explore the residential core, elevator shafts and Nordstrom floor plans.",
+      tabs:{cpt:"Central Park Tower",retail:"Nordstrom",site:"Street approach"},first:"cpt",
+      center:[47,-29],azimuth:-45,heightFrom:"W 57th St",observation:"Observation deck",routeWord:"Route to Nordstrom Floor 2",
+      legendSkip:["Office","Observation deck","Station","Terrace"],
+      labels:[["Central Park Tower","","cpt:s300",8],["Residential lobby","small","cpt:lobby",4],["Nordstrom","small","retail:1",4]],
+      streets:{cpt:[["middle","bottom","W 57th St"],["middle","top","W 58th St"]],retail:[["start","mid","Broadway"],["middle","top","W 58th St"]]}
+    };
+    VIEWS["57-st-7-av"] = {
+      title:"57 St–7 Av, floor by floor",
+      sub:"N Q R W · BMT Broadway Line. Explore entrances, fare control and the two island platforms.",
+      tabs:{station:"57 St–7 Av"},first:"station",
+      center:[166,101],azimuth:-47,heightFrom:"street",observation:"Observation deck",routeWord:"Northbound platform to W 55th St",
+      legendSkip:["Office","Retail","Shared amenity","Building systems","Lobby","Terrace","Escalators","Core services","Observation deck"],
+      labels:[["Street entrances","small","station:street",3],["Mezzanine","small","station:UM",3],["Island platforms","small","station:P",4]],
+    };
+    VIEWS["central-park-tower-station"] = {
+      ...VIEWS["central-park-tower"],
+      title:"Central Park Tower and 57 St–7 Av",
+      sub:"Explore the tower, Nordstrom and the subway together. Follow the modeled arrival route from the northbound platform.",
+      tabs:{...VIEWS["central-park-tower"].tabs,station:"57 St–7 Av"},
+      legendSkip:VIEWS["central-park-tower"].legendSkip.filter(label => label !== "Station"),
+      routeWord:"Platform to Nordstrom Floor 2",
+      labels:[...VIEWS["central-park-tower"].labels,["57 St–7 Av","small","station:P",4]],
+    };
+    const MODEL = "central-park-tower-station";
+    const joinedCpt = MODEL === "central-park-tower-station";
+    const isCpt = MODEL === "central-park-tower" || joinedCpt;
+    const stationEvidence = MODEL === "57-st-7-av" || joinedCpt;
+    const VIEW = VIEWS[MODEL];
+    const data = await (await fetch("cpt-station/model.json")).json();
+    document.title = VIEW.title.replace(", floor by floor", " Floors");
+    $("page-title").textContent = VIEW.title;
+    $("page-sub").textContent = VIEW.sub;
+    $("route-btn").textContent = VIEW.routeWord;
+    const phone = matchMedia("(max-width: 760px)").matches;
+
+    const refs = Object.fromEntries(data.references.map((r) => [r.id, r]));
+    const floors = data.floors;
+    const byId = Object.fromEntries(floors.map((f) => [f.id, f]));
+    const BUILDINGS = Object.keys(VIEW.tabs);
+    const USE_WORD = { condo: "Residential condominium", unknown: "Crown / technical envelope", service: "Core and services", office: VIEW.officeWord || "Office", retail: "Retail", dining: "Dining", plant: "Building systems", amenity: "Shared amenity", lobby: "Lobby", observation: "Observation deck", event: "Event space", transit: "Station" };
+
+    const order = floorOrder(floors);
+
+    const state = { spread: +(params.get("spread") ?? 1), mode: "use", route: !joinedCpt, tab: VIEW.first, scoped: false, focus: null, isolate: false };
+    $("route-btn").setAttribute("aria-pressed", String(state.route));
+
+    $("spread").value=state.spread;
+    const stage = $("stage");
+    const facilityNote=document.createElement("p"); facilityNote.textContent=FIXTURE_NOTE; facilityNote.style.cssText="font-size:12px;opacity:.65;padding:0 20px"; document.querySelector("aside")?.append(facilityNote);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    stage.prepend(renderer.domElement);
+    const scene = new THREE.Scene();
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xb8b8b8, 2.3));
+    const sun = new THREE.DirectionalLight(0xffffff, 1.2);
+    sun.position.set(100, 300, 160);
+    scene.add(sun);
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -6000, 9000);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.zoomToCursor = true;
+    controls.dampingFactor = 0.12;
+    controls.minPolarAngle = 0.05;
+    controls.maxPolarAngle = Math.PI / 2;
+    const root = new THREE.Group();
+    scene.add(root);
+
+    // --- materials, shared and cached ------------------------------------------------------------------------------
+    const mats = new Map();
+    function solid(color, opacity = 1) {
+      const key = `${color}|${opacity}`;
+      if (!mats.has(key)) mats.set(key, new THREE.MeshStandardMaterial({ color, roughness: 0.8, transparent: opacity < 1, opacity, depthWrite: opacity >= 1 }));
+      return mats.get(key);
+    }
+    const lines = new Map();
+    function lineMat(opacity) {
+      const key = String(opacity);
+      if (!lines.has(key)) lines.set(key, new THREE.LineBasicMaterial({ color: cssv("--edge"), transparent: true, opacity }));
+      return lines.get(key);
+    }
+    const TIER = { official: "--tier-official", rebuilt: "--tier-rebuilt", scenario: "--tier-scenario" };
+    // Systems view: each part by what it does in the building, as on the giantA cutaway
+    const SYSTEM_OF = { transit: "public", lirr: "public", track: "mep", elevators: "vertical", escalators: "vertical", edgeshaft: "vertical", stairs: "vertical", service: "mep", plant: "mep", restrooms: "public", corelobby: "public", lobby: "public", observation: "public", corridor: "public", edgeroom: "public", event: "public", dining: "public", retail: "public", terrace: "public" };
+    const colorOf = (key, tier) => {
+      if (state.mode === "systems") return cssv(`--sys-${SYSTEM_OF[key] || "tenant"}`);
+      return cssv(state.mode === "evidence" && tier ? TIER[tier] : `--${key}`);
+    };
+
+    // --- floors -----------------------------------------------------------------------------------------------------
+    const groups = new Map();
+    const pickables = [];
+    function buildFloor(f) {
+      const g = new THREE.Group();
+      g.userData.floor = f;
+      if (params.has("map") && f.id === "site:street") return g;
+      const towerCore = isCpt && f.core_height_m;
+      const visitorLobby = f.id === "cpt:lobby";
+      const sourceFloor = visitorLobby ? {...f, features:f.features.filter(x => x.kind !== "door" && x.kind !== "gate")} : f;
+      for (const p of floorParts(data, towerCore ? {...sourceFloor, core:null} : sourceFloor)) {
+        const m = new THREE.Mesh(p.geo, solid(colorOf(p.key, p.tier), p.opacity ?? 1));
+        if (p.opacity) { m.material.side = THREE.DoubleSide; m.material.depthWrite = false; }
+        m.position.y = p.y;
+        m.userData.circulationLanding = p.circulationLanding;
+        m.userData.opaqueSlab = isCpt && f.building !== "station" && p.slab;
+        g.add(m);
+        if (p.edges) {
+          const e = new THREE.LineSegments(p.edges, lineMat(0.42));
+          e.position.y = p.y;
+          g.add(e);
+        }
+        if (p.slab) { m.userData.floor = f; pickables.push(m); }
+      }
+      if (visitorLobby) {
+        const frame = [[65.12,-.09,65.27,.09,2.4],[66.73,-.09,66.88,.09,2.4]];
+        g.add(new THREE.Mesh(blockGeo(frame,2.4),solid(colorOf("door","scenario"))));
+        g.add(new THREE.Mesh(blockGeo([[65.12,-.09,66.88,.09,.15]],.15,2.25),solid(colorOf("door","scenario"))));
+        g.add(new THREE.Mesh(blockGeo([[64.62,23.82,64.98,24.18,.98]],.98),solid(colorOf("gate","scenario"))));
+      }
+      if (towerCore) {
+        const parts = new Map();
+        for (const b of blocksOf(data,f)) {
+          const [x0,y0,x1,y1] = b.rect;
+          const height = b.kind === "lobby" ? .12 : f.core_height_m;
+          const tier = b.tier || f.evidence.core;
+          const key = CORE_COLOR[b.kind];
+          // Keep the enclosure separate from the solid service rooms. Its
+          // continuous shell otherwise hides the circulation in Use view.
+          const ghost = state.mode === "use" && b.name === "Core enclosure wall";
+          const id = key + ":" + tier + (ghost ? ":enclosure" : "");
+          if (!parts.has(id)) parts.set(id,{key,tier,ghost,boxes:[]});
+          const boxes = parts.get(id).boxes;
+          if (b.kind === "elevators") {
+            const t=.13; // Match the inset of the slab opening in the floor data.
+            const portal = f.core_portals?.find(p => p.shaft === b.name);
+            const walls = {west:[x0,y0,x0+t,y1], east:[x1-t,y0,x1,y1],
+                           south:[x0+t,y0,x1-t,y0+t], north:[x0+t,y1-t,x1-t,y1]};
+            for (const [side,wall] of Object.entries(walls)) {
+              if (side !== portal?.side) { boxes.push([...wall,height]); continue; }
+              const axis = side === "east" ? 1 : 0;
+              const lo = portal.seg[0][axis], hi = portal.seg[1][axis];
+              const before = [...wall], after = [...wall], opening = [...wall];
+              before[axis+2] = lo;
+              after[axis] = hi;
+              opening[axis] = lo;
+              opening[axis+2] = hi;
+              boxes.push([...before,height],[...after,height]);
+              const head = Math.min(2.2,height);
+              if (height > head) g.add(new THREE.Mesh(blockGeo([[...opening,height-head]],height-head,head),solid(colorOf(key,tier))));
+              // Closed two-panel doors at the landing. Panel height and finish are indicative.
+              const cross = 1-axis, mid = (opening[cross]+opening[cross+2])/2;
+              opening[cross] = mid-.025;
+              opening[cross+2] = mid+.025;
+              const left = [...opening], right = [...opening], seam = (lo+hi)/2;
+              left[axis+2] = seam-.009;
+              right[axis] = seam+.009;
+              if (!portal.demo_open) g.add(new THREE.Mesh(blockGeo([[...left,head],[...right,head]],head),solid(colorOf(CORE_COLOR.elevators,portal.tier))));
+            }
+          } else {
+            boxes.push([...b.rect,height]);
+          }
+        }
+        for (const {key,tier,ghost,boxes} of parts.values()) {
+          const material = solid(colorOf(key,tier),ghost ? .16 : 1);
+          if (ghost) material.depthWrite = false;
+          g.add(new THREE.Mesh(blockGeo(boxes,f.core_height_m),material));
+        }
+      }
+      for (const foyer of f.core_foyers || []) {
+        const [x,y] = foyer.point;
+        const [dx,dy] = foyer.direction;
+        const arrow = new THREE.ArrowHelper(new THREE.Vector3(dx,0,-dy),
+          new THREE.Vector3(x,.2,-y),1.05,colorOf("door",foyer.tier),.35,.32);
+        arrow.name = foyer.name;
+        g.add(arrow);
+      }
+      for (const path of f.core_paths || []) {
+        const points = path.map(([x,y]) => new THREE.Vector3(x,.18,-y));
+        const segments = points.slice(1).flatMap((point,i) => [points[i],point]);
+        g.add(dashed(segments,cssv(state.mode === "evidence" ? "--tier-scenario" : "--route")));
+      }
+      if (f.layout) {
+        g.userData.deskTier = f.evidence.layout;
+        if (!phone) addDesks(g);
+      }
+      if (state.mode === "systems" && data.systems && f.building === "esb") addSystems(g, f);
+      return g;
+    }
+    // What only the Systems view shows. What is assumed is drawn in dashes, so that it cannot pass for a measurement.
+    function dashed(pts, color, opacity = 1) {
+      const l = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineDashedMaterial({ color, dashSize: 0.7, gapSize: 0.45, transparent: true, opacity, depthTest: false }));
+      l.computeLineDistances();
+      l.renderOrder = 6;
+      return l;
+    }
+    function addSystems(g, f) {
+      const S = data.systems, n = Number(f.label), inTower = Number.isFinite(n) && n <= 85;
+      const up = Math.min(f.height_m * 0.9, 3.6), half = S.column_m / 2;
+      if (inTower) {
+        const list = S.columns.filter(([x, y]) => onPlate(f, x, y)).map(([x, y]) => [x - half, y - half, x + half, y + half, up]);
+        if (list.length) g.add(new THREE.Mesh(blockGeo(list, up), solid(cssv("--sys-structure"))));
+      }
+      if (inTower && n >= S.bracing.from && n <= S.bracing.to) {
+        const b = blocksOf(data, f).map((q) => q.rect);
+        const [a0, c0, a1, c1] = [Math.min(...b.map((r) => r[0])), Math.min(...b.map((r) => r[1])), Math.max(...b.map((r) => r[2])), Math.max(...b.map((r) => r[3]))];
+        const pts = [];
+        for (const y of [c0, c1]) {
+          const bays = Math.max(1, Math.round((a1 - a0) / 7));
+          for (let i = 0; i < bays; i++) {
+            const p = a0 + ((a1 - a0) * i) / bays, q = a0 + ((a1 - a0) * (i + 1)) / bays;
+            pts.push(new THREE.Vector3(p, 0, -y), new THREE.Vector3(q, up, -y), new THREE.Vector3(q, 0, -y), new THREE.Vector3(p, up, -y));
+          }
+        }
+        g.add(dashed(pts, cssv("--sys-brace")));
+      }
+      if (inTower || f.id === "esb:86") {
+        const ring = f.plate[0], cx = ring.reduce((a, p) => a + p[0], 0) / ring.length, cy = ring.reduce((a, p) => a + p[1], 0) / ring.length;
+        const segs = ring.map((p, i) => [p, ring[(i + 1) % ring.length]]).filter(([p, q]) => (p[0] + q[0]) / 2 > cx + 2 || (p[1] + q[1]) / 2 > cy + 2);
+        const m = new THREE.Mesh(wallSegmentsGeo(segs, up), new THREE.MeshStandardMaterial({ color: cssv("--sys-facade"), transparent: true, opacity: 0.42, side: THREE.DoubleSide, depthWrite: false }));
+        g.add(m);
+      }
+      if (f.id === "esb:C") {
+        const depth = S.foundations.depth_m - f.height_m, w = 2.4, pts = [];
+        const list = S.columns.map(([x, y]) => [x - w, y - w, x + w, y + w, depth]);
+        const piers = new THREE.Mesh(blockGeo(list.map((q) => [q[0], q[1], q[2], q[3], depth - 0.7]), depth - 0.7, -depth), new THREE.MeshStandardMaterial({ color: cssv("--sys-structure"), transparent: true, opacity: 0.22, depthWrite: false }));
+        g.add(piers);
+        for (const [x0, y0, x1, y1] of list) {
+          for (const [x, y] of [[x0, y0], [x1, y0], [x1, y1], [x0, y1]]) pts.push(new THREE.Vector3(x, 0, -y), new THREE.Vector3(x, -depth, -y));
+          for (const [p, q] of [[[x0, y0], [x1, y0]], [[x1, y0], [x1, y1]], [[x1, y1], [x0, y1]], [[x0, y1], [x0, y0]]]) pts.push(new THREE.Vector3(p[0], -depth, -p[1]), new THREE.Vector3(q[0], -depth, -q[1]));
+        }
+        g.add(dashed(pts, cssv("--sys-structure")));
+      }
+    }
+    function addDesks(g) {
+      if (g.userData.deskMesh) return;
+      const mesh = desksMesh(data, g.userData.floor, solid(colorOf("desk", g.userData.deskTier)));
+      if (!mesh) return;
+      g.add(mesh);
+      g.userData.deskMesh = mesh;
+    }
+
+    const offsetOf = (f) => f.id === "site:street" || (joinedCpt && f.id === "station:street") ? spreadOffset(byId["retail:1"], order, state.spread) : spreadOffset(f, order, state.spread);
+    // Selection changes emphasis and camera only. Spread is the sole height control.
+    const yOf = (f) => f.elev_m + offsetOf(f);
+
+    // --- the station's machines, its vault and the shafts ---------------------------------------------------------------
+    const links = new THREE.Group();
+    root.add(links);
+    const LEVEL_FLOOR = data.station.level_floors || { street: "shops:L1", upper: "station:UM", lower: "station:LM", platform: "station:P" };
+    const LEVEL_ID = Object.fromEntries(Object.entries(LEVEL_FLOOR).map(([k, v]) => [v, k]));
+    function levelY(l) {
+      if (l === "street" && !data.station.level_floors) return data.floors.find((f) => f.id === "station:UM").elev_m + 8.41 + offsetOf(byId["station:UM"]) + state.spread * ZONE_GAP * 0.75;
+      return yOf(byId[LEVEL_FLOOR[l]]);
+    }
+    function band(a, b, width, thick, color, opacity = 1) {
+      const mesh = new THREE.Mesh(new THREE.BoxGeometry(width, thick, a.distanceTo(b)), solid(color, opacity));
+      mesh.position.copy(a).lerp(b, 0.5);
+      mesh.lookAt(b);
+      return mesh;
+    }
+    function buildLinks() {
+      links.traverse((o) => { if (o.isMesh) { o.geometry.dispose(); if(o.isInstancedMesh) { o.material.dispose(); o.dispose(); } } });
+      links.clear();
+      const inScope = id => !state.scoped || byId[id]?.building === state.tab;
+      const shafts = {};
+      const here = state.focus && LEVEL_ID[state.focus];
+      for (const it of data.station.items) {
+        if (!inScope(LEVEL_FLOOR[it.a]) || !inScope(LEVEL_FLOOR[it.b])) continue;
+        if (state.focus && data.station.level_floors && it.a !== here && it.b !== here) continue; // on one open floor, only what touches it
+        const a = new THREE.Vector3(it.from[0], levelY(it.a), -it.from[1]), b = new THREE.Vector3(it.to[0], levelY(it.b), -it.to[1]);
+        const tier = it.evidence.place;
+        const access=l=>it.access?.[l]?new THREE.Vector3(it.access[l][0],levelY(l),-it.access[l][1]):undefined;
+        links.add(facility({a,b,accessA:access(it.a),accessB:access(it.b),kind:it.kind,width:it.width_m,flushUpperLanding:it.flush_upper_landing,railDetail:MODEL==="empire-state"?heraldRailDetail(it.id):undefined,color:colorOf(it.kind==="stairs"||it.kind==="ramp"?"stairs":it.kind==="escalator"?"escalators":"elevators",tier),rise:Math.abs((byId[LEVEL_FLOOR[it.a]]?.elev_m??a.y)-(byId[LEVEL_FLOOR[it.b]]?.elev_m??b.y))}));
+        if (data.station.section && it.link && Math.abs(a.y - b.y) > 15) (shafts[it.link] ||= []).push([a, b]);
+      }
+      for(const f of data.station.fare_lines||[]) {
+        if(!inScope(LEVEL_FLOOR[f.level]) || here && f.level!==here) continue;
+        links.add(fareGates(new THREE.Vector3(f.a[0],levelY(f.level),-f.a[1]),new THREE.Vector3(f.b[0],levelY(f.level),-f.b[1]),colorOf("stairs",f.evidence?.place||"scenario")));
+      }
+      for(const f of floors.filter(f=>inScope(f.id) && (f.zones || f.context_zones) && (!here || LEVEL_ID[f.id]===here || f.zones?.some(z=>z.circulation_landing)))) {
+        const lv=LEVEL_ID[f.id], v=p=>new THREE.Vector3(p[0],levelY(lv),-p[1]);
+        const portals=data.station.items.flatMap(it=>[[it.a,it.from],[it.b,it.to]].filter(([l])=>l===lv).map(([,p])=>landingPortal(v(p),v(p===it.from?it.to:it.from),it.kind,it.width_m,MODEL==="empire-state"?heraldRailDetail(it.id):undefined,levelY(lv)<=levelY(p===it.from?it.b:it.a))));
+        const guardLevel={posts:[],beams:[]};
+        for(const z of [...(f.zones||[]),...(f.context_zones||[])].filter(z=>z.kind!=="track")) {
+          for(const r of z.shape) for(const h of z.guard_holes === false ? [] : r.holes||[]) links.add(openingGuards(h.map(v),portals,1,true,false,false,guardLevel));
+          for(const path of z.flush_stair_guards||[]) links.add(openingGuards(path.map(v),[],1,false,false,true));
+          for(const path of z.guard_paths||[]) links.add(openingGuards(path.map(v),portals,1,false,!!z.circulation_landing,false,guardLevel));
+        }
+      }
+      for (const f of floors.filter(f => inScope(f.id) && f.guard_paths && (!here || here === "retail1" || LEVEL_ID[f.id] === here))) {
+        for (const path of f.guard_paths) links.add(openingGuards(path.map(([x,y]) => new THREE.Vector3(x,yOf(f),-y)),[],1,false));
+      }
+      // The long shafts as Dattner draws them: a tube round the machines
+      for (const list of Object.values(shafts)) {
+        const a = new THREE.Vector3(), b = new THREE.Vector3();
+        for (const [p, q] of list) { a.add(p); b.add(q); }
+        a.divideScalar(list.length); b.divideScalar(list.length);
+        const lift = new THREE.Vector3(0, 2.6, 0);
+        const m = band(a.clone().add(lift), b.clone().add(lift), 11, 6.2, cssv("--transit"), 0.13);
+        links.add(m);
+      }
+      // The vault over the lower mezzanine, from the scaled section
+      if (data.station.section) {
+      const [p0, p1] = data.station.axis, sec = data.station.section;
+      const A = new THREE.Vector3(p0[0], 0, -p0[1]), B = new THREE.Vector3(p1[0], 0, -p1[1]);
+      const along = new THREE.Vector3().subVectors(B, A), dir = along.clone().normalize();
+      const east = new THREE.Vector3(-dir.z, 0, dir.x);
+      if (east.x < 0) east.negate();
+      const y0 = yOf(byId["station:LM"]);
+      const pts = sec.vault.map(([x, y]) => A.clone().addScaledVector(east, x).add(new THREE.Vector3(0, y0 + y, 0)));
+      const skin = prism(pts, along);
+      links.add(new THREE.Mesh(skin, new THREE.MeshBasicMaterial({ color: cssv("--transit"), transparent: true, opacity: 0.1, side: THREE.DoubleSide, depthWrite: false })));
+      const ribs = [];
+      const L = along.length();
+      for (let d = 0; d <= L; d += 8) for (let i = 1; i < pts.length; i++) {
+        const u = pts[i - 1].clone().addScaledVector(dir, d), v = pts[i].clone().addScaledVector(dir, d);
+        ribs.push(u, v);
+      }
+      links.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(ribs), lineMat(0.16)));
+      }
+      // A cavern's shell, from its measured section
+      for (const c of data.station.caverns || []) {
+        const [p0, p1] = c.axis;
+        const A = new THREE.Vector3(p0[0], 0, -p0[1]), along = new THREE.Vector3(p1[0] - p0[0], 0, -(p1[1] - p0[1]));
+        const dir = along.clone().normalize(), east = new THREE.Vector3(-dir.z, 0, dir.x);
+        if (east.x < 0) east.negate();
+        const y0 = levelY(c.level);
+        const pts = c.profile.map(([x, y]) => A.clone().addScaledVector(east, x).add(new THREE.Vector3(0, y0 + y, 0)));
+        links.add(new THREE.Mesh(prism(pts, along), new THREE.MeshBasicMaterial({ color: cssv("--lirr"), transparent: true, opacity: 0.14, side: THREE.DoubleSide, depthWrite: false })));
+        const ribs = [];
+        for (let d = 0; d <= along.length(); d += 24) for (let i = 1; i < pts.length; i++) ribs.push(pts[i - 1].clone().addScaledVector(dir, d), pts[i].clone().addScaledVector(dir, d));
+        links.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(ribs), lineMat(0.2)));
+      }
+      // Entrance canopies at the street, as Dattner draws them
+      const sy = data.station.entrances?.length ? levelY("street") : 0;
+      for (const e of data.station.entrances || []) {
+        if (e.id === "entrance-elevator") continue;
+        const big = e.id === "entrance-main";
+        const dome = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), solid(cssv("--transit"), 0.32));
+        dome.scale.set(big ? 15 : 9, big ? 5 : 4, big ? 11 : 7);
+        dome.position.set(e.p[0], sy, -e.p[1]);
+        links.add(dome);
+      }
+      // Edge's elevator shaft, from Level 4 up past Level 101
+      const span = edgeShaftSpan(data, yOf);
+      if (span) {
+        const m = new THREE.Mesh(edgeShaftGeo(span).clone(), solid(colorOf("edgeshaft", span.evidence.place), 0.65));
+        m.position.y = span.y0;
+        links.add(m);
+      }
+      // The underground link to 30 Hudson Yards
+      const c = data.connection;
+      const cy = c ? yOf(byId["station:UM"]) : 0;
+      for (let i = 1; c && i < c.line.length; i++) {
+        const a = new THREE.Vector3(c.line[i - 1][0], cy + 0.2, -c.line[i - 1][1]), b = new THREE.Vector3(c.line[i][0], cy + 0.2, -c.line[i][1]);
+        links.add(band(a, b, 5, 0.25, cssv("--transit"), 0.5));
+      }
+    }
+
+    // --- crowns ---------------------------------------------------------------------------------------------------------
+    const crownGroups = [];
+    function buildCrowns() {
+      for (const c of crownShapes(data)) {
+        const g = new THREE.Group();
+        g.userData.top = c.top;
+        const pts = c.points, along = c.along;
+        const geo = prism(pts, along);
+        g.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: cssv("--lobby"), transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false })));
+        const ribs = new THREE.EdgesGeometry(geo, 1);
+        g.add(new THREE.LineSegments(ribs, lineMat(0.6)));
+        // a diagonal lattice on the sloping faces, as on KPF's drawing
+        const lat = [];
+        const a = pts[1], b = pts[2], d = along;
+        for (let t = 1; t < 6; t++) {
+          const p = a.clone().lerp(b, t / 6);
+          lat.push(p, p.clone().add(d));
+          lat.push(a.clone().addScaledVector(d, t / 6), b.clone().addScaledVector(d, 1 - t / 6));
+        }
+        g.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(lat), lineMat(0.35)));
+        root.add(g);
+        crownGroups.push(g);
+      }
+    }
+
+    // --- the route --------------------------------------------------------------------------------------------------------
+    const routeGroup = new THREE.Group();
+    root.add(routeGroup);
+    const showRoutePath = () => state.route || (state.scoped && state.tab === "site");
+    function buildRoute() {
+      routeGroup.traverse((o) => { if (o.isMesh) o.geometry.dispose(); });
+      routeGroup.clear();
+      if (!showRoutePath()) return;
+      const mat = new THREE.MeshBasicMaterial({ color: cssv("--route"), depthTest: false, transparent: true });
+      const cpt = isCpt;
+      const path = data.route.path;
+      const visible = step => state.focus && cpt ? step.floor === state.focus
+        : !state.scoped || byId[step.floor].building === state.tab;
+      if (!path.length) return;
+      const pts = path.map((s) => new THREE.Vector3(s.p[0], yOf(byId[s.floor]) + (cpt || MODEL === "57-st-7-av" ? .24 : 1.5), -s.p[1]));
+      const r = MODEL === "57-st-7-av" ? .28 : cpt ? .22 : state.focus ? 0.55 : Math.max(0.8, (camera.top - camera.bottom) / camera.zoom / 520);
+      for (let i = 1; i < pts.length; i++) {
+        if (!visible(path[i-1]) || !visible(path[i])) continue;
+        const d = new THREE.Vector3().subVectors(pts[i], pts[i - 1]);
+        const len = d.length();
+        if (len < 0.01) continue;
+        const t = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 8), mat);
+        t.position.copy(pts[i - 1]).addScaledVector(d, 0.5);
+        t.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize());
+        t.renderOrder = 20;
+        routeGroup.add(t);
+      }
+      [0, pts.length - 1].forEach((index, i) => {
+        if (!visible(path[index])) return;
+        const p = pts[index];
+        const s = new THREE.Mesh(new THREE.SphereGeometry(r * (i ? 3 : 2.4), 16, 12), mat);
+        s.position.copy(p);
+        s.renderOrder = 21;
+        routeGroup.add(s);
+      });
+    }
+
+    // --- everything together -------------------------------------------------------------------------------------------
+    function rebuildAll() {
+      root.children.filter((c) => c !== links && c !== routeGroup).forEach((c) => root.remove(c));
+      crownGroups.length = 0;
+      pickables.length = 0;
+      groups.clear();
+      mats.clear(); lines.clear(); dimmed.clear();
+      for (const f of floors) {
+        const g = buildFloor(f);
+        groups.set(f.id, g);
+        root.add(g);
+      }
+      buildCrowns();
+      placeAll();
+      buildLegend();
+    }
+    function placeAll() {
+      for (const [id, g] of groups) g.position.y = yOf(byId[id]);
+      for (const g of crownGroups) g.position.y = yOf(g.userData.top) - g.userData.top.elev_m;
+      buildLinks();
+      buildRoute();
+      fade();
+    }
+    // An open floor stays solid. Its neighbours fade, and everything else steps back, so the floor can be read.
+    const dimmed = new Map();
+    function dimOf(mat) {
+      if (!dimmed.has(mat)) { const d = mat.clone(); d.transparent = true; d.opacity = (mat.opacity ?? 1) * (mat.isLineBasicMaterial ? 0.25 : 0.2); d.depthWrite = false; dimmed.set(mat, d); }
+      return dimmed.get(mat);
+    }
+    function setDim(g, dim, fadeSlab = false) {
+      g.traverse((o) => {
+        if (!o.material) return;
+        if (o.userData.circulationLanding && !fadeSlab) return;
+        if (!o.userData.base) o.userData.base = o.material;
+        const dimPart = dim && (fadeSlab || !o.userData.opaqueSlab);
+        o.material = dimPart ? dimOf(o.userData.base) : o.userData.base;
+        o.renderOrder = dimPart ? 5 : 0;
+      });
+    }
+    function fade() {
+      const foc = state.focus && byId[state.focus];
+      for (const [id, g] of groups) {
+        const f = byId[id];
+        const near = foc && f.building === foc.building && Math.abs(order[id] - order[foc.id]) <= 1;
+        g.visible = foc ? id === foc.id || (!state.isolate && near) : !state.scoped || f.building === state.tab;
+        if (foc && near) setDim(g, id !== foc.id, true);
+        else setDim(g, !foc && (MODEL === "57-st-7-av" ? id !== "station:P" : !state.scoped && (state.tab === "station" || state.tab === "lirr")));
+        if (phone && id === state.focus) addDesks(g);
+      }
+      if (isCpt && state.route && !foc && !state.scoped) {
+        for (const [id,g] of groups) {
+          g.visible = ["site:street","retail:1","retail:2","cpt:lobby"].includes(id)
+            || (joinedCpt && byId[id].building === "station");
+          if (joinedCpt && byId[id].building === "station") setDim(g, id !== "station:P");
+        }
+        setDim(groups.get("retail:2"),true);
+      }
+      for (const g of crownGroups) g.visible = !foc && (!state.scoped || g.userData.top.building === state.tab) && !(isCpt && state.route && !state.scoped);
+      links.visible = !foc || (isCpt && foc.building === "retail") || foc.building === "station" || foc.building === "lirr" || ["shops:L4", "hy30:100", "hy30:101", "ov:B1"].includes(foc.id);
+      routeGroup.visible = !foc || data.route.path.some((p) => p.floor === foc.id);
+      $("labels").style.display = foc ? "none" : "";
+    }
+
+    // --- framing ----------------------------------------------------------------------------------------------------------
+    const CENTER = new THREE.Vector3(VIEW.center[0], 0, VIEW.center[1]);
+    function modelSpan() {
+      const ys = floors.map(yOf);
+      return [Math.min(...ys) - 70, Math.max(...ys) + 130];
+    }
+    function setCam(target, viewH) {
+      const w = stage.clientWidth, h = stage.clientHeight, aspect = w / h;
+      const minWidth = MODEL === "57-st-7-av" ? 155 : isCpt && state.focus ? 24 : state.focus ? 90 : 280;
+      const hh = Math.max(viewH / 2, minWidth / aspect);
+      camera.left = -hh * aspect; camera.right = hh * aspect; camera.top = hh; camera.bottom = -hh;
+      camera.zoom = 1;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      controls.target.copy(target);
+      // Hudson Yards: from the west-south-west, above the Public Square, 30 Hudson Yards on the left, 10 Hudson Yards on the right
+      const az = THREE.MathUtils.degToRad(VIEW.azimuth), el = THREE.MathUtils.degToRad(state.focus ? 34 : 22);
+      camera.position.set(target.x + Math.sin(az) * Math.cos(el) * 2000, target.y + Math.sin(el) * 2000, target.z + Math.cos(az) * Math.cos(el) * 2000);
+      controls.update();
+    }
+    const overview = () => { if (MODEL === "57-st-7-av") { stationOverviewCam(); return; } const [a, b] = modelSpan(); setCam(new THREE.Vector3(CENTER.x, (a + b) / 2, CENTER.z), (b - a) * 1.06); };
+    function stationOverviewCam() {
+      const fs=floors.filter(f=>f.zones && f.building===state.tab);
+      const pts=fs.flatMap(f=>floorArea(f).map(p=>new THREE.Vector3(p[0],yOf(f),-p[1])));
+      const bounds=new THREE.Box3().setFromPoints(pts),size=bounds.getSize(new THREE.Vector3());
+      setCam(bounds.getCenter(new THREE.Vector3()),Math.max(size.x,size.z,size.y)*(MODEL === "57-st-7-av" ? .67 : 1.15));
+    }
+    function sectionCam() {
+      const selected = floors.filter(f => f.building === state.tab);
+      const points = selected.flatMap(f => floorArea(f).map(([x,y]) => new THREE.Vector3(x, yOf(f), -y)));
+      if (!points.length) return overview();
+      const bounds = new THREE.Box3().setFromPoints(points);
+      setCam(bounds.getCenter(new THREE.Vector3()), Math.max(12, bounds.getSize(new THREE.Vector3()).length()));
+      camera.updateMatrixWorld();
+      const extent = Math.max(...points.map(p => {
+        const q = p.project(camera);
+        return Math.max(Math.abs(q.x), Math.abs(q.y));
+      }));
+      camera.zoom = .78 / Math.max(.01, extent);
+      camera.updateProjectionMatrix();
+    }
+    function frameSelection() {
+      if (state.focus) focusCam(byId[state.focus]);
+      else if (state.scoped) sectionCam();
+      else if (isCpt && state.route) cptRouteCam();
+      else overview();
+    }
+    const sectionViews = new Map();
+    const sectionKey = () => state.scoped ? state.tab : "overview";
+    const rememberView = () => sectionViews.set(sectionKey(), {
+      position: camera.position.clone(), target: controls.target.clone(), zoom: camera.zoom, half: camera.top,
+    });
+    function restoreView() {
+      const saved = sectionViews.get(sectionKey());
+      if (!saved) return frameSelection();
+      camera.position.copy(saved.position); controls.target.copy(saved.target);
+      camera.zoom = saved.zoom; camera.top = saved.half; camera.bottom = -saved.half;
+      resizeView(); controls.update();
+    }
+    function resizeView() {
+      const w = stage.clientWidth, h = stage.clientHeight;
+      camera.right = camera.top * w / h; camera.left = -camera.right;
+      camera.updateProjectionMatrix(); renderer.setSize(w, h);
+    }
+    const floorFrustum = new THREE.Frustum(), floorProjection = new THREE.Matrix4();
+    function updateFloorControls() {
+      $("floor-actions").hidden = !state.focus;
+      if (!state.focus) return;
+      $("floor-context").setAttribute("aria-pressed", String(state.isolate));
+      camera.updateMatrixWorld();
+      floorFrustum.setFromProjectionMatrix(floorProjection.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse));
+      const f = byId[state.focus], y = yOf(f);
+      const bounds = new THREE.Box3().setFromPoints(floorArea(f).map(([x,v])=>new THREE.Vector3(x,y,-v)));
+      $("floor-offscreen").hidden = floorFrustum.intersectsBox(bounds);
+    }
+    let locating = 0;
+    function locateFloor() {
+      if (!state.focus) return;
+      cancelAnimationFrame(locating);
+      const f = byId[state.focus], y = yOf(f);
+      const target = new THREE.Box3().setFromPoints(floorArea(f).map(([x,v])=>new THREE.Vector3(x,y,-v))).getCenter(new THREE.Vector3());
+      const origin = controls.target.clone(), position = camera.position.clone(), start = performance.now();
+      function move(now) {
+        const t = Math.min(1,(now-start)/360);
+        controls.target.copy(origin).lerp(target,1-(1-t)**3);
+        camera.position.copy(position).add(controls.target).sub(origin);
+        controls.update(); updateFloorControls();
+        if (t < 1) locating = requestAnimationFrame(move);
+      }
+      locating = requestAnimationFrame(move);
+    }
+    controls.addEventListener("start", () => cancelAnimationFrame(locating));
+    controls.addEventListener("change", updateFloorControls);
+    function focusCam(f) {
+      const g = groups.get(f.id);
+      const area = edgeArea(f) || floorArea(f);
+      const xs = area.map((p) => p[0]), ys = area.map((p) => p[1]);
+      const span = Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys));
+      setCam(new THREE.Vector3((Math.min(...xs) + Math.max(...xs)) / 2, g.position.y + 4, -(Math.min(...ys) + Math.max(...ys)) / 2), Math.max(span * 1.25, isCpt ? 25 : 120));
+    }
+
+    // --- labels -------------------------------------------------------------------------------------------------------------
+    const labels = [];
+    function buildLabels() {
+      labels.length = 0;
+      const host = $("labels");
+      host.textContent = "";
+      const add = (html, cls, pos, floor) => { const d = document.createElement("div"); d.className = `lbl ${cls}`; d.innerHTML = html; host.append(d); labels.push({ d, pos, floor }); };
+      const at = (fid, dx = 0, dy = 0) => () => { const f = byId[fid], g = groups.get(fid), p = f.plate[0]; const xs = p.map((q) => q[0]), ys = p.map((q) => q[1]); return new THREE.Vector3(Math.max(...xs) + dx, g.position.y + dy, -(Math.min(...ys) + Math.max(...ys)) / 2); };
+      for (const [text, cls, fid, dx] of VIEW.labels) if (byId[fid]) add(text, cls, at(fid, dx), fid);
+      if (isCpt && state.route) {
+        for (const [step, name] of [[data.route.path[0],data.route.start],[data.route.path.at(-1),data.route.end]]) {
+          add(esc(name),"small",() => new THREE.Vector3(step.p[0],yOf(byId[step.floor])+2,-step.p[1]),step.floor);
+        }
+      }
+      if (state.mode === "systems" && data.systems) {
+        add("Wind bracing: ASSUMED", "small", at("esb:60", 8));
+        add("Footings: depth 55 ft, positions ASSUMED", "small", at("esb:C", 8, -8));
+      }
+    }
+    const v = new THREE.Vector3();
+    function placeLabels() {
+      const w = stage.clientWidth, h = stage.clientHeight, placed = [];
+      for (const { d, pos, floor } of labels) {
+        if (state.scoped && (!floor || byId[floor].building !== state.tab)) { d.style.display = "none"; continue; }
+        v.copy(pos()).project(camera);
+        if (Math.abs(v.x) > 1 || Math.abs(v.y) > 1) { d.style.display = "none"; continue; }
+        d.style.display = "";
+        const lw = d.offsetWidth, lh = d.offsetHeight;
+        const x = Math.max(4, Math.min(w - lw - 4, ((v.x + 1) / 2) * w));
+        let y = ((1 - v.y) / 2) * h - lh / 2;
+        for (let pass = 0; pass <= placed.length; pass++) {
+          const hit = placed.find((p) => x < p.x + p.w + 4 && p.x < x + lw + 4 && y < p.y + p.h + 3 && p.y < y + lh + 3);
+          if (!hit) break;
+          y = hit.y - lh - 4;
+        }
+        placed.push({ x, y, w: lw, h: lh });
+        d.style.transform = `translate(${x}px, ${y}px)`;
+      }
+    }
+
+    function buildLegend() {
+      const rows = state.mode === "systems"
+        ? [["--sys-structure", "Structure (columns; footings assumed)"], ["--sys-brace", "Wind bracing, assumed: dashed"], ["--sys-mep", "Mechanical"], ["--sys-vertical", "Elevators and stairs"], ["--sys-facade", "Facade"], ["--sys-public", "Public"], ["--sys-tenant", "Office space"]]
+        : state.mode === "evidence"
+        ? [["--tier-official", "Official"], ["--tier-rebuilt", "Rebuilt from a drawing or data"], ["--tier-scenario", "Assumed or illustrative"]]
+        : [["--office", VIEW.officeWord || "Office"], ["--retail", "Retail"], ["--amenity", "Shared amenity"], ["--plant", "Building systems"], ["--lobby", "Lobby"], ["--observation", VIEW.observation], ["--terrace", "Terrace"], ["--transit", "Station"], ...(VIEW.tabs.lirr ? [["--lirr", "LIRR"]] : VIEW.otherOperator ? [["--lirr", VIEW.otherOperator]] : []), ["--elevators", "Elevators (vertical / inclined)"], ["--escalators", "Escalators"], ["--stairs", "Stairs"], ["--service", "Core services"]];
+      if (isCpt && state.mode === "use") {
+        const elevator = rows.find(([color]) => color === "--elevators");
+        elevator[1] = "Elevators, shafts and doors";
+        const services = rows.find(([color]) => color === "--service");
+        services[1] = "Core walls and services";
+        rows.unshift(["--condo", "Residential condominium"], ["--unknown", "Crown / technical envelope"]);
+        rows.push([`--${CORE_COLOR.lobby}`, "Elevator lobbies"]);
+      }
+      if (showRoutePath()) rows.push(["--route", VIEW.routeWord]);
+      $("legend").innerHTML = rows.filter(([, t]) => !VIEW.legendSkip?.includes(t)).map(([c, t]) => `<span><i style="background:var(${c})"></i>${t}</span>`).join("");
+    }
+
+    // --- panel: floors and one floor's plan -----------------------------------------------------------------------------------
+    function tabs() {
+      const overview = BUILDINGS.length > 1
+        ? `<button data-tab="overview" aria-pressed="${!state.scoped && !state.focus}">Overview</button>` : "";
+      $("tabs").innerHTML = overview + BUILDINGS.map((b) => `<button data-tab="${b}" aria-pressed="${state.tab === b && (BUILDINGS.length === 1 || state.scoped || Boolean(state.focus))}">${VIEW.tabs[b]}</button>`).join("");
+    }
+    function list() {
+      const rows = floors.filter((f) => f.building === state.tab).sort((a, b) => b.elev_m - a.elev_m);
+      $("floors").innerHTML = rows.map((f) => {
+        const ft = Math.round(f.street_ft ?? f.elev_m / FT);
+        const col = f.building === "lirr" ? "lirr" : f.deck ? "observation" : f.use;
+        return `<button class="row" data-floor="${f.id}" aria-pressed="${state.focus === f.id}"><i style="background:var(--${col})"></i><b>${esc(f.label)}</b><span>${esc(f.name)}</span><small>${ft >= 0 ? "+" : ""}${ft} ft</small></button>`;
+      }).join("");
+    }
+    const KEY = { edgeshaft: "Edge elevator shaft", elevators: "Elevators", stairs: "Stairs", service: "Core services", restrooms: "Restrooms", lobby: "Elevator lobby and corridors" };
+    // Level 4 of The Shops: the plan and the camera go to the part that is Edge's, from its entrance to its elevators
+    function edgeArea(f) {
+      if (f.id !== "shops:L4" || !data.edge_shaft) return null;
+      const r = data.edge_shaft.rect;
+      return [...f.features.filter((x) => x.kind === "room").flatMap((x) => x.poly), [r[0], r[1]], [r[2], r[3]]];
+    }
+    // What a floor covers: a station level has several halls, far apart, and no one outline
+    function floorArea(f) {
+      if (f.zones && data.station.level_floors) return f.zones.filter((z) => z.kind !== "track").flatMap((z) => z.shape.flatMap((r) => r.outer));
+      return joinedCpt && f.id === "site:street" ? f.plate.flat() : f.plate[0];
+    }
+    function planSvg(f) {
+      const all = edgeArea(f) || [...floorArea(f), ...(f.terrace?.[0] || []), ...(f.deck?.[0] || [])];
+      const xs = all.map((p) => p[0]), ys = all.map((p) => p[1]);
+      const padX = (Math.max(...xs) - Math.min(...xs)) * (f.building === "ov" ? 0.4 : 0.3), padY = (Math.max(...ys) - Math.min(...ys)) * 0.12 + 8;
+      const x0 = Math.min(...xs) - padX, x1 = Math.max(...xs) + padX, y0 = Math.min(...ys) - padY, y1 = Math.max(...ys) + padY;
+      const P = (p) => `${(p[0] - x0).toFixed(1)},${(y1 - p[1]).toFixed(1)}`;
+      const poly = (r, fill, extra = "") => `<polygon points="${r.map(P).join(" ")}" fill="${fill}" stroke="var(--edge)" stroke-width="0.5" ${extra}/>`;
+      const rect = (r, fill, extra = "") => `<rect x="${(Math.min(r[0], r[2]) - x0).toFixed(1)}" y="${(y1 - Math.max(r[1], r[3])).toFixed(1)}" width="${Math.abs(r[2] - r[0]).toFixed(1)}" height="${Math.abs(r[3] - r[1]).toFixed(1)}" fill="${fill}" ${extra}/>`;
+      let s = "";
+      const fillFor = (k) => `var(--${k})`;
+      if (f.zones) {
+        for (const z of f.zones) for (const r of z.shape) {
+          const path = [r.outer, ...(r.holes || [])].map((h) => `M${h.map(P).join("L")}Z`).join("");
+          s += `<path d="${path}" fill-rule="evenodd" fill="${z.kind === "track" ? "var(--track)" : z.operator ? "var(--lirr)" : "var(--transit)"}" fill-opacity="${z.kind === "track" ? 1 : 0.55}" stroke="var(--edge)" stroke-width="0.4"/>`;
+        }
+        if (stationEvidence && f.id === "station:UM") {
+          for (const line of data.station.fare_lines) {
+            s += `<path d="M${P(line.a)}L${P(line.b)}" stroke="var(--stairs)" stroke-width="1.2" stroke-dasharray="1.2 .7"><title>W 55th St fare control · approximate position</title></path>`;
+          }
+          for (const label of data.station.mezzanine_labels) {
+            const [x, y] = P(label.p).split(",");
+            s += `<text x="${x}" y="${y}" font-size="3.6" text-anchor="middle">${esc(label.name)}</text>`;
+          }
+        }
+        for (const it of data.station.items) {
+          const lv = data.station.level_floors ? Object.keys(LEVEL_FLOOR).find((k) => LEVEL_FLOOR[k] === f.id) : f.label === "UM" ? "upper" : f.label === "LM" ? "lower" : "platform";
+          if (it.a !== lv && it.b !== lv) continue;
+          const col = it.kind === "stairs" ? "var(--stairs)" : "var(--elevators)";
+          if (stationEvidence && f.building === "station" && it.kind === "elevator") {
+            const [cx,cy] = P(it.from).split(",");
+            s += `<circle cx="${cx}" cy="${cy}" r="1.35" fill="${col}"><title>${esc(it.id)}</title></circle>`;
+            continue;
+          }
+          s += `<line x1="${it.from[0] - x0}" y1="${y1 - it.from[1]}" x2="${it.to[0] - x0}" y2="${y1 - it.to[1]}" stroke="${col}" stroke-width="${it.kind === "elevator" ? 2.6 : 1.1}"/>`;
+        }
+      } else {
+        if (f.terrace) s += poly(f.terrace[0], fillFor("terrace"));
+        if (f.deck) s += poly(f.deck[0], fillFor("observation"));
+        for (const shape of (joinedCpt && f.id === "site:street" ? f.plate : [(f.indoor || f.plate)[0]])) s += poly(shape, `color-mix(in srgb, var(--${f.use}) 26%, var(--card))`);
+        for (const h of (f.hole || []).slice(0, isCpt ? undefined : 1)) s += poly(h, "var(--soft)", 'stroke-dasharray="2 2"');
+        if (f.atrium_floor) s += poly(f.atrium_floor[0], "var(--corridor)", 'stroke-dasharray="2 2"');
+        for (const c of f.corridors || []) s += poly(c, "var(--corridor)", 'stroke="none"');
+        const feats = f.features || [];
+        for (const x of feats) if (x.kind === "room") s += poly(x.poly, "var(--edgeroom)", 'fill-opacity=".55"');
+        const systemsOn = state.mode === "systems" && data.systems && f.building === "esb";
+        for (const b of blocksOf(data, f)) {
+          const tier = b.tier || f.evidence.core;
+          const color = f.core_height_m && state.mode === "evidence" ? `tier-${tier}` :
+            systemsOn ? `sys-${SYSTEM_OF[CORE_COLOR[b.kind]] || "tenant"}` : CORE_COLOR[b.kind];
+          s += rect(b.rect,`var(--${color})`,'stroke="var(--edge)" stroke-width="0.25"');
+        }
+        for (const path of f.core_paths || []) {
+          const color = state.mode === "evidence" ? "--tier-scenario" : "--route";
+          s += `<polyline points="${path.map(P).join(" ")}" fill="none" stroke="var(${color})" stroke-width=".35" stroke-dasharray=".7 .45"/>`;
+        }
+        for (const foyer of f.core_foyers || []) {
+          const [x,y] = foyer.point, [dx,dy] = foyer.direction;
+          const color = state.mode === "evidence" ? "--tier-scenario" : "--door";
+          const head = [x+dx,y+dy];
+          const left = [x+dx*.62-dy*.23,y+dy*.62+dx*.23];
+          const right = [x+dx*.62+dy*.23,y+dy*.62-dx*.23];
+          s += `<path d="M${P(foyer.point)}L${P(head)}M${P(left)}L${P(head)}L${P(right)}" fill="none" stroke="var(${color})" stroke-width=".27"><title>${esc(foyer.name)} · approximate registration</title></path>`;
+        }
+        for (const portal of f.core_portals || []) {
+          const color = state.mode === "evidence" ? `--tier-${portal.tier}` : `--${CORE_COLOR.elevators}`;
+          s += `<polyline points="${portal.seg.map(P).join(" ")}" fill="none" stroke="var(${color})" stroke-width=".5"><title>${esc(portal.shaft)} door · ${portal.tier}</title></polyline>`;
+        }
+        if (systemsOn && Number(f.label) <= 85) for (const [cx, cy] of data.systems.columns) if (onPlate(f, cx, cy)) s += `<rect x="${(cx - 0.9 - x0).toFixed(1)}" y="${(y1 - cy - 0.9).toFixed(1)}" width="1.8" height="1.8" fill="var(--sys-structure)"/>`;
+        if (f.layout) {
+          const lay = layoutOf(data, f);
+          for (const r of lay.rooms) s += rect(r.slice(1), `var(--${r[0] === "office" ? "room" : "meeting"})`, 'fill-opacity=".62" stroke="var(--edge)" stroke-width="0.25"');
+          for (const d of lay.desks) s += `<rect x="${(d[0] - 0.8 - x0).toFixed(1)}" y="${(y1 - d[1] - 0.4).toFixed(1)}" width="1.6" height="0.8" fill="var(--desk)"/>`;
+        }
+        // Inside Edge: steps with their treads, glass floor and walls, doors, the ticket line, and a name on each
+        const small = Math.max(x1 - x0, y1 - y0) / 46;
+        const label = (px, py, text) => `<text x="${(px - x0).toFixed(1)}" y="${(y1 - py).toFixed(1)}" font-size="${small}" text-anchor="middle" style="fill:var(--ink)">${esc(text)}</text>`;
+        const centre = (pts) => [pts.reduce((a, p) => a + p[0], 0) / pts.length, pts.reduce((a, p) => a + p[1], 0) / pts.length];
+        for (const x of feats) {
+          if (x.kind === "steps") {
+            s += poly(x.poly, "var(--steps)", 'fill-opacity=".7"');
+            const ys = x.poly.map((p) => p[1]), a = Math.min(...ys), b = Math.max(...ys), left = Math.min(...x.poly.map((p) => p[0]));
+            const right = (y) => { const t = (y - a) / (b - a); return Math.max(...x.poly.filter((p) => p[1] === a).map((p) => p[0])) * (1 - t) + Math.max(...x.poly.filter((p) => p[1] === b).map((p) => p[0])) * t; };
+            for (let i = 1; i < x.treads; i++) { const y = a + ((b - a) * i) / x.treads; s += `<line x1="${left - x0}" y1="${y1 - y}" x2="${right(y) - x0}" y2="${y1 - y}" stroke="var(--card)" stroke-width="${small / 12}"/>`; }
+          } else if (x.kind === "glass-floor") s += poly(x.poly, "var(--glassfloor)");
+          else if (x.kind === "glass-wall") s += `<polyline points="${x.line.map(P).join(" ")}" fill="none" stroke="var(--glasswall)" stroke-width="${small / 2.4}"/>`;
+          else if (x.kind === "door" || x.kind === "gate") s += `<line x1="${x.seg[0][0] - x0}" y1="${y1 - x.seg[0][1]}" x2="${x.seg[1][0] - x0}" y2="${y1 - x.seg[1][1]}" stroke="var(--${x.kind})" stroke-width="${small / 2.2}" ${x.kind === "gate" ? `stroke-dasharray="${small} ${small / 2}"` : ""}/>`;
+        }
+        if (data.edge_shaft && (f.id === "hy30:100" || f.id === "hy30:101" || f.id === "shops:L4")) {
+          const r = data.edge_shaft.rect, mid = (r[1] + r[3]) / 2;
+          s += rect([r[0], r[1], r[2], mid], "var(--edgeshaft)", 'stroke="var(--edge)" stroke-width="0.25"') + rect([r[0], mid, r[2], r[3]], "var(--edgeshaft)", 'stroke="var(--edge)" stroke-width="0.25"');
+        }
+        for (const x of feats) {
+          if (x.kind === "room" || x.kind === "steps" || x.kind === "glass-floor") { const [cx, cy] = centre(x.poly); s += label(cx, cy, x.name.replace(/ \(.*\)$/, "")); }
+          else if (x.kind === "door" || x.kind === "gate") { const [cx, cy] = centre(x.seg); s += label(cx, cy + small * 1.1, x.name); }
+        }
+        if (f.deck) { const d = f.deck[0]; s += label(d[2][0] - (d[2][0] - d[0][0]) * 0.28, d[2][1] + (d[1][1] - d[2][1]) * 0.42, data.deck_label || "Sky deck"); }
+      }
+      // Streets, scale and north: the plan is drawn on the street grid, so true north leans 29 degrees to the left
+      if (isCpt) {
+        for (const it of data.station.items) {
+          const lv=LEVEL_ID[f.id];
+          if ((lv !== it.a && lv !== it.b) || f.building === "station") continue;
+          const [px,py]=P(lv === it.a ? it.from : it.to).split(",");
+          s += `<circle cx="${px}" cy="${py}" r=".65" fill="var(--${it.kind === "escalator" ? "escalators" : "elevators"})" stroke="var(--ink)" stroke-width=".2" stroke-dasharray=".45 .3"><title>${it.kind === "escalator" ? "Escalator" : "Elevator"} · assumed landing</title></circle>`;
+        }
+        const points=data.route.path.filter(step=>step.floor===f.id).map(step=>P(step.p));
+        if (state.route && points.length) s += `<polyline points="${points.join(" ")}" fill="none" stroke="var(--route)" stroke-width=".65" stroke-linejoin="round" stroke-linecap="round"/>`;
+      }
+      if (MODEL === "57-st-7-av" && state.route) {
+        const points = data.route.path.filter(step => step.floor === f.id).map(step => P(step.p));
+        if (points.length) s += `<polyline points="${points.join(" ")}" fill="none" stroke="var(--route)" stroke-width=".75" stroke-linecap="round"/>`;
+      }
+      const W = x1 - x0, H = y1 - y0, fs = Math.max(W, H) / 34;
+      const t = [];
+      for (const [anchor, side, text] of VIEW.streets?.[f.building] || []) {
+        const at = side === "mid" ? H / 2 : side === "top" ? fs * 1.2 : H - fs * 0.3;
+        t.push([anchor === "end" ? W - 2 : anchor === "start" ? 2 : W / 2, at, text, anchor]);
+      }
+      for (const [a, b, l, anchor] of t) s += `<text x="${a}" y="${b}" font-size="${fs}" text-anchor="${anchor || (a < 10 ? "start" : "middle")}">${l}</text>`;
+      const bar = 50 * FT;
+      s += `<g transform="translate(${fs * 0.6} ${H - fs * 0.8})"><line x1="0" y1="0" x2="${bar}" y2="0" stroke="var(--muted)" stroke-width="${fs / 7}"/><text x="0" y="${-fs / 3}" font-size="${fs}">50 ft</text></g>`;
+      s += `<g transform="translate(${W - fs * 1.6} ${H - fs * 1.8}) rotate(-29) scale(${fs / 8})"><path d="M0 7 L0 -7 M-2.5 -3 L0 -7 L2.5 -3" fill="none" stroke="var(--muted)" stroke-width="0.9"/><text x="-2.8" y="-9" font-size="8">N</text></g>`;
+      return `<svg id="plan" data-origin="${x0},${y1}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Plan of ${esc(f.name)}">${s}</svg>`;
+    }
+    const tierWord = { height: "Height", outline: "Outline", core: "Core", layout: "Interior" };
+    function detail(f) {
+      const box = $("detail");
+      if (!f && state.scoped && BUILDINGS.length > 1) {
+        const section = floors.filter(f => f.building === state.tab);
+        box.innerHTML = `<h2>${esc(VIEW.tabs[state.tab])}</h2><p>${section.length} modeled levels. Select a level to see its plan and sources.</p>`;
+        return;
+      }
+      const southSection = stationEvidence && (!f || f.id === "station:UM")
+        ? `<p><b>W 55th St · relative section</b><br>Street → mezzanine ${data.station.south_rises_m[0].toFixed(2)} m down (EL604).<br>Mezzanine → either platform ${data.station.south_rises_m[1].toFixed(2)} m down (EL282 / EL283).<br>Derived from MTA lift travel. The north end uses the same display levels provisionally.</p>`
+        : "";
+      if (!f && stationEvidence && state.tab === "station" && !joinedCpt) {
+        box.innerHTML = `<p>Ten street entrances from the MTA inventory. Purple marks station floors. The street and mezzanine are translucent in the overview so both island platforms remain visible.</p>
+          <p><b>Demonstrated route</b><br>Northbound island → EL283 → mezzanine and fare exit → EL604 → W 55th Street.</p>
+          <p>The two ends are shown separately. A direct mezzanine connection remains unverified. W 57th St's EL281 reaches the mezzanine only.</p>
+          <p>W 55th St's northeast stair and EL604 share a landing area in the MTA photographs. The south fare-control boundary is supported by the inventory, with approximate gate placement. W 57th St has a documented paid area, with its gate line unlocated.</p>
+          ${southSection}
+          <ul>${data.references.map(r => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a></li>`).join("")}</ul>`;
+        return;
+      }
+      if (!f) {
+        const c = data.checks;
+        const closes = MODEL === "empire-state"
+          ? `34 St–Herald Sq's depths come from the MTA's own list of elevators and escalators, and no plan with dimensions was found for it. The floors add up to ${c.closure_to}${Math.abs(c.closure_ft) >= 1 ? `, within ${Math.abs(c.closure_ft)} ft` : ""}, and all the outlines to ${Math.round(100 * Math.abs(c.area_sf / c.published_sf - 1))} per cent of the published total area. Floors 41, 64, 68 and 78 are measured from plans, and they show the elevator banks dropping away with height. Everything else inside is marked assumed.`
+          : MODEL === "one-vanderbilt"
+          ? `The floors of One Vanderbilt add up to within ${Math.abs(c.closure_ft)} ft of ${c.closure_to}, and the station's depths come from the MTA's own list of escalators and elevators.`
+          : isCpt
+          ? "The roof closes at the published 1,550 ft height. Continuous colour bands group residences, amenities, retail and building services. Band limits are approximate and use model elevations. Numbered reference floors retain their source notes. Open the 392 m plan reference for Extell’s high-zone core. The residential riser follows that layout through the model. Shaft continuity and end heights are assumed. Nordstrom has its own public circulation."
+          : `The floors of 30 Hudson Yards add up to within ${Math.abs(c.closure_ft)} ft of the leasing deck's height mark for Edge.`;
+        if (state.mode === "systems" && data.systems) {
+          box.innerHTML = `<h2>Systems view</h2><p style="margin:0">The building by what each part does. <b>Dashed lines are assumed.</b> Elements with no drawing behind them are only there to show that they exist.</p>
+            <dl class="facts" style="grid-template-columns:1fr">${data.systems.rows.map((r) => `<dt style="margin-top:8px"><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--${r.key});margin-right:6px"></i><b>${esc(r.name)}</b> <span class="tier" data-t="${r.tier}">${r.tier === "scenario" ? "assumed" : "rebuilt"}</span></dt><dd style="margin:2px 0 0">${esc(r.basis)}</dd>`).join("")}</dl>
+            <p>Steel: ${data.systems.steel_short_tons.toLocaleString("en-US")} short tons ordered (secondary source). The idea of this view comes from a whiteboard by giantA, and nothing is measured from it.</p>`;
+          return;
+        }
+        box.innerHTML = `<p style="margin:0">Colours show what each floor is used for. Switch to Evidence to see how each part is known. ${closes}</p>${MODEL === "one-vanderbilt" ? `<p><b>Not the subway:</b> the deep twin halls under the long escalators are the Long Island Rail Road's Grand Central Madison, though one of KPF's drawings labels them subway. They are in their own colour and tab, built from KPF's section and secondary sources. You can start the route from their platforms, by stairs and escalators only: where their elevators stand is not published.</p>` : ""}`;
+        if (isCpt && data.occupancy_schedule) {
+          box.innerHTML += `<details open><summary>Use by model height</summary>
+            <p>Approximate bands. Heights are model datums.</p>
+            <dl class="facts"><dt>Podium</dt><dd>Nordstrom B2–5 and the separate residential lobby</dd>
+            ${data.use_bands.map(([lo,hi,use,name]) =>
+              `<dt><i style="display:inline-block;width:9px;height:9px;margin-right:5px;background:var(--${use})"></i>${lo}–${hi > 472.44 ? "roof" : hi+" m"}</dt><dd>${esc(name)}</dd>`).join("")}</dl></details>`;
+          const source = refs["dob-use"];
+          box.innerHTML += `<details><summary>Certificate floor uses</summary>
+            <p>DOB floor IDs are separate from sales labels. Model heights are indicative.</p>
+            <dl class="facts">${data.occupancy_schedule.map(([floor,use,pages]) =>
+              `<dt>${esc(floor)}</dt><dd>${esc(use)} (pp. ${esc(pages)})</dd>`).join("")}</dl>
+            <p><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.name)}</a></p></details>`;
+        }
+        if (joinedCpt) box.innerHTML += `${southSection}
+          <p>The direct W 55th–W 57th mezzanine link is unverified. The demo uses the W 55th St street exit.</p>`;
+        if (joinedCpt && state.route) box.insertAdjacentHTML("afterbegin", `<h2>Platform to Nordstrom Floor 2</h2><ol>
+          <li>From the northbound island, take EL283 to the W 55th St mezzanine.</li>
+          <li>Exit fare control and take EL604 to the northeast corner.</li>
+          <li>Follow sidewalks and crossings to the W 57th St Nordstrom door (about ${data.route.street_m} m).</li>
+          <li>Take the modeled store elevator from Floor 1 to Floor 2 and continue to Beauty Services.</li></ol>
+          <p>Lift connections in the station are documented. Gate placement, street tie-ins and store landings are approximate. This route illustrates an arrival and does not establish step-free access.</p>`);
+        if (isCpt && !joinedCpt && state.route) box.innerHTML += `<ol><li>Start at the 57 St–7 Av street exit.</li><li>Follow the mapped sidewalks to the W 57th St retail entrance (about ${data.route.street_m} m).</li><li>Cross Floor 1 to the modeled elevator.</li><li>Exit the elevator on Floor 2 and follow the Beauty Services aisle.</li></ol><p>Indoor route is a reconstruction. Door alignment, elevator stops, exact landings and step-free access are unverified.</p>`;
+        return;
+      }
+      const ev = f.evidence || {};
+      const chips = Object.keys(tierWord).filter((k) => ev[k]).map((k) => `<span class="tier" data-t="${ev[k]}">${tierWord[k]}: ${ev[k]}</span>`).join("");
+      const b = data.buildings[f.building].name;
+      const facts = [];
+      const ftUp = Math.round(f.street_ft ?? f.elev_m / FT);
+      facts.push(["Height", ftUp >= 0 ? `${ftUp} ft above ${VIEW.heightFrom}` : `${-ftUp} ft below ${VIEW.heightFrom}`]);
+      if (isCpt) {
+        const reference = f.use === "condo" && /reference/i.test(f.name);
+        const use = f.id === "site:street" ? "Street approach" : USE_WORD[f.use];
+        facts.push(["Use", use + (f.use === "condo" ? reference ? " · plan reference" : " · indicative zone" : "")]);
+      }
+      if (!f.zones) facts.push(["Floor to floor", `${(f.height_ft ?? f.height_m / FT).toFixed(1)} ft`]);
+      if (f.area_sf) facts.push(["Traced area", `about ${f.area_sf.toLocaleString("en-US")} sq ft`]);
+      if (f.rsf) facts.push(["Rentable area", `${f.rsf.toLocaleString("en-US")} RSF (published)`]);
+      if (f.width_ft && f.building === "hy30") facts.push(["Width", `${Math.round(f.width_ft)} ft, Hudson Blvd to the east face`]);
+      const keys = new Set(blocksOf(data, f).map((x) => x.kind));
+      const lay = f.layout && data.layouts[f.layout.template];
+      const shown = f.layout ? layoutOf(data, f) : null;
+      const counts = lay ? `<p>Desks and rooms show one possible layout, not a real tenant's office: they match the counts of ${MODEL === "hudson-yards" ? "the deck's test layout" : "the building's published test layout"} (${lay.from_test_fit.workstations} desks, ${lay.from_test_fit.offices} offices, ${lay.from_test_fit.meeting} meeting rooms)${MODEL === "hudson-yards" ? "" : ` on the floor it was drawn for. This floor shows the ${shown.desks.length} desks and ${shown.rooms.length} rooms that fit its own outline${MODEL === "one-vanderbilt" ? ". The number of meeting rooms is counted from the picture" : ""}`}.</p>` : "";
+      const coreNote = f.core_note ? `<p>${esc(f.core_note)}</p>` : ev.core === "scenario" ? (MODEL === "empire-state" ? `<p>${esc(f.core_note || "No plan of this floor is available here: its core is assumed.")}</p>` : MODEL === "one-vanderbilt" ? `<p>No plan is published for this floor: its core block is assumed.</p>` : `<p>No plan is published for this floor: it uses the core of floors 37 to 51, keeping the banks the deck's section shows reaching this high.</p>`)
+        : MODEL === "empire-state" && f.plan_floors ? `<p>${esc(f.plan_note)}</p>`
+        : MODEL === "one-vanderbilt" && f.plan_floors ? `<p>Outline and core measured from the building's plan of floors ${esc(f.plan_floors)}, whose core-to-glass dimensions are printed on it. The banks inside the core are drawn as blocks. ${esc(data.plan_orientation)}</p>`
+        : MODEL === "one-vanderbilt" && f.layout ? `<p>No plan is published for this floor: its outline is the nearest plan's, moved in or out on all sides to follow the published areas. The real facade slopes, so this is an approximation.</p>` : "";
+      const edgeNotes = (f.features || []).filter((x) => x.note).map((x) => `<p><b>${esc(x.name)}.</b> ${esc(x.note)}</p>`).join("")
+        + (["hy30:100", "shops:L4"].includes(f.id) ? `<p><b>${esc(data.edge_shaft.name)}.</b> ${esc(data.edge_shaft.note)}</p>` : "");
+      const sysOn = state.mode === "systems" && data.systems && f.building === "esb";
+      const key = sysOn ? `<div class="keys"><span><i style="background:var(--sys-vertical)"></i>Elevators and stairs</span><span><i style="background:var(--sys-mep)"></i>Mechanical</span><span><i style="background:var(--sys-public)"></i>Public</span><span><i style="background:var(--sys-structure)"></i>Columns</span>${f.label !== "C" && Number(f.label) >= 6 && Number(f.label) <= 85 ? `<span><i style="background:var(--sys-brace)"></i>Wind bracing, assumed: dashed in 3D</span>` : ""}${f.id === "esb:C" ? `<span><i style="background:var(--sys-structure)"></i>Footings, positions assumed: dashed in 3D</span>` : ""}</div>` : `<div class="keys">${[...keys].map((k) => `<span><i style="background:var(--${CORE_COLOR[k]})"></i>${KEY[k]}</span>`).join("")}${lay ? `<span><i style="background:var(--room)"></i>Offices</span><span><i style="background:var(--meeting)"></i>Meeting rooms</span><span><i style="background:var(--desk)"></i>Desks</span>` : ""}${f.terrace ? `<span><i style="background:var(--terrace)"></i>Terrace</span>` : ""}${f.corridors ? `<span><i style="background:var(--corridor)"></i>Public corridors</span>` : ""}${f.features?.some((x) => x.kind === "room") ? `<span><i style="background:var(--edgeroom)"></i>${MODEL === "hudson-yards" ? "Edge rooms (places assumed)" : "Rooms on the route (places approximate)"}</span>` : ""}${f.features?.some((x) => x.kind === "door") ? `<span><i style="background:var(--door)"></i>Doors</span>` : ""}${f.features?.some((x) => x.kind === "gate") ? `<span><i style="background:var(--gate)"></i>Ticket scan</span>` : ""}${f.features?.some((x) => x.kind === "steps") ? `<span><i style="background:var(--steps)"></i>Skyline steps</span><span><i style="background:var(--glassfloor)"></i>Glass floor</span><span><i style="background:var(--glasswall)"></i>Glass walls</span>` : ""}${f.id === "shops:L4" ? `<span><i style="background:var(--edgeshaft)"></i>Edge elevator shaft</span>` : ""}</div>`;
+      const liftNotes = stationEvidence && f.building === "station" ? data.station.items.filter(it => it.kind === "elevator" &&
+        [it.a,it.b].includes(LEVEL_ID[f.id])).map(it => `<li><b>${esc(it.id)}</b> · ${esc(it.note)}${it.rise_source ? ` · reported rise ${esc(it.rise_source)}` : ""}</li>`).join("") : "";
+      const filingNote = f.core_height_m && data.residential_elevator_filings?.length
+        ? `<p><a href="${esc(refs["dob-r1-r2"].url)}" target="_blank" rel="noopener">DOB filing M00664841-I1</a> reports Otis R1 and R2 from SC3 to 92 in filing labels, with 90 stops and 90 front openings each. The record gives no individual stop list, compass direction or assignment to these model shafts.</p>` : "";
+      const src = (ev.sources || []).map((id) => refs[id] || refs[`st-${id}`]).filter(Boolean);
+      box.innerHTML = `<h2>${esc(b)}, ${f.building === "shops" || f.zones ? esc(f.name) : `floor ${esc(f.label)}`}</h2>
+        <p style="margin-top:2px;color:var(--muted)">${esc(f.zones ? "" : f.name)}</p>
+        ${planSvg(f)}${key}
+        <div>${chips}</div>
+        <dl class="facts">${facts.map(([a, c]) => `<dt>${a}</dt><dd>${esc(c)}</dd>`).join("")}</dl>
+        ${f.note ? `<p>${esc(f.note)}</p>` : ""}${f.corridor_note ? `<p><b>Corridors.</b> ${esc(f.corridor_note)}</p>` : ""}${counts}${coreNote}${filingNote}${edgeNotes}${southSection}${liftNotes ? `<ul>${liftNotes}</ul>` : ""}
+        ${src.length ? `<ul>${src.map((r) => r.url ? `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.publisher || r.name)}</a></li>` : `<li>${esc(r.publisher || r.name)}</li>`).join("")}</ul>` : ""}`;
+    }
+
+    function selectFloor(id, { scroll = true, frame = false } = {}) {
+      cancelAnimationFrame(locating);
+      state.focus = id && id !== state.focus ? id : (id === state.focus ? null : null);
+      const f = state.focus && byId[state.focus];
+      if (f) state.tab = f.building;
+      tabs(); list(); detail(f || null);
+      placeAll(); buildLegend();
+      if (frame) frameSelection();
+      updateFloorControls();
+      if (f && scroll) document.querySelector(`#floors [data-floor="${CSS.escape(f.id)}"]`)?.scrollIntoView({ block: "nearest" });
+    }
+    // --- input ----------------------------------------------------------------------------------------------------------------
+    $("tabs").addEventListener("click", (e) => {
+      const button = e.target.closest("[data-tab]");
+      if (!button) return;
+      const tab = button.dataset.tab;
+      cancelAnimationFrame(locating); rememberView();
+      state.focus = null;
+      state.scoped = tab !== "overview";
+      state.tab = state.scoped ? tab : VIEW.first;
+      tabs(); list(); detail(null); placeAll(); buildLegend();
+      if (state.scoped) restoreView(); else frameSelection();
+      updateFloorControls();
+    });
+    $("locate-floor").onclick = locateFloor;
+    $("floor-context").onclick = () => { state.isolate = !state.isolate; fade(); updateFloorControls(); };
+    $("floors").addEventListener("click", (e) => { const b = e.target.closest("[data-floor]"); if (b) selectFloor(b.dataset.floor, { scroll: false }); });
+    $("modes").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-mode]"); if (!b) return;
+      state.mode = b.dataset.mode;
+      for (const x of document.querySelectorAll("#modes button")) x.setAttribute("aria-pressed", String(x === b));
+      rebuildAll();
+      buildLabels();
+      detail(state.focus ? byId[state.focus] : null);
+    });
+    function cptRouteCam() {
+      const points = data.route.path.map(s => new THREE.Vector3(s.p[0], yOf(byId[s.floor]), -s.p[1]));
+      const bounds = new THREE.Box3().setFromPoints(points);
+      setCam(bounds.getCenter(new THREE.Vector3()), Math.max(65,bounds.getSize(new THREE.Vector3()).length()*.72));
+      if (joinedCpt) {
+        camera.updateMatrixWorld();
+        const extent = Math.max(...points.map(p => {
+          const q = p.project(camera);
+          return Math.max(Math.abs(q.x), Math.abs(q.y));
+        }));
+        camera.zoom = Math.min(.81 / extent, 3);
+      } else camera.zoom = Math.min(stage.clientWidth / stage.clientHeight * (camera.top-camera.bottom) / 145, 3);
+      camera.updateProjectionMatrix();
+    }
+    $("route-btn").addEventListener("click", (e) => {
+      state.route = !state.route; e.currentTarget.setAttribute("aria-pressed", String(state.route));
+      if (state.route && state.scoped) {
+        state.scoped = false; state.focus = null;
+        tabs(); list(); placeAll(); detail(null); frameSelection();
+      }
+      if (isCpt) {
+        state.focus = null; state.tab = "retail";
+        if (state.route) { state.spread = 0; $("spread").value = 0; }
+        tabs(); list(); placeAll(); buildLabels(); detail(null);
+        if (state.route) cptRouteCam(); else overview();
+      }
+      buildRoute(); buildLegend(); updateFloorControls();
+      if (MODEL === "57-st-7-av") detail(state.focus ? byId[state.focus] : null);
+    });
+    $("spread").addEventListener("input", (e) => { state.spread = +e.target.value; placeAll(); updateFloorControls(); });
+
+    const ray = new THREE.Raycaster();
+    const canvas = renderer.domElement;
+    function floorAt(ev) {
+      const box = canvas.getBoundingClientRect();
+      ray.setFromCamera(new THREE.Vector2(((ev.clientX - box.left) / box.width) * 2 - 1, 1 - ((ev.clientY - box.top) / box.height) * 2), camera);
+      return ray.intersectObjects(pickables, false).find(hit => groups.get(hit.object.userData.floor?.id)?.visible)?.object.userData.floor ?? null;
+    }
+    let down = null;
+    canvas.addEventListener("pointerdown", (e) => { down = [e.clientX, e.clientY]; });
+    canvas.addEventListener("pointerup", (e) => {
+      if (down && Math.hypot(e.clientX - down[0], e.clientY - down[1]) < 5) {
+        const f = floorAt(e);
+        if (f) selectFloor(f.id);
+      }
+      down = null;
+    });
+    let lastMove = 0;
+    canvas.addEventListener("pointermove", (e) => {
+      if (e.buttons || performance.now() - lastMove < 50 || e.pointerType === "touch") return;
+      lastMove = performance.now();
+      const f = floorAt(e);
+      const hover = $("hover");
+      hover.hidden = !f;
+      canvas.style.cursor = f ? "pointer" : "grab";
+      if (f) {
+        const box = stage.getBoundingClientRect();
+        hover.textContent = f.building === "shops" || f.zones ? `${data.buildings[f.building].name}: ${f.name}` : `${data.buildings[f.building].name}, ${f.label}: ${f.name}`;
+        hover.style.transform = `translate(${Math.min(e.clientX - box.left + 12, box.width - 240)}px, ${e.clientY - box.top + 12}px)`;
+      }
+    });
+    canvas.addEventListener("pointerleave", () => { $("hover").hidden = true; });
+
+    // In the app this page opens over the map: the button goes back
+    if (window.parent !== window) {
+      $("close").hidden = false;
+      $("close").addEventListener("click", () => window.parent.postMessage({ type: "close-floors" }, location.origin));
+    }
+
+    new ResizeObserver(() => { resizeView(); updateFloorControls(); }).observe(stage);
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { rebuildAll(); buildLabels(); });
+
+    root.add(links, routeGroup);
+    if (data.systems) document.querySelector('[data-mode="systems"]').hidden = false;
+    tabs(); list(); detail(null);
+    rebuildAll();
+    buildLabels();
+    overview();
+    placeAll();
+    const startFloor = params.get("floor");
+    if (startFloor && byId[startFloor]) selectFloor(startFloor, {frame: true});
+
+    let stationPlayer;
+    if(data.station_journeys){
+      const btn=document.createElement('button');btn.textContent='Herald Route Play';btn.className='pill';btn.style.cssText='position:absolute;left:16px;top:78px;z-index:9;padding:10px 16px;border-radius:12px';stage.append(btn);
+      stationPlayer=stationRoutePlayer({journeys:data.station_journeys,elevations:Object.fromEntries(floors.map(f=>[f.id,f.elev_m])),scene,camera,controls,stage,
+        activate(on){if(on){state.spread=0;state.focus=null;state.scoped=false;state.tab='station';state.route=false;$('spread').value=0;$('route-btn').setAttribute('aria-pressed','false');tabs();list();detail(null);placeAll();buildRoute();buildLegend();} $('spread').disabled=on;}});
+      btn.onclick=()=>stationPlayer.open();
+    }
+    const visitor = params.has("map") || window.parent !== window ? null : visitorNavigation({stage, scene, camera, controls, floors:byId, journey:data.visitor_journey, planSvg,
+      prepare() {
+        state.route = false; state.spread = 0; $("spread").value = 0; $("spread").disabled = true;
+        $("route-btn").setAttribute("aria-pressed","false"); placeAll(); buildLabels(); buildLegend();
+      },
+      select(floor) {
+        if (state.focus !== floor) selectFloor(floor,{frame:true});
+      },
+      close() { $("spread").disabled = false; },
+    });
+    renderer.setAnimationLoop((now) => {
+      visitor?.update(now);
+      stationPlayer?.update(now);
+      controls.update();
+      renderer.render(scene, camera);
+      placeLabels();
+    });
+
+    window.floorsView = { data, state, camera, controls, selectFloor, overview, groups, ready: true };
+  </script>
+</body>
+</html>

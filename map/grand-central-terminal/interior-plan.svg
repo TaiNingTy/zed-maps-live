@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1285" viewBox="0 0 1100 1285">
+<rect width="1100" height="1285" fill="#151918"/>
+<g fill="#eee9df" font-family="system-ui,sans-serif">
+<text x="40" y="54" font-size="30" font-weight="650">Grand Central Terminal · Interior circulation</text>
+<text x="40" y="82" font-size="15">Locally registered reconstruction · North up · Dimensions approximate</text>
+<text x="40" y="122" font-size="21">Main Concourse + Market</text>
+<polygon points="221,243 599,243 599,409.5 221,409.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="99.5,148.5 185,148.5 185,243 99.5,243" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="99.5,243 221,243 221,301.5 99.5,301.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="185,220.5 239,220.5 239,243 185,243" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="117.5,360 221,360 221,409.5 117.5,409.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="117.5,409.5 221,409.5 221,441 117.5,441" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="221,409.5 302,409.5 302,454.5 221,454.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="302,454.5 347,454.5 347,504 302,504" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="302,504 338,504 338,517.5 302,517.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="387.5,409.5 450.5,409.5 450.5,432 387.5,432" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="387.5,432 450.5,432 450.5,454.5 387.5,454.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="540.5,409.5 599,409.5 599,468 540.5,468" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="288.5,454.5 302,454.5 302,468 288.5,468" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="513.5,455.625 540.5,455.625 540.5,468 513.5,468" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="347,454.5 513.5,454.5 513.5,504 347,504" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="338,504 513.5,504 513.5,517.5 338,517.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="599,252 927.5,252 927.5,297 599,297" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="599,297 630.5,297 630.5,317.25 599,317.25" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="599,364.5 927.5,364.5 927.5,418.5 599,418.5" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="657.5,297 927.5,297 927.5,317.25 657.5,317.25" fill="#ddcbaa" stroke="#706858"/>
+<rect x="113" y="301.5" width="108" height="58.5" fill="#ddcbaa" stroke="#706858"/>
+<rect x="131.0" y="319.5" width="49.5" height="14.6" fill="#a26d48"/>
+<text x="155.75" y="316.5" text-anchor="middle" font-size="10" fill="#eadac0">West escalators</text>
+<rect x="599" y="317.25" width="121.5" height="42.75" fill="#ddcbaa" stroke="#706858"/>
+<rect x="653.0" y="319.5" width="49.5" height="14.6" fill="#a26d48"/>
+<text x="677.75" y="316.5" text-anchor="middle" font-size="10" fill="#eadac0">East escalators</text>
+<rect x="260" y="273" width="12" height="12" fill="#aa554d"/>
+<line x1="419.0" y1="256.5" x2="419.0" y2="220.5" stroke="#876746" stroke-width="27.0" opacity=".8"/>
+<line x1="630.5" y1="307.125" x2="657.5" y2="307.125" stroke="#91476d" stroke-width="20.25" opacity=".8"/>
+<line x1="302.0" y1="443.25" x2="383.0" y2="443.25" stroke="#876746" stroke-width="22.5" opacity=".8"/>
+<line x1="540.5" y1="443.25" x2="455.0" y2="443.25" stroke="#876746" stroke-width="22.5" opacity=".8"/>
+<polygon points="279.5,317.025 299.3,317.025 299.3,339.975 279.5,339.975" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,312.75 315.05,312.75 315.05,344.25 299.3,344.25" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,289.8 315.05,289.8 315.05,312.75 299.3,312.75" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,344.25 315.05,344.25 315.05,367.2 299.3,367.2" fill="#bd907a" stroke="#79584d"/>
+<polyline points="280.82,317.025 280.82,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="282.14,317.025 282.14,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="283.46,317.025 283.46,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="284.78,317.025 284.78,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="286.1,317.025 286.1,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="287.42,317.025 287.42,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="288.74,317.025 288.74,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="290.06,317.025 290.06,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="291.38,317.025 291.38,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="292.7,317.025 292.7,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="294.02,317.025 294.02,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="295.34,317.025 295.34,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="296.66,317.025 296.66,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="297.98,317.025 297.98,339.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,311.316 315.05,311.316" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,309.881 315.05,309.881" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,308.447 315.05,308.447" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,307.013 315.05,307.013" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,305.578 315.05,305.578" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,304.144 315.05,304.144" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,302.709 315.05,302.709" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,301.275 315.05,301.275" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,299.841 315.05,299.841" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,298.406 315.05,298.406" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,296.972 315.05,296.972" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,295.538 315.05,295.538" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,294.103 315.05,294.103" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,292.669 315.05,292.669" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,291.234 315.05,291.234" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,345.684 315.05,345.684" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,347.119 315.05,347.119" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,348.553 315.05,348.553" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,349.987 315.05,349.987" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,351.422 315.05,351.422" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,352.856 315.05,352.856" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,354.291 315.05,354.291" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,355.725 315.05,355.725" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,357.159 315.05,357.159" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,358.594 315.05,358.594" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,360.028 315.05,360.028" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,361.462 315.05,361.462" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,362.897 315.05,362.897" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,364.331 315.05,364.331" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,365.766 315.05,365.766" stroke="#79584d" stroke-width=".45"/>
+<polygon points="558.5,316.8 540.05,316.8 540.05,340.2 558.5,340.2" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,312.525 522.95,312.525 522.95,344.475 540.05,344.475" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,287.55 522.95,287.55 522.95,312.525 540.05,312.525" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,344.475 522.95,344.475 522.95,369.45 540.05,369.45" fill="#bd907a" stroke="#79584d"/>
+<polyline points="557.27,316.8 557.27,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="556.04,316.8 556.04,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="554.81,316.8 554.81,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="553.58,316.8 553.58,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="552.35,316.8 552.35,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="551.12,316.8 551.12,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="549.89,316.8 549.89,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="548.66,316.8 548.66,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="547.43,316.8 547.43,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="546.2,316.8 546.2,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="544.97,316.8 544.97,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="543.74,316.8 543.74,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="542.51,316.8 542.51,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="541.28,316.8 541.28,340.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,310.964 522.95,310.964" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,309.403 522.95,309.403" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,307.842 522.95,307.842" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,306.281 522.95,306.281" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,304.72 522.95,304.72" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,303.159 522.95,303.159" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,301.598 522.95,301.598" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,300.038 522.95,300.038" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,298.477 522.95,298.477" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,296.916 522.95,296.916" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,295.355 522.95,295.355" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,293.794 522.95,293.794" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,292.233 522.95,292.233" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,290.672 522.95,290.672" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,289.111 522.95,289.111" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,346.036 522.95,346.036" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,347.597 522.95,347.597" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,349.158 522.95,349.158" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,350.719 522.95,350.719" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,352.28 522.95,352.28" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,353.841 522.95,353.841" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,355.402 522.95,355.402" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,356.962 522.95,356.962" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,358.523 522.95,358.523" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,360.084 522.95,360.084" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,361.645 522.95,361.645" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,363.206 522.95,363.206" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,364.767 522.95,364.767" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,366.328 522.95,366.328" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,367.889 522.95,367.889" stroke="#79584d" stroke-width=".45"/>
+<text x="419.0" y="342.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Main Concourse</text>
+<text x="140.0" y="175.5" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Biltmore Room</text>
+<text x="158.0" y="279.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Biltmore Concourse</text>
+<text x="167.0" y="427.5" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Shuttle Passage</text>
+<text x="419.0" y="443.25" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Bridge over the Oyster Bar ramps</text>
+<text x="432.5" y="481.5" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Vanderbilt Hall</text>
+<text x="423.5" y="513.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Onassis Foyer</text>
+<text x="761.0" y="274.5" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Graybar Passage</text>
+<text x="761.0" y="396.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Lexington Passage</text>
+<text x="563.0" y="423.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">42nd Street Passage</text>
+<text x="774.5" y="307.79999999999995" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Grand Central Market</text>
+<text x="40" y="525" font-size="21">Balconies</text>
+<polygon points="221,646 279.5,646 279.5,871 221,871" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="279.5,605.5 558.5,605.5 558.5,646 432.5,646 432.5,623.5 405.5,623.5 405.5,646 279.5,646" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="558.5,646 599,646 599,871 558.5,871" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="221,605.5 279.5,605.5 279.5,646 221,646" fill="#ddcbaa" stroke="#706858"/>
+<polygon points="558.5,605.5 599,605.5 599,646 558.5,646" fill="#ddcbaa" stroke="#706858"/>
+<rect x="558.5" y="646" width="40.5" height="207" fill="#c78f52" fill-opacity=".33" stroke="#8b6039" stroke-dasharray="3 2"/>
+<rect x="437" y="605.5" width="162" height="40.5" fill="#c78f52" fill-opacity=".33" stroke="#8b6039" stroke-dasharray="3 2"/>
+<rect x="584.487" y="667.712" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="584.487" y="688.862" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="584.487" y="762.212" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="584.487" y="783.362" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="584.487" y="804.513" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="584.487" y="825.662" width="4.725" height="11.475" fill="#85562f"/>
+<rect x="455.562" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<rect x="477.612" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<rect x="499.663" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<rect x="521.712" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<rect x="543.763" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<rect x="565.812" y="616.188" width="11.475" height="4.725" fill="#85562f"/>
+<text x="606.75" y="735.5" font-size="12" fill="#eee9df">Apple Grand Central · reconstructed layout</text>
+<line x1="419.0" y1="659.5" x2="419.0" y2="623.5" stroke="#876746" stroke-width="27.0" opacity=".8"/>
+<polygon points="279.5,720.025 299.3,720.025 299.3,742.975 279.5,742.975" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,715.75 315.05,715.75 315.05,747.25 299.3,747.25" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,692.8 315.05,692.8 315.05,715.75 299.3,715.75" fill="#bd907a" stroke="#79584d"/>
+<polygon points="299.3,747.25 315.05,747.25 315.05,770.2 299.3,770.2" fill="#bd907a" stroke="#79584d"/>
+<polyline points="280.82,720.025 280.82,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="282.14,720.025 282.14,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="283.46,720.025 283.46,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="284.78,720.025 284.78,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="286.1,720.025 286.1,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="287.42,720.025 287.42,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="288.74,720.025 288.74,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="290.06,720.025 290.06,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="291.38,720.025 291.38,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="292.7,720.025 292.7,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="294.02,720.025 294.02,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="295.34,720.025 295.34,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="296.66,720.025 296.66,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="297.98,720.025 297.98,742.975" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,714.316 315.05,714.316" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,712.881 315.05,712.881" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,711.447 315.05,711.447" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,710.013 315.05,710.013" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,708.578 315.05,708.578" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,707.144 315.05,707.144" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,705.709 315.05,705.709" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,704.275 315.05,704.275" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,702.841 315.05,702.841" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,701.406 315.05,701.406" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,699.972 315.05,699.972" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,698.538 315.05,698.538" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,697.103 315.05,697.103" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,695.669 315.05,695.669" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,694.234 315.05,694.234" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,748.684 315.05,748.684" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,750.119 315.05,750.119" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,751.553 315.05,751.553" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,752.987 315.05,752.987" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,754.422 315.05,754.422" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,755.856 315.05,755.856" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,757.291 315.05,757.291" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,758.725 315.05,758.725" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,760.159 315.05,760.159" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,761.594 315.05,761.594" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,763.028 315.05,763.028" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,764.462 315.05,764.462" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,765.897 315.05,765.897" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,767.331 315.05,767.331" stroke="#79584d" stroke-width=".45"/>
+<polyline points="299.3,768.766 315.05,768.766" stroke="#79584d" stroke-width=".45"/>
+<polygon points="558.5,719.8 540.05,719.8 540.05,743.2 558.5,743.2" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,715.525 522.95,715.525 522.95,747.475 540.05,747.475" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,690.55 522.95,690.55 522.95,715.525 540.05,715.525" fill="#bd907a" stroke="#79584d"/>
+<polygon points="540.05,747.475 522.95,747.475 522.95,772.45 540.05,772.45" fill="#bd907a" stroke="#79584d"/>
+<polyline points="557.27,719.8 557.27,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="556.04,719.8 556.04,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="554.81,719.8 554.81,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="553.58,719.8 553.58,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="552.35,719.8 552.35,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="551.12,719.8 551.12,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="549.89,719.8 549.89,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="548.66,719.8 548.66,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="547.43,719.8 547.43,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="546.2,719.8 546.2,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="544.97,719.8 544.97,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="543.74,719.8 543.74,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="542.51,719.8 542.51,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="541.28,719.8 541.28,743.2" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,713.964 522.95,713.964" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,712.403 522.95,712.403" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,710.842 522.95,710.842" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,709.281 522.95,709.281" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,707.72 522.95,707.72" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,706.159 522.95,706.159" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,704.598 522.95,704.598" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,703.038 522.95,703.038" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,701.477 522.95,701.477" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,699.916 522.95,699.916" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,698.355 522.95,698.355" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,696.794 522.95,696.794" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,695.233 522.95,695.233" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,693.672 522.95,693.672" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,692.111 522.95,692.111" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,749.036 522.95,749.036" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,750.597 522.95,750.597" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,752.158 522.95,752.158" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,753.719 522.95,753.719" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,755.28 522.95,755.28" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,756.841 522.95,756.841" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,758.402 522.95,758.402" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,759.962 522.95,759.962" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,761.523 522.95,761.523" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,763.084 522.95,763.084" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,764.645 522.95,764.645" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,766.206 522.95,766.206" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,767.767 522.95,767.767" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,769.328 522.95,769.328" stroke="#79584d" stroke-width=".45"/>
+<polyline points="540.05,770.889 522.95,770.889" stroke="#79584d" stroke-width=".45"/>
+<text x="248.0" y="700.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">West Balcony</text>
+<text x="419.0" y="619.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">North Balcony</text>
+<text x="581.0" y="700.0" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">East Balcony</text>
+<text x="40" y="870" font-size="21">Dining Concourse</text>
+<polygon points="212,982 621.5,982 621.5,1203.62 527,1203.62 527,1225 459.5,1225 459.5,1203.62 212,1203.62" fill="#ddcbaa" stroke="#706858"/>
+<rect x="180.5" y="1049.5" width="31.5" height="58.5" fill="#ddcbaa" stroke="#706858"/>
+<rect x="131.0" y="1067.5" width="49.5" height="14.6" fill="#a26d48"/>
+<text x="155.75" y="1064.5" text-anchor="middle" font-size="10" fill="#eadac0">West escalators</text>
+<rect x="621.5" y="1049.5" width="31.5" height="58.5" fill="#ddcbaa" stroke="#706858"/>
+<rect x="653.0" y="1067.5" width="49.5" height="14.6" fill="#a26d48"/>
+<text x="677.75" y="1064.5" text-anchor="middle" font-size="10" fill="#eadac0">East escalators</text>
+<rect x="260" y="1021" width="12" height="12" fill="#aa554d"/>
+<line x1="302.0" y1="1191.25" x2="383.0" y2="1191.25" stroke="#876746" stroke-width="22.5" opacity=".8"/>
+<line x1="540.5" y1="1191.25" x2="455.0" y2="1191.25" stroke="#876746" stroke-width="22.5" opacity=".8"/>
+<text x="419.0" y="1076.5" text-anchor="middle" dominant-baseline="middle" font-size="12" paint-order="stroke" stroke="#ddcbaa" stroke-width="2.5" fill="#1e211e">Dining Concourse</text>
+<text x="419.0" y="1191.25" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#1e211e">Whispering Gallery</text>
+<text x="40" y="1258" font-size="14">Purple: stairs · Brown: ramps / escalators · Red: elevator · Grand Central Terminal Architectural Design Guidelines, pp. 8–11</text>
+</g></svg>

@@ -1,0 +1,5 @@
+// Horizontal footprint shared by slab cut-outs, landing meshes and geometry checks.
+export function landingLayout(c,end){const p=end==='a'?c.from:c.to,other=end==='a'?c.to:c.from;const lift=c.kind==='elevator';const sign=lift?1:Math.sign(p[1]-other[1]);const shift=c.kind==='escalator'?1.35:0;const start=lift?1.8:0,depth=3,width=lift?4.4:c.kind==='escalator'?5.2:4.2;const x=p[0]+shift,z=p[1]+sign*(start+depth/2);return{x,z,width,depth,sign,start,edgeX:p[0]+shift,edgeZ:p[1],bounds:[x-width/2,z-depth/2,x+width/2,z+depth/2]};}
+export function floorCuts(c,end){const p=landingLayout(c,end);return[p.x,p.z,p.width,p.depth];}
+// Continuous U guard plus short corner returns to the upper landing side guards.
+export function openingRails(c){if(!c.opening||c.kind==='elevator')return[];const [x,z,w,d]=c.opening,sign=Math.sign(c.to[1]-c.from[1]),top=c.to[1],closed=z-sign*d/2,q=landingLayout(c,'b');const out=[];for(const side of[-1,1]){const edge=x+side*w/2;out.push([[edge,closed],[edge,top]]);const join=q.edgeX+side*q.width/2;if(Math.abs(edge-join)>1e-8)out.push([[edge,top],[join,top]]);}out.push([[x-w/2,closed],[x+w/2,closed]]);return out;}

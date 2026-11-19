@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "unchanged_files": [
+    "model.json",
+    "anchors.js",
+    "connection-layout.js",
+    "circulation-layout.js",
+    "station-massing.js",
+    "penn-interiors.js",
+    "upper-corridors.js",
+    "interior-clearance.js",
+    "journeys.js",
+    "route-view.js",
+    "floorkit.js"
+  ],
+  "unchanged_app_geometry_blocks": 2,
+  "scope": "Interior data, geometry generation, circulation and route definitions unchanged; exterior view hooks only"
+}

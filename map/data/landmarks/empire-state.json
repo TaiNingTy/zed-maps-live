@@ -1,0 +1,55 @@
+{
+ "name": "Empire State Building",
+ "origin_lonlat": [
+  -73.986682947706,
+  40.748605687253
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1015862",
+ "osm_outline": "way/34633854",
+ "parts": 11,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 1,
+ "roof_shapes": {
+  "flat": 9,
+  "pyramidal": 2
+ },
+ "facade_styles": {
+  "masonry": 539,
+  "roof": 181
+ },
+ "triangles": 720,
+ "checks": {
+  "max_height_m": 443.2,
+  "nyc_height_m": 377.6,
+  "closest_part_top_m": 390.0,
+  "height_ok": true,
+  "height_status": "warn",
+  "max_vertex_outside_nyc_footprint_m": 1.12,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "F80": {
+    "height_m": 293.72,
+    "corners": 4,
+    "inside": 4
+   },
+   "F86": {
+    "height_m": 320.0,
+    "corners": 9,
+    "inside": 9
+   }
+  }
+ },
+ "address": "350 5th Ave, New York, NY 10118",
+ "task": "Observatory visit: 34 St\u2013Herald Sq to the observation deck entrance at 20 W 34th St, lobby, exhibits, 80th floor, 86th Floor open-air deck; 102nd Floor with a booking. Office entrances are not modelled.",
+ "open_questions": [
+  "Security screening and the way out are not in the official pages read; leaving reverses the way in and is labelled scenario.",
+  "Exhibits on the 2nd floor and the escalator from the lobby are inferred from MTA's guide (restrooms on the 2nd, an escalator).",
+  "OSM maps the tower parts but not the base wings, and draws the mast as a pyramid: lobby, 2nd and 102nd floors are not checked against the parts.",
+  "OSM's tallest part is 12 m off NYC's roof height (mast); flagged 'warn'."
+ ]
+}

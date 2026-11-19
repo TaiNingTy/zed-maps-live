@@ -1,0 +1,53 @@
+{
+ "name": "30 Hudson Yards (Edge)",
+ "origin_lonlat": [
+  -74.0019475,
+  40.7531412
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "Floor by floor from data/buildings/hudson-yards.json (leasing deck, Architectural Record); OSM parts as a check",
+ "bin": "1088961",
+ "osm_outline": "way/264656626",
+ "parts": 11,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 7,
+  "skillion": 4
+ },
+ "facade_styles": {
+  "metal": 228,
+  "glass": 4488
+ },
+ "triangles": 4716,
+ "checks": {
+  "max_height_m": 395.0,
+  "nyc_height_m": 385.6,
+  "closest_part_top_m": 395.0,
+  "height_ok": true,
+  "height_status": "warn",
+  "max_vertex_outside_nyc_footprint_m": 4.3,
+  "footprint_ok": true,
+  "footprint_status": "warn",
+  "floors": {
+   "L100": {
+    "height_m": 336.6,
+    "corners": 17,
+    "inside": 17
+   }
+  }
+ },
+ "campus_bins": [
+  "1089323"
+ ],
+ "address": "30 Hudson Yards, New York, NY 10001",
+ "task": "Timed-ticket visitor: 7 train to 34 St & Hudson Blvd, south toward Vessel into The Shops, up to the Edge entrance on Level 4, ticket scan, security, installations, 52-second elevator to the Level 100 sky deck.",
+ "open_questions": [
+  "Edge publishes the steps but no floor plan: positions on Level 4 and Level 100 are assumed.",
+  "The order of ticket scan and security is assumed; the way out is not published (a separate exit back into The Shops is assumed).",
+  "The exterior, floors and sky deck come from the floor-by-floor model (leasing deck, Architectural Record, KPF). Level heights of The Shops are assumed; Level 4, at about 16 m, follows the lowest stop of the shaft taken to be Edge's.",
+  "Separately ticketed experiences (e.g. City Climb) and Peak restaurant use other entrances; not modelled."
+ ]
+}

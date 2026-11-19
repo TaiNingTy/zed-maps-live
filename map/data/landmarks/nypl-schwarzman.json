@@ -1,0 +1,56 @@
+{
+ "name": "New York Public Library, Stephen A. Schwarzman Building",
+ "origin_lonlat": [
+  -73.983010623209,
+  40.752915025327
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "OpenStreetMap building:part (ODbL)",
+ "bin": "1034194",
+ "osm_outline": "way/265302076",
+ "parts": 11,
+ "outline_only": false,
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "flat": 6,
+  "hipped": 4,
+  "gabled": 1
+ },
+ "facade_styles": {
+  "masonry": 500,
+  "roof": 1520
+ },
+ "triangles": 2020,
+ "checks": {
+  "max_height_m": 35.0,
+  "nyc_height_m": 38.2,
+  "closest_part_top_m": 35.0,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 0.38,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "G": {
+    "height_m": 5.0,
+    "corners": 4,
+    "inside": 4
+   },
+   "F1": {
+    "height_m": 9.5,
+    "corners": 14,
+    "inside": 14
+   }
+  }
+ },
+ "address": "476 5th Ave, New York, NY 10018",
+ "task": "Step-free to the Visitor Center: 42nd St ramp entrance (10 W 42nd St), security / visitor desk, left to the elevators, first floor, Room 115 information desk. Fifth Ave front steps to Astor Hall as the alternative.",
+ "open_questions": [
+  "NYPL's guide gives the sequence, not a floor plan: the door position, the elevators and Room 115's orientation are assumed.",
+  "Ramp slope, clear widths and door operation at the 42nd St entrance are not published; marked unknown, not 'verified accessible'.",
+  "NYPL's main location page sits behind a bot check and was not read; the 40th St entrance and the building-wide elevator are not modelled.",
+  "The building is under renovation; check opening and routes before visiting."
+ ]
+}

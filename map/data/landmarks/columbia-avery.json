@@ -1,0 +1,438 @@
+{
+ "name": "Columbia University, Avery Hall",
+ "origin_lonlat": [
+  -73.963649,
+  40.807923
+ ],
+ "facade_floor_m": 4.5,
+ "frame": "x east, y up, z south; metres",
+ "source": "NYC 3-D Building Model (2014, LOD2): walls and roof; campus from the NYC 3-D Building Model (2014, LOD2) where it has the building, else NYC Building Footprints and data/landmarks/columbia-campus.json",
+ "bin": "1084460",
+ "osm_outline": "way/738973811",
+ "parts": 0,
+ "outline_only": false,
+ "shell": {
+  "source": "nyc3d",
+  "gml_id": "gml_W328N6RB5O02FY66RRQTM6WTU1P7K1GEKXXS",
+  "top_m": 26.8
+ },
+ "parts_height_inherited": 0,
+ "parts_with_holes": 0,
+ "roof_shapes": {
+  "nyc3d-lod2": 1
+ },
+ "facade_styles": {
+  "masonry": 6734,
+  "brick": 513,
+  "brick_window": 28,
+  "hardscape": 4540,
+  "stone": 302,
+  "roof": 2861,
+  "water": 61,
+  "brick_arched": 14,
+  "tree": 7164,
+  "ground": 76770
+ },
+ "triangles": 98987,
+ "checks": {
+  "max_height_m": 26.78,
+  "nyc_height_m": 26.5,
+  "closest_part_top_m": 26.78,
+  "height_ok": true,
+  "height_status": "ok",
+  "max_vertex_outside_nyc_footprint_m": 0.93,
+  "footprint_ok": true,
+  "footprint_status": "ok",
+  "floors": {
+   "C": {
+    "height_m": 0.5,
+    "corners": 8,
+    "inside": 8
+   }
+  }
+ },
+ "campus_bins": [
+  "1795029",
+  "1084846",
+  "1084469",
+  "1084465",
+  "1082692",
+  "1084845",
+  "1084458",
+  "1084473",
+  "1795030",
+  "1084475",
+  "1082166",
+  "1089234",
+  "1084457",
+  "1082159",
+  "1084466",
+  "1084459",
+  "1084463",
+  "1084472",
+  "1082160",
+  "1082164",
+  "1084464",
+  "1082163",
+  "1084461",
+  "1089910",
+  "1084471",
+  "1083301",
+  "1084467",
+  "1082165",
+  "1084477",
+  "1084468",
+  "1084470",
+  "1090094",
+  "1084474",
+  "1084476"
+ ],
+ "campus_geometry": {
+  "1795029": {
+   "geometry": "footprint block",
+   "nyc_roof_m": 47.9
+  },
+  "1084846": {
+   "geometry": "nyc3d",
+   "model_bin": "1084846",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 30.1,
+   "nyc_roof_m": 30.1,
+   "roof_faces": 2,
+   "clamped_vertices": 90
+  },
+  "1084469": {
+   "geometry": "nyc3d",
+   "model_bin": "1084469",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 38.9,
+   "nyc_roof_m": 39.0,
+   "roof_faces": 4,
+   "clamped_vertices": 318
+  },
+  "1084465": {
+   "geometry": "nyc3d",
+   "model_bin": "1084465",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.93,
+   "top_m": 25.8,
+   "nyc_roof_m": 25.8,
+   "roof_faces": 1,
+   "clamped_vertices": 0
+  },
+  "1082692": {
+   "geometry": "nyc3d",
+   "model_bin": "1082692",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.93,
+   "top_m": 50.2,
+   "nyc_roof_m": 43.5,
+   "roof_faces": 6,
+   "clamped_vertices": 96
+  },
+  "1084845": {
+   "geometry": "nyc3d",
+   "model_bin": "1084845",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 31.1,
+   "nyc_roof_m": 31.1,
+   "roof_faces": 3,
+   "clamped_vertices": 96
+  },
+  "1084458": {
+   "geometry": "nyc3d",
+   "model_bin": "1084458",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 29.0,
+   "nyc_roof_m": 29.0,
+   "roof_faces": 1,
+   "clamped_vertices": 84
+  },
+  "1084473": {
+   "geometry": "nyc3d",
+   "model_bin": "1084473",
+   "outline_median_m": 0.56,
+   "outline_max_m": 0.93,
+   "top_m": 45.8,
+   "nyc_roof_m": 40.3,
+   "roof_faces": 11,
+   "clamped_vertices": 654
+  },
+  "1795030": {
+   "geometry": "footprint block",
+   "nyc_roof_m": 50.3
+  },
+  "1084475": {
+   "geometry": "nyc3d",
+   "model_bin": "1084475",
+   "outline_median_m": 0.57,
+   "outline_max_m": 0.92,
+   "top_m": 18.3,
+   "nyc_roof_m": 18.7,
+   "roof_faces": 5,
+   "clamped_vertices": 132
+  },
+  "1082166": {
+   "geometry": "nyc3d",
+   "model_bin": "1082166",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.92,
+   "top_m": 33.8,
+   "nyc_roof_m": 33.8,
+   "roof_faces": 3,
+   "clamped_vertices": 84
+  },
+  "1089234": {
+   "geometry": "nyc3d",
+   "model_bin": "1089234",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.93,
+   "top_m": 49.0,
+   "nyc_roof_m": 49.1,
+   "roof_faces": 2,
+   "clamped_vertices": 210
+  },
+  "1084457": {
+   "geometry": "nyc3d",
+   "model_bin": "1084457",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.93,
+   "top_m": 25.7,
+   "nyc_roof_m": 25.6,
+   "roof_faces": 1,
+   "clamped_vertices": 162
+  },
+  "1082159": {
+   "geometry": "nyc3d",
+   "model_bin": "1082159",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.92,
+   "top_m": 25.4,
+   "nyc_roof_m": 25.6,
+   "roof_faces": 2,
+   "clamped_vertices": 168
+  },
+  "1084466": {
+   "geometry": "nyc3d",
+   "model_bin": "1084466",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.92,
+   "top_m": 33.8,
+   "nyc_roof_m": 33.5,
+   "roof_faces": 36,
+   "clamped_vertices": 0
+  },
+  "1084459": {
+   "geometry": "nyc3d",
+   "model_bin": "1084459",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 26.7,
+   "nyc_roof_m": 26.9,
+   "roof_faces": 13,
+   "clamped_vertices": 174
+  },
+  "1084463": {
+   "geometry": "nyc3d",
+   "model_bin": "1084463",
+   "outline_median_m": 0.56,
+   "outline_max_m": 0.92,
+   "top_m": 44.2,
+   "nyc_roof_m": 44.9,
+   "roof_faces": 3,
+   "clamped_vertices": 84
+  },
+  "1084472": {
+   "geometry": "nyc3d",
+   "model_bin": "1084472",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.93,
+   "top_m": 40.8,
+   "nyc_roof_m": 40.9,
+   "roof_faces": 62,
+   "clamped_vertices": 0
+  },
+  "1082160": {
+   "geometry": "nyc3d",
+   "model_bin": "1082160",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.93,
+   "top_m": 32.1,
+   "nyc_roof_m": 32.1,
+   "roof_faces": 2,
+   "clamped_vertices": 66
+  },
+  "1082164": {
+   "geometry": "nyc3d",
+   "model_bin": "1082164",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.93,
+   "top_m": 34.4,
+   "nyc_roof_m": 31.0,
+   "roof_faces": 3,
+   "clamped_vertices": 108
+  },
+  "1084464": {
+   "geometry": "nyc3d",
+   "model_bin": "1084464",
+   "outline_median_m": 0.72,
+   "outline_max_m": 0.93,
+   "top_m": 38.3,
+   "nyc_roof_m": 35.3,
+   "roof_faces": 109,
+   "clamped_vertices": 0
+  },
+  "1082163": {
+   "geometry": "nyc3d",
+   "model_bin": "1082163",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.93,
+   "top_m": 32.6,
+   "nyc_roof_m": 32.6,
+   "roof_faces": 3,
+   "clamped_vertices": 168
+  },
+  "1084461": {
+   "geometry": "nyc3d",
+   "model_bin": "1084461",
+   "outline_median_m": 0.57,
+   "outline_max_m": 0.93,
+   "top_m": 31.2,
+   "nyc_roof_m": 29.9,
+   "roof_faces": 45,
+   "clamped_vertices": 612
+  },
+  "1089910": {
+   "geometry": "nyc3d",
+   "model_bin": "1084474",
+   "outline_median_m": 0.74,
+   "outline_max_m": 4.51,
+   "top_m": 69.5,
+   "nyc_roof_m": 69.5,
+   "roof_faces": 7,
+   "clamped_vertices": 156
+  },
+  "1084471": {
+   "geometry": "nyc3d",
+   "model_bin": "1084471",
+   "outline_median_m": 0.62,
+   "outline_max_m": 0.93,
+   "top_m": 13.0,
+   "nyc_roof_m": 13.0,
+   "roof_faces": 1,
+   "clamped_vertices": 0
+  },
+  "1083301": {
+   "geometry": "nyc3d",
+   "model_bin": "1083301",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.93,
+   "top_m": 47.2,
+   "nyc_roof_m": 47.2,
+   "roof_faces": 3,
+   "clamped_vertices": 150
+  },
+  "1084467": {
+   "geometry": "nyc3d",
+   "model_bin": "1084467",
+   "outline_median_m": 0.74,
+   "outline_max_m": 0.93,
+   "top_m": 26.2,
+   "nyc_roof_m": 26.2,
+   "roof_faces": 1,
+   "clamped_vertices": 54
+  },
+  "1082165": {
+   "geometry": "nyc3d",
+   "model_bin": "1082165",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 36.7,
+   "nyc_roof_m": 37.1,
+   "roof_faces": 9,
+   "clamped_vertices": 114
+  },
+  "1084477": {
+   "geometry": "nyc3d",
+   "model_bin": "1084477",
+   "outline_median_m": 0.71,
+   "outline_max_m": 0.93,
+   "top_m": 63.2,
+   "nyc_roof_m": 64.3,
+   "roof_faces": 5,
+   "clamped_vertices": 84
+  },
+  "1084468": {
+   "geometry": "nyc3d",
+   "model_bin": "1084468",
+   "outline_median_m": 0.55,
+   "outline_max_m": 0.92,
+   "top_m": 38.1,
+   "nyc_roof_m": 38.1,
+   "roof_faces": 5,
+   "clamped_vertices": 504
+  },
+  "1084470": {
+   "geometry": "nyc3d",
+   "model_bin": "1084470",
+   "outline_median_m": 0.75,
+   "outline_max_m": 0.93,
+   "top_m": 3.1,
+   "nyc_roof_m": 3.1,
+   "roof_faces": 1,
+   "clamped_vertices": 0
+  },
+  "1090094": {
+   "geometry": "nyc3d",
+   "model_bin": "1000000",
+   "outline_median_m": 0.79,
+   "outline_max_m": 0.93,
+   "top_m": 4.4,
+   "nyc_roof_m": 4.3,
+   "roof_faces": 1,
+   "clamped_vertices": 0
+  },
+  "1084474": {
+   "geometry": "nyc3d",
+   "model_bin": "1000000",
+   "outline_median_m": 0.55,
+   "outline_max_m": 5.68,
+   "top_m": 47.8,
+   "nyc_roof_m": 47.9,
+   "roof_faces": 6,
+   "clamped_vertices": 708
+  },
+  "1084476": {
+   "geometry": "nyc3d",
+   "model_bin": "1084476",
+   "outline_median_m": 0.56,
+   "outline_max_m": 6.5,
+   "top_m": 53.2,
+   "nyc_roof_m": 50.3,
+   "roof_faces": 8,
+   "clamped_vertices": 378
+  }
+ },
+ "context_url": "data/landmarks/columbia-avery.context.glb",
+ "detail_url": "data/landmarks/columbia-avery.detail.glb",
+ "detail_min_zoom": 16.0,
+ "terrain": {
+  "url": "data/landmarks/columbia-avery.terrain.json",
+  "datum_m": 40.05,
+  "checks": {
+   "source": "scripts/build_landscape.py (LiDAR platforms, stairs as ramps)"
+  }
+ },
+ "address": "1172 Amsterdam Ave, New York, NY 10027",
+ "task": "Approved outside researcher: campus gate at 116th St & Broadway (CUID or guest QR), College Walk, Low Library steps, around Low Library to Avery Hall; library access is separate (CUID, or a visit arranged with Avery by email).",
+ "open_questions": [
+  "Campus access level changes (level I, ID Only, when checked on 2026-11-04); re-check Public Safety before visiting.",
+  "How Avery checks an arranged visit at the door is not published (modelled as a staff check with photo ID).",
+  "No published step-free path to Avery, and 116 St station has stairs only: step-free routes are blocked with an explanation.",
+  "Walking path positions follow OSM and Avery's directions; Avery Hall's interior layout is assumed."
+ ]
+}

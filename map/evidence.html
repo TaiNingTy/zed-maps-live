@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route Evidence Tables</title>
+  <meta name="description" content="Every step of each landmark journey with the evidence behind it: what you do, where, sources with dates, and what is still uncertain.">
+  <style>
+    :root {
+      --bg: #f6f5f2; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a66; --line: #e2e0da;
+      --official: #1a7f4b; --rebuilt: #2b6cb0; --scenario: #b45309; --soft: #f1efe9;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #161615; --panel: #1f1f1d; --ink: #eeede9; --muted: #a3a29d; --line: #34332f; --soft: #2a2927;
+        --official: #3fb37a; --rebuilt: #6aa5e8; --scenario: #e39a4a; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    main { max-width: 1180px; margin: 0 auto; padding: 32px 16px 64px; }
+    a { color: inherit; }
+    .eyebrow { margin: 0; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    h1 { margin: 4px 0 8px; font-size: 28px; }
+    .lede { max-width: 760px; color: var(--muted); margin: 0 0 20px; }
+    .key { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted); margin: 0 0 20px; }
+    nav.venues { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    nav.venues a { text-decoration: none; padding: 5px 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--panel); font-size: 13px; }
+    section.venue { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 24px; scroll-margin-top: 16px; }
+    .venue-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
+    .venue-head h2 { margin: 0; font-size: 20px; }
+    .venue-head a { font-size: 13px; color: var(--muted); }
+    .task { color: var(--muted); margin: 6px 0 0; max-width: 820px; }
+    h3 { font-size: 15px; margin: 22px 0 4px; }
+    .meta { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+    .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 6px 0 2px; max-width: 360px; }
+    .bar span { display: block; }
+    .bars { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-items: center; font-size: 12px; color: var(--muted); margin: 8px 0 12px; max-width: 520px; }
+    .scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 860px; }
+    td, th { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 500; position: sticky; top: 0; background: var(--panel); }
+    td.n { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .t { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 99px; color: #fff; white-space: nowrap; }
+    .t.official { background: var(--official); } .t.rebuilt { background: var(--rebuilt); } .t.scenario { background: var(--scenario); }
+    .src { font-size: 12px; } .src a { text-decoration: underline; text-decoration-color: var(--line); }
+    .src div + div { margin-top: 4px; }
+    .date { color: var(--muted); white-space: nowrap; }
+    .unc { font-size: 12px; color: var(--muted); }
+    .unc div + div { margin-top: 3px; }
+    .none { color: var(--scenario); font-size: 12px; }
+    ul.q { margin: 4px 0 0; padding-left: 18px; color: var(--muted); }
+    details { margin-top: 12px; } summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+    footer { color: var(--muted); font-size: 12px; margin-top: 32px; }
+    @media (max-width: 720px) { h1 { font-size: 22px; } section.venue { padding: 14px; } }
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">NYC landmark wayfinding · evidence</p>
+  <h1>Route Evidence Tables</h1>
+  <p class="lede">Every step of each building's main journey, with what backs it. "What you do" and "where" are rated
+    separately: a step can be in the operator's own instructions while its exact position is placed from a map.
+    Web pages are dated by when they were read; a publication date is given only where the source states one.</p>
+  <p class="key"><span><span class="t official">official</span> the operator's or city's own information</span>
+    <span><span class="t rebuilt">rebuilt</span> placed from a public map or OpenStreetMap</span>
+    <span><span class="t scenario">scenario</span> assumed, labelled</span></p>
+  <nav class="venues" id="nav"></nav>
+  <div id="venues"></div>
+  <footer id="foot"></footer>
+</main>
+<script>
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const tier = (t) => t ? `<span class="t ${esc(t)}">${esc(t)}</span>` : "–";
+const COL = { official: "var(--official)", rebuilt: "var(--rebuilt)", scenario: "var(--scenario)" };
+function bar(counts) {
+  const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+  return `<div class="bar">${["official", "rebuilt", "scenario"].map((k) =>
+    `<span style="width:${(100 * (counts[k] || 0)) / total}%;background:${COL[k]}" title="${k}: ${counts[k] || 0}"></span>`).join("")}</div>`;
+}
+function journeyHtml(j) {
+  const sf = j.step_free.found ? `Step-free: yes (${j.step_free.steps} steps).` : `Step-free: no. ${esc(j.step_free.why)}`;
+  const rows = j.rows.map((r) => `<tr>
+    <td class="n">${r.n}</td>
+    <td>${r.from === r.to ? esc(r.from) : `${esc(r.from)} → ${esc(r.to)}`}<div class="meta">${esc(r.level)}</div></td>
+    <td>${esc(r.text)}</td>
+    <td>${tier(r.action)}</td><td>${tier(r.place)}</td>
+    <td class="src">${r.sources.length ? r.sources.map((s) => `<div><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}</a>: ${esc(s.title)}
+      <span class="date">(read ${esc(s.accessed)}; published ${esc(s.published)})</span></div>`).join("")
+      : `<span class="none">${esc(r.no_source || "none")}</span>`}</td>
+    <td class="unc">${r.uncertain.length ? r.uncertain.map((u) => `<div>${esc(u)}</div>`).join("") : "–"}</td></tr>`).join("");
+  return `<h3>${esc(j.name)}${j.basis ? ` <span class="meta">· ${esc(j.basis)}</span>` : ""}</h3>
+    <p class="meta">From ${esc(j.start)} to ${esc(j.target)}, as a visitor${j.badge ? " with a badge or ticket" : ""}, about ${j.time_min[0]}–${j.time_min[1]} min. ${sf}</p>
+    ${j.note ? `<p class="meta">${esc(j.note)}</p>` : ""}
+    <div class="bars"><span>What you do</span>${bar(j.tiers.action)}<span>Where</span>${bar(j.tiers.place)}</div>
+    <div class="scroll"><table><thead><tr><th>#</th><th>From → to</th><th>Step</th><th>What you do</th><th>Where</th>
+      <th>Sources (date read; published)</th><th>Still uncertain</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function venueHtml(v) {
+  return `<section class="venue" id="${esc(v.id)}">
+    <div class="venue-head"><h2>${esc(v.name)}</h2><a href="index.html#${esc(v.id)}">Open on the map →</a></div>
+    ${v.task ? `<p class="task">${esc(v.task)}</p>` : ""}
+    ${v.journeys.map(journeyHtml).join("")}
+    ${v.open_questions.length ? `<details open><summary>Open questions (${v.open_questions.length})</summary><ul class="q">${v.open_questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ul></details>` : ""}
+  </section>`;
+}
+fetch("data/evidence.json", { cache: "no-cache" }).then((r) => r.json()).then((d) => {
+  document.getElementById("nav").innerHTML = d.venues.map((v) => `<a href="#${esc(v.id)}">${esc(v.name)}</a>`).join("");
+  document.getElementById("venues").innerHTML = d.venues.map(venueHtml).join("");
+  document.getElementById("foot").innerHTML = `Generated ${esc(d.generated)} by scripts/build_evidence.py from the routes the map uses ·
+    <a href="index.html">Map</a> · <a href="qa.html">Data quality</a>`;
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+});
+</script>
+</body>
+</html>

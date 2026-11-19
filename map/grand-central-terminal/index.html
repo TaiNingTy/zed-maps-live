@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grand Central Terminal · Model study</title>
+<link rel="stylesheet" href="../wtc/style.css">
+<style>#levels button[hidden]{display:none}</style>
+<script type="importmap">{"imports":{"three":"../vendor/three@0.160.0/build/three.module.min.js","three/addons/":"../vendor/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<main>
+  <section id="stage" aria-label="Grand Central Terminal interactive model">
+    <div class="toolbar">
+      <button id="back" hidden>Back to map</button>
+      <button id="view" aria-pressed="false">Plan view</button>
+      <button id="shell" title="Cycle envelope display between solid, transparent, and hidden">Envelope · Solid</button>
+      <label>Spread <input id="spread" type="range" min="0" max="12" value="0"></label>
+    </div>
+    <div id="labels" aria-hidden="true"></div>
+    <div class="legend">Terminal · Metro-North · Subway · LIRR</div>
+  </section>
+  <aside>
+    <header><p class="kicker">MIDTOWN · MODEL STUDY</p><h1>Grand Central Terminal</h1>
+      <p>Explore the historic station and its connections to the city and rail network.</p></header>
+    <nav aria-label="Model areas"><button id="terminal">Terminal overview</button><button id="context" aria-pressed="false">Rail context</button></nav>
+    <section><h2>Floors and platforms</h2><div id="levels"></div>
+      <div class="actions"><button id="locate" disabled>Locate floor</button></div>
+      <p id="level-note" aria-live="polite">Select a floor to see its geometry and evidence.</p>
+    </section>
+    <section><h2>Walk through the terminal</h2>
+      <label for="journey">Route</label> <select id="journey"></select>
+      <div class="actions"><button id="route" aria-pressed="false">Show route</button><button id="play">Play</button></div>
+      <p id="status" aria-live="polite">Reconstructed public route. Thresholds, ramp geometry and elevations are approximate.</p>
+    </section>
+    <section><h2>Evidence</h2>
+      <p><a href="./interior-plan.svg">Open the interior floor plan</a>. The plan and 3D use the same circulation geometry. The East and West grand stairs follow the three-flight form in the balcony plan and landmark designation. The north balcony and side returns are modeled as architectural space; public access across tenant areas is unverified.</p>
+      <p>The directory establishes public spaces and their connections. The supplied cutaway informs the balcony and ramp treatment. The model uses local metres. The section geometry, openings and dimensions remain approximate. Historic proposals are excluded from the current rail network.</p>
+      <p>NYC Building Footprints BIN 1035381 sets the station outline and 45.8 m roof height. The 2010 building sections inform the pitched roof above the interior vault and the viaduct over the entrance. The 42nd Street route shares its threshold with the façade opening. Window spacing, sculpture, viaduct deck elevations and other architectural details are reconstructed. The viaduct shows the local approach.</p>
+      <p>The 2010 Main and Lower Concourse plans locate the east and west escalator banks and the Biltmore, Graybar and Lexington passages. The model estimates the paired escalators at 11 m long in plan and 1.82 m per unit. Physical inclines are modeled separately from operating direction, which is unverified. The elevator shaft and its served levels are a reconstruction.</p>
+      <p>The clock crest and surrounding ornaments use continuous relief surfaces reconstructed from BCA’s elevation and photos. Stone rails and interior columns use representative profiles. Bay spacing and molding dimensions are model estimates.</p>
+      <p>The B1/B2 display decks merge overlapping slab surfaces and align the Shuttle threshold and two stair landings. The east branches terminate at modeled stair exits for the Chrysler Building and the south side of 42nd Street. The Third Avenue escalators connect the eastern 7 mezzanine to a separate street landing. Street landings and grades are reconstructed. The subway uses the project’s registered station geometry, including the fare lines and two stair connections from the Shuttle Passage and 42nd Street Passage to the historic terminal. The 4 5 6 islands run along Lexington Avenue. Island direction labels use the project’s reconstruction of track order. The 7 and Shuttle run across the street grid, with the Shuttle heading toward Times Square. Stair and escalator slope indicates which landing is higher. The two terminal approaches descend below the street deck before reaching the subway stairs. The approach profile is reconstructed using the terminal section and the mapped access points; exact clearances and escalator operating directions remain unverified.
+      </p><p>Metro-North platform mouths continue north from the Main and Dining concourses. The directory establishes the gates and track order. Gibbs pages 2–4 establish the staggered platforms, track pairs and the shared southern lower-level approach to Dining, with two opposing flights. The 2010 section establishes the level order. The model uses a locally registered plan scale and a reconstructed 4 m drop; track widths, platform runs and the stair dimensions are estimates. The LIRR platforms use separate stacked caverns and connect through their mezzanine and long escalator banks to Madison Concourse. The MTA diagram reproduced in the State Comptroller audit identifies the 201–204 upper and 301–304 lower track groups, and locates the Metro-North connections relative to Madison Concourse.
+      </p><p>MTA documents direct Madison access from the west side of the Dining Concourse, Track 112 and the 45th and 47th Street cross passages. The exact connecting geometry at these interfaces is still unverified. The rail walkthroughs show the documented terminal corridors and separate Madison access. Exact boarding edges, concourse junctions and gate locations remain reconstructed.</p>
+      <ul>
+        <li><a href="https://grandcentralterminal.com/wp-content/uploads/2023/05/23063-MTA-GCT-Map-Update_Digital-Directory_V5.1.pdf">Official terminal directory</a></li>
+        <li><a href="https://www.nyc.gov/assets/planning/download/pdf/plans/east-midtown/presentation_042213.pdf">NYC Planning · Main Concourse dimensions</a></li>
+        <li><a href="https://s-media.nyc.gov/agencies/lpc/lp/1099.pdf">NYC LPC · Interior designation</a></li>
+        <li><a href="https://www.beyerblinderbelle.com/work/view/grand-central-terminal/">Terminal restoration · Beyer Blinder Belle</a></li>
+        <li><a href="https://data.cityofnewyork.us/City-Government/Building-Footprints/5zhs-2jue">NYC Building Footprints</a></li>
+        <li><a href="https://grandcentralterminal.com/wp-content/uploads/2024/01/GCT_RETAIL_ArchDesign_Guidelines_100720-20-July-2010.pdf#page=11">Terminal architectural guidelines · Building sections</a></li>
+        <li><a href="https://bcausa.com/grand-central-terminal">BCA · Restoration photos and south elevation</a></li>
+        <li><a href="https://www.meherbabatravels.com/location-gallery/usa/grand-central-station-new-york-ny-usa/">Historical and visitor photo gallery</a></li>
+        <li><a href="https://npgallery.nps.gov/NRHP/GetAsset/NHLS/75001206_text">National Register · Terminal exterior</a></li>
+        <li><a href="https://s-media.nyc.gov/agencies/lpc/lp/1127.pdf">NYC LPC · Pershing Square Viaduct</a></li>
+        <li><a href="https://jasongibbs.com/grandcentral/">Jason Gibbs · Seven floor plans, rev. 2026-05-18</a></li>
+        <li><a href="https://www.mta.info/document/22126#page=8">MTA · Subway platform topology</a></li>
+        <li><a href="https://data.ny.gov/d/94fv-bak7">MTA · Elevator and escalator inventory</a></li>
+        <li><a href="https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2025-23s28.pdf#page=14">MTA Grand Central Madison map · State Comptroller audit, Exhibit A</a></li>
+        <li><a href="https://aecom.com/projects/grand-central-madison/">AECOM · Dining Concourse and cross-passage connections</a></li>
+        <li><a href="https://www.mta.info/agency/long-island-rail-road/grand-central-madison-guide">MTA · Madison connections</a></li>
+      </ul>
+    </section>
+  </aside>
+</main>
+<script type="module" src="./view.js"></script>
+</body>
+</html>

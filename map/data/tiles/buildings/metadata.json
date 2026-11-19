@@ -1,0 +1,40 @@
+{
+ "source": "NYC Open Data, Building Footprints (5zhs-2jue), Manhattan (base_bbl 1\u2026), status Constructed",
+ "fetched": "2026-11-05",
+ "buildings": 44828,
+ "minzoom": 10,
+ "maxzoom": 15,
+ "bounds": "-74.047288,40.684283,-73.906638,40.878696",
+ "tiles": {
+  "10": {
+   "count": 2,
+   "bytes": 183232,
+   "largest": 163995
+  },
+  "11": {
+   "count": 5,
+   "bytes": 200806,
+   "largest": 163058
+  },
+  "12": {
+   "count": 7,
+   "bytes": 754961,
+   "largest": 414655
+  },
+  "13": {
+   "count": 15,
+   "bytes": 2352040,
+   "largest": 588364
+  },
+  "14": {
+   "count": 36,
+   "bytes": 2538966,
+   "largest": 264702
+  },
+  "15": {
+   "count": 107,
+   "bytes": 2809308,
+   "largest": 91087
+  }
+ }
+}

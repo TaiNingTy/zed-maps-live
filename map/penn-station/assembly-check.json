@@ -1,0 +1,276 @@
+{
+  "scope": "27 devices / 54 landing egress edges; boarding direction, up escalator lane and platform opening avoidance. Not full solid collision or headroom certification.",
+  "rows": [
+    {
+      "id": "ind-0-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-0-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-1-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "ind-2-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-0-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-1-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-S1",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-S1",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-S2",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-S2",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-ES",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-ES",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-L",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "irt-2-L",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-stairs",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-stairs",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-escalator",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-escalator",
+      "end": "b",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-elevator",
+      "end": "a",
+      "egressSupported": true
+    },
+    {
+      "id": "AB-elevator",
+      "end": "b",
+      "egressSupported": true
+    }
+  ],
+  "boardingRoutes": 2
+}

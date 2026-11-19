@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYPL · Schwarzman Building study</title>
+<link rel="stylesheet" href="../wtc/style.css">
+<script type="importmap">{"imports":{"three":"../vendor/three@0.160.0/build/three.module.min.js","three/addons/":"../vendor/three@0.160.0/examples/jsm/"}}</script>
+<main>
+<section id="stage" aria-label="Interactive Schwarzman Building model">
+  <div class="toolbar">
+    <button id="back-to-map" type="button">Back to map</button>
+    <button id="view" aria-pressed="false">Plan view</button>
+    <button id="shell">Envelope · Solid</button>
+    <label>Spread <input id="spread" type="range" min="0" max="10" value="0"></label>
+  </div>
+  <div class="legend">Marble envelope · Public rooms · Reconstructed circulation</div>
+</section>
+<aside>
+  <header><p class="kicker">MIDTOWN · MODEL STUDY</p><h1>Stephen A. Schwarzman Building</h1><p>Explore the Fifth Avenue entrance, the reading rooms and the building’s public circulation.</p></header>
+  <section><h2>Floors</h2><button id="portico">Fifth Avenue</button><div id="levels"></div><p id="note" aria-live="polite">Select a floor to inspect its geometry.</p></section>
+  <section><h2>Visitor route</h2><p>42nd Street ramp → security → elevator → Room 115</p><div class="actions"><button id="route" aria-pressed="false">Show route</button><button id="play">Play</button></div><p id="status" aria-live="polite">The library documents this sequence. The route geometry is approximate.</p></section>
+  <section><h2>Evidence</h2>
+    <p><a href="https://old-digitalcollections.nypl.org/items/510d47db-e2a2-a3d9-e040-e00a18064a99">Fifth Avenue elevation</a> · <a href="https://old-digitalcollections.nypl.org/items/510d47db-e2af-a3d9-e040-e00a18064a99">Historic cross-section</a></p>
+    <p><a href="https://s-media.nyc.gov/agencies/lpc/lp/2592.pdf">LPC dimensions</a> · <a href="https://visitorcenter.nypl.org/">NYPL Visitor Center</a> · <a href="https://evergreene.com/projects/new-york-public-library/">Statuary conservation</a></p>
+    <p>The overall envelope and reading room use published dimensions. Other room outlines, floor elevations, entrance landings and sculptural details are study geometry. Six attic figures use photo-guided poses and a published height. The pediment compositions and sculpture depths are reconstructed studies.</p>
+  </section>
+</aside>
+</main>
+<script type="module" src="./view.js"></script>
+</html>

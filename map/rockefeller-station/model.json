@@ -1,0 +1,620 @@
+{
+  "complex_id": "225",
+  "origin_lonlat": [
+    -73.98116173913044,
+    40.75895386956522
+  ],
+  "axes": "metres east and south",
+  "status": "horizontal-reference",
+  "sources": [
+    "raw/mta-entrances.json",
+    "raw/osm-rockefeller.json",
+    "rockefeller-topology.json"
+  ],
+  "features": [
+    {
+      "id": "mta-225--73.9821103,40.7580251",
+      "kind": "entrance",
+      "position": [
+        -79.72,
+        103.05
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9817936,40.7578149",
+      "kind": "entrance",
+      "position": [
+        -53.1,
+        126.37
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9816419,40.7586676",
+      "kind": "entrance",
+      "position": [
+        -40.35,
+        31.76
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9816131,40.7578802",
+      "kind": "entrance",
+      "position": [
+        -37.93,
+        119.12
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9815345,40.7579787",
+      "kind": "entrance",
+      "position": [
+        -31.33,
+        108.2
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.98132,40.7590434",
+      "kind": "entrance",
+      "position": [
+        -13.3,
+        -9.93
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.98114,40.75848",
+      "kind": "entrance",
+      "position": [
+        1.83,
+        52.58
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.981112,40.759442",
+      "kind": "entrance",
+      "position": [
+        4.18,
+        -54.16
+      ],
+      "type": "Elevator",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9810724,40.7586206",
+      "kind": "entrance",
+      "position": [
+        7.51,
+        36.98
+      ],
+      "type": "Stair",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9810633,40.7594551",
+      "kind": "entrance",
+      "position": [
+        8.27,
+        -55.61
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9808688,40.7590201",
+      "kind": "entrance",
+      "position": [
+        24.62,
+        -7.35
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9807323,40.7599252",
+      "kind": "entrance",
+      "position": [
+        36.09,
+        -107.77
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.980623,40.7593732",
+      "kind": "entrance",
+      "position": [
+        45.28,
+        -46.52
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9804899,40.7601466",
+      "kind": "entrance",
+      "position": [
+        56.46,
+        -132.33
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9801239,40.7600375",
+      "kind": "entrance",
+      "position": [
+        87.22,
+        -120.23
+      ],
+      "type": "Easement - Street",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9820852,40.7578742",
+      "kind": "entrance",
+      "position": [
+        -77.61,
+        119.79
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9818694,40.7583667",
+      "kind": "entrance",
+      "position": [
+        -59.47,
+        65.15
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9807921,40.7588352",
+      "kind": "entrance",
+      "position": [
+        31.06,
+        13.17
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9817222,40.7585566",
+      "kind": "entrance",
+      "position": [
+        -47.1,
+        44.08
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9809099,40.7596484",
+      "kind": "entrance",
+      "position": [
+        21.16,
+        -77.06
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.980582,40.760109",
+      "kind": "entrance",
+      "position": [
+        48.72,
+        -128.16
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.9803382,40.7593998",
+      "kind": "entrance",
+      "position": [
+        69.21,
+        -49.48
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "mta-225--73.981182,40.7592389",
+      "kind": "entrance",
+      "position": [
+        -1.7,
+        -31.62
+      ],
+      "type": "Easement - Passage",
+      "entry": "YES",
+      "exit": "YES",
+      "underground_landing": null
+    },
+    {
+      "id": "osm-way-907921873",
+      "kind": "platform",
+      "shape": [
+        [
+          21.29,
+          -49.24
+        ],
+        [
+          25.28,
+          -47.09
+        ],
+        [
+          -64.38,
+          115.58
+        ],
+        [
+          -68.37,
+          113.44
+        ],
+        [
+          21.29,
+          -49.24
+        ]
+      ],
+      "closed": true,
+      "level": "-2",
+      "elevation_m": null
+    },
+    {
+      "id": "osm-way-907921874",
+      "kind": "platform",
+      "shape": [
+        [
+          -58.33,
+          118.8
+        ],
+        [
+          -54.35,
+          120.98
+        ],
+        [
+          35.35,
+          -41.79
+        ],
+        [
+          31.33,
+          -43.91
+        ],
+        [
+          -58.33,
+          118.8
+        ]
+      ],
+      "closed": true,
+      "level": "-2",
+      "elevation_m": null
+    }
+  ],
+  "topology": {
+    "complex_id": "225",
+    "station": "47–50 Sts–Rockefeller Ctr",
+    "status": "topology-only",
+    "source": {
+      "url": "https://www.nyc.gov/assets/planning/download/pdf/applicants/env-review/gem/12_feis.pdf",
+      "year": 2017,
+      "locators": [
+        "Figure 12-25",
+        "Table 12.38"
+      ]
+    },
+    "levels": [
+      {
+        "id": "street",
+        "elevation_m": null
+      },
+      {
+        "id": "unpaid-mezzanine",
+        "elevation_m": null
+      },
+      {
+        "id": "paid-mezzanine",
+        "elevation_m": null
+      },
+      {
+        "id": "northbound",
+        "elevation_m": null
+      },
+      {
+        "id": "southbound",
+        "elevation_m": null
+      }
+    ],
+    "stairs": [
+      {
+        "id": "P2",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 6.17,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P4",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 8.5,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P6",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 5.75,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P8",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 6.25,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P10",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 6.67,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P12",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 6.5,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P16",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "northbound"
+        ],
+        "width_ft": 5.67,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P1",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 6.08,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P3",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 8.58,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P5",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 6.33,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P7",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 6.25,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P9",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 6.33,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P14",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 6.25,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      },
+      {
+        "id": "P15",
+        "kind": "stairs",
+        "levels": [
+          "paid-mezzanine",
+          "southbound"
+        ],
+        "width_ft": 7.5,
+        "upper_landing": null,
+        "lower_landing": null,
+        "ascent_bearing": null,
+        "evidence": "historical"
+      }
+    ],
+    "fare_areas": [
+      {
+        "id": "N501",
+        "historical_elements": [
+          {
+            "element": "Two-way Turnstile",
+            "count": 8,
+            "page": 157
+          }
+        ],
+        "position": null,
+        "paid_side": null
+      },
+      {
+        "id": "N501A",
+        "historical_elements": [
+          {
+            "element": "Two-way Turnstile",
+            "count": 8,
+            "page": 157
+          }
+        ],
+        "position": null,
+        "paid_side": null
+      },
+      {
+        "id": "N500A",
+        "historical_elements": [
+          {
+            "element": "High Entry/Exit Turnstile",
+            "count": 2,
+            "page": 157
+          }
+        ],
+        "position": null,
+        "paid_side": null
+      },
+      {
+        "id": "N500",
+        "historical_elements": [
+          {
+            "element": "Two-way Turnstile",
+            "count": 10,
+            "page": 157
+          }
+        ],
+        "position": null,
+        "paid_side": null
+      }
+    ],
+    "verified_routes": []
+  }
+}
